@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Santos Advocacia | Família e inventário em Osasco</title>
+<meta name="description" content="Advocacia de família e sucessões no Centro de Osasco: inventário, divórcio, pensão e guarda. Atendimento pelo Dr. Jeferson Guilherme dos Santos, OAB/SP 282.129.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Host+Grotesk:wght@300..700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+:root {
+  --fundo: #ECEDE8; --tinta: #1B2226; --tinta-2: #56605F; --linha: #C9CCC5;
+  --petroleo: #17313A; --acento: #9C3A2B; --cal-2: #E2E4DE;
+  --fonte-titulo: "Ancizar Serif", "Iowan Old Style", Georgia, serif;
+  --fonte-texto: "Host Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --grao: .06; --faixa: 34px;
+}
+body { font-variant-numeric: oldstyle-nums; }
+h1, h2, h3 { letter-spacing: -0.02em; }
+.sc { font-variant-caps: all-small-caps; letter-spacing: .03em; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+
+/* Faixa da prévia */
+.faixa-previa { height: var(--faixa); display: flex; align-items: center; justify-content: center; padding: 0 16px;
+  background: var(--petroleo); color: #D9DED8; font-size: .78rem; text-align: center; line-height: 1.25; position: relative; z-index: 55; }
+
+/* Nav */
+[data-nav] { top: var(--faixa); transition: transform .6s cubic-bezier(.16,1,.3,1), background-color .4s, top .4s; }
+[data-nav].nav-solida { top: 0; background: rgb(236 237 232 / .94); backdrop-filter: none; border-bottom: 1px solid var(--linha); }
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+.marca { font-family: var(--fonte-titulo); font-weight: 750; font-size: 1.35rem; text-decoration: none; letter-spacing: -.01em; }
+.marca small { display: block; font-family: var(--fonte-texto); font-weight: 400; font-size: .72rem; color: var(--tinta-2); letter-spacing: 0; margin-top: 2px; }
+.nav-links { display: flex; gap: 28px; font-size: .92rem; }
+.nav-links a { text-decoration: none; }
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 2px;
+  background: var(--tinta); color: var(--fundo); text-decoration: none; font-weight: 500; font-size: .95rem; }
+.btn:hover { background: var(--petroleo); }
+.btn svg { width: 18px; height: 18px; }
+.link { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; font-weight: 500; }
+
+/* Hero D */
+.hero { min-height: 100svh; padding-top: calc(var(--faixa) + 72px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: end; gap: 0 4vw; overflow: clip; }
+.hero-texto { padding: 6vh 0 9vh max(20px, 4vw); align-self: end; }
+.hero h1 { font-size: clamp(3.4rem, 9.4vw, 10.5rem); font-weight: 800; line-height: .92; }
+.hero h1 .leve { font-weight: 300; display: block; }
+.hero-apoio { max-width: 34ch; margin-top: 2.2rem; font-size: clamp(1.05rem, 1.25vw, 1.25rem); color: var(--tinta-2); }
+.hero-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin-top: 2.2rem; }
+.hero-rodape { display: flex; gap: 40px; margin-top: 3.4rem; padding-top: 1.1rem; border-top: 1px solid var(--linha); font-size: .86rem; color: var(--tinta-2); max-width: 640px; }
+.hero-rodape b { display: block; color: var(--tinta); font-weight: 500; }
+.ladrilhos { align-self: stretch; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 0; margin-right: -2px;
+  max-height: calc(100svh - var(--faixa) - 72px); aspect-ratio: 4 / 5; justify-self: end; width: 100%; background: var(--linha);
+  border-left: 14px solid var(--petroleo); }
+.ladrilhos svg { width: 100%; height: 100%; display: block; outline: 1px solid var(--linha); }
+
+/* Corredor */
+.corredor { padding: clamp(40px, 6vw, 96px) 0 0; }
+.corredor figure { margin: 0; aspect-ratio: 21 / 9; }
+.legenda { display: flex; justify-content: space-between; gap: 24px; padding-top: 14px; font-size: .84rem; color: var(--tinta-2); }
+
+/* Manifesto */
+.manifesto { padding-block: clamp(110px, 14vw, 220px) clamp(96px, 11vw, 170px); display: grid; grid-template-columns: 5fr 2fr; gap: 6vw; align-items: end; }
+.manifesto p { font-family: var(--fonte-titulo); font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 3.7rem); line-height: 1.12; letter-spacing: -.015em; max-width: 22ch; }
+.manifesto figure { margin: 0; aspect-ratio: 9 / 16; max-height: 70vh; }
+
+/* Áreas */
+.areas { padding-block: 0 clamp(120px, 13vw, 200px); }
+.cab { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: end; margin-bottom: 3.2rem; }
+.cab h2 { font-size: clamp(2.4rem, 5.6vw, 6rem); font-weight: 800; line-height: .95; }
+.cab p { color: var(--tinta-2); max-width: 46ch; justify-self: end; }
+.lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+.lista li { border-bottom: 1px solid var(--linha); }
+.lista a, .fluir-faixa > div { display: grid; grid-template-columns: 1.3fr 1fr; align-items: baseline; gap: 24px; padding: 26px 0; text-decoration: none; }
+.lista h3, .fluir-faixa h3 { font-size: clamp(1.6rem, 3vw, 3rem); font-weight: 600; letter-spacing: -.02em; }
+.lista span, .fluir-faixa span { color: var(--tinta-2); font-size: .98rem; }
+.fluir-faixa { background: var(--petroleo); }
+.fluir-faixa > div { padding-inline: 0; }
+.fluir-faixa span { color: #B9C4C0; }
+.lista .w { padding-inline: 0; }
+.tambem { margin-top: 2.4rem; display: grid; grid-template-columns: 1fr 2fr; gap: 4vw; font-size: .98rem; color: var(--tinta-2); }
+.tambem strong { color: var(--tinta); font-weight: 500; }
+
+/* Quem atende */
+.quem { background: var(--cal-2); padding: clamp(100px, 10vw, 170px) 0; }
+.quem .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 6vw; align-items: center; }
+.retrato { margin: 0; aspect-ratio: 4 / 5; position: relative; }
+.retrato figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px; background: linear-gradient(transparent, rgb(23 49 58 / .85)); color: #E8ECE7; font-size: .85rem; }
+.quem h2 { font-size: clamp(2.2rem, 4.6vw, 4.8rem); font-weight: 800; line-height: .98; }
+.quem .oab { margin-top: 1rem; font-size: 1.15rem; }
+.quem .oab b { font-weight: 600; }
+.quem p.texto { margin-top: 2rem; max-width: 52ch; font-size: 1.08rem; }
+.quem ul { list-style: none; padding: 0; margin: 2.4rem 0 0; border-top: 1px solid var(--linha); max-width: 560px; }
+.quem li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linha); font-size: .96rem; }
+.quem li span:first-child { color: var(--tinta-2); }
+
+/* Passo a passo (assinatura) */
+.passos { padding-block: clamp(120px, 14vw, 230px) clamp(100px, 10vw, 160px); }
+.passos .cab { margin-bottom: 4rem; }
+.passos-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; }
+.troca-wrap { position: relative; }
+.troca-fotos { border-radius: 2px; }
+.troca-fotos > .troca-ladrilho { inset: auto 22px 22px auto; z-index: 3; width: clamp(64px, 7vw, 108px); height: auto; aspect-ratio: 1; opacity: 1 !important; box-shadow: 0 0 0 5px var(--fundo); }
+.passos ol { list-style: none; margin: 0; padding: 12vh 0 18vh; counter-reset: p; }
+.passos li { padding: 7vh 0; border-top: 1px solid var(--linha); opacity: .38; transition: opacity .6s; }
+.passos li.ativo, .is-estatico .passos li { opacity: 1; }
+.passos li .n { font-family: var(--fonte-titulo); font-weight: 300; font-size: 1.2rem; color: var(--acento); }
+.passos li h3 { font-size: clamp(1.8rem, 3vw, 2.9rem); font-weight: 700; margin: .4rem 0 1rem; }
+.passos li p { max-width: 46ch; color: var(--tinta-2); }
+.troca-movel { display: none; }
+
+/* Documentos (bloco escuro) */
+.docs { background: var(--petroleo); color: #E6EAE5; padding: clamp(110px, 12vw, 200px) 0; --luz: rgb(214 225 220 / .08);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.06' stroke-width='1'%3E%3Ccircle cx='0' cy='0' r='22'/%3E%3Ccircle cx='100' cy='0' r='22'/%3E%3Ccircle cx='0' cy='100' r='22'/%3E%3Ccircle cx='100' cy='100' r='22'/%3E%3Cpath d='M50 16C61 32 61 39 50 50C39 39 39 32 50 16ZM50 84C39 68 39 61 50 50C61 61 61 68 50 84ZM16 50C32 39 39 39 50 50C39 61 32 61 16 50ZM84 50C68 61 61 61 50 50C61 39 68 39 84 50Z'/%3E%3C/g%3E%3C/svg%3E"); }
+.docs .wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 6vw; }
+.docs h2 { font-size: clamp(2.4rem, 5vw, 5.2rem); font-weight: 800; line-height: .96; }
+.docs .apoio { margin-top: 1.6rem; color: #AFBDB8; max-width: 38ch; }
+.docs ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 4vw; }
+.docs li { break-inside: avoid; padding: 18px 0; border-top: 1px solid rgb(255 255 255 / .16); font-size: 1.05rem; }
+.docs li small { display: block; color: #9FB0AA; font-size: .86rem; margin-top: 4px; }
+.docs :focus-visible { outline-color: #E6EAE5; }
+
+/* Escritório */
+.escritorio { padding: clamp(100px, 10vw, 160px) 0; }
+.escritorio .wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 5vw; align-items: start; }
+.escritorio figure { margin: 0; aspect-ratio: 4 / 3; }
+.escritorio h2 { font-size: clamp(2.2rem, 4.4vw, 4.6rem); font-weight: 800; line-height: .98; }
+.dados { margin-top: 2.2rem; display: grid; gap: 22px; }
+.dados div { border-top: 1px solid var(--linha); padding-top: 12px; }
+.dados dt { font-size: .84rem; color: var(--tinta-2); }
+.dados dd { margin: 4px 0 0; font-size: 1.1rem; }
+.escritorio .acoes { display: flex; flex-wrap: wrap; gap: 14px 26px; margin-top: 2.2rem; align-items: center; }
+
+/* Perguntas */
+.faq { padding: clamp(120px, 12vw, 200px) 0 clamp(120px, 12vw, 190px); border-top: 1px solid var(--linha); }
+.faq .wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6vw; }
+.faq h2 { font-size: clamp(2.4rem, 5vw, 5.2rem); font-weight: 800; line-height: .96; position: sticky; top: 120px; }
+.is-estatico .faq h2 { position: static; }
+details.pergunta { border-top: 1px solid var(--linha); }
+details.pergunta:last-child { border-bottom: 1px solid var(--linha); }
+details.pergunta summary { display: flex; justify-content: space-between; gap: 24px; padding: 26px 0; font-family: var(--fonte-titulo); font-weight: 600; font-size: clamp(1.25rem, 1.8vw, 1.7rem); letter-spacing: -.01em; }
+details.pergunta summary::after { content: ""; flex: none; width: 14px; height: 14px; margin-top: .45em; background: linear-gradient(currentColor,currentColor) center/100% 1.5px no-repeat, linear-gradient(currentColor,currentColor) center/1.5px 100% no-repeat; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+details.pergunta[open] summary::after { transform: rotate(45deg); }
+.resposta p { padding: 0 0 28px; max-width: 60ch; color: var(--tinta-2); }
+
+/* Contato */
+.contato { position: relative; min-height: 88vh; display: grid; align-items: end; color: #EEF1EC; overflow: hidden; }
+.contato figure { position: absolute; inset: 0; margin: 0; }
+.contato figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(15 26 30 / .78), rgb(15 26 30 / .35)); }
+.contato .wrap { position: relative; padding-block: 14vh 12vh; }
+.contato h2 { font-size: clamp(2.8rem, 7vw, 7.6rem); font-weight: 800; line-height: .94; max-width: 12ch; }
+.contato p { margin-top: 1.6rem; max-width: 44ch; color: #CBD3CF; font-size: 1.1rem; }
+.contato .acoes { display: flex; flex-wrap: wrap; gap: 16px 30px; align-items: center; margin-top: 2.4rem; }
+.contato .btn { background: #EEF1EC; color: var(--tinta); }
+.contato .btn:hover { background: #fff; }
+.contato :focus-visible { outline-color: #EEF1EC; }
+
+/* Rodapé */
+footer { background: var(--fundo); padding: 0 0 28px; }
+.endereco-marquee { border-bottom: 1px solid var(--linha); padding: 18px 0; font-family: var(--fonte-titulo); font-size: clamp(1.1rem, 1.6vw, 1.5rem); color: var(--tinta-2); --marquee-gap: 4rem; }
+.rod-grade { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 4vw; padding: 64px 0 40px; font-size: .95rem; }
+.rod-grade h3 { font-family: var(--fonte-texto); font-size: .86rem; font-weight: 500; color: var(--tinta-2); margin-bottom: 10px; letter-spacing: 0; }
+.rod-grade p + p { margin-top: 6px; }
+.nome-grande { font-family: var(--fonte-titulo); font-weight: 800; letter-spacing: -.03em; color: var(--petroleo); }
+.avisos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 4vw; padding-top: 22px; border-top: 1px solid var(--linha); font-size: .8rem; color: var(--tinta-2); }
+
+.zap-fixo { display: none; }
+
+/* Celular */
+@media (max-width: 860px) {
+  :root { --faixa: 48px; }
+  .faixa-previa { font-size: .72rem; }
+  .nav-links { display: none; }
+  .nav-in { height: 64px; }
+  [data-nav] .btn { display: none; }
+  .hero { grid-template-columns: 1fr; padding-top: calc(var(--faixa) + 64px); min-height: auto; }
+  .hero-texto { order: 2; padding: 34px 20px 56px; }
+  .hero h1 { font-size: 15vw; }
+  .ladrilhos { order: 1; aspect-ratio: 4 / 2; max-height: none; grid-template-columns: repeat(4, 1fr); margin: 0; }
+  .ladrilhos svg:nth-child(n+9) { display: none; }
+  .hero-rodape { gap: 24px; flex-wrap: wrap; }
+  .corredor figure { aspect-ratio: 4 / 5; }
+  .legenda { flex-direction: column; gap: 4px; }
+  .manifesto { grid-template-columns: 1fr; }
+  .manifesto figure { aspect-ratio: 3 / 4; max-height: none; width: 70%; justify-self: end; }
+  .cab, .tambem, .quem .wrap, .passos-grade, .docs .wrap, .escritorio .wrap, .faq .wrap, .rod-grade, .avisos { grid-template-columns: 1fr; }
+  .cab p { justify-self: start; }
+  .lista a { grid-template-columns: 1fr; gap: 6px; padding: 22px 0; }
+  .quem li { grid-template-columns: 110px 1fr; }
+  .troca-wrap { display: none; }
+  .troca-movel { display: block; margin: 0 0 1.4rem; aspect-ratio: 16 / 10; }
+  .passos ol { padding: 0; }
+  .passos li { padding: 40px 0; opacity: 1; }
+  .docs ul { columns: 1; }
+  .faq h2 { position: static; }
+  .contato { min-height: 80vh; }
+  .zap-fixo { display: inline-flex; box-shadow: 0 6px 24px rgb(0 0 0 / .18); }
+}
+</style>
+</head>
+<body>
+<div class="faixa-previa">Prévia de site feita pela AlgUp Digital para Santos Advocacia. Textos e fotos para aprovação.</div>
+
+<header data-nav>
+  <div class="wrap nav-in">
+    <a class="marca" href="#topo">Santos Advocacia<small>Família e sucessões em Osasco</small></a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#areas" data-rolar>Áreas</a>
+      <a href="#inventario" data-rolar>Inventário</a>
+      <a href="#quem" data-rolar>Quem atende</a>
+      <a href="#escritorio" data-rolar>Escritório</a>
+    </nav>
+    <a class="btn" href="https://wa.me/5511999114671?text=Ol%C3%A1%2C%20Dr.%20Jeferson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+  </div>
+</header>
+
+<main id="topo">
+  <!-- HERO (esqueleto D): padrão de ladrilho hidráulico, sem foto -->
+  <section class="hero" data-hero>
+    <div class="hero-texto">
+      <h1 data-linhas>Família e<br>inventário<br><span class="leve">em Osasco.</span></h1>
+      <p class="hero-apoio" data-palavras data-atraso=".3">Divórcio, pensão, guarda, herança e inventário, com atendimento direto pelo advogado responsável, no Centro de Osasco.</p>
+      <div class="hero-acoes" data-surgir>
+        <a class="btn" data-magnetico href="https://wa.me/5511999114671?text=Ol%C3%A1%2C%20Dr.%20Jeferson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+          Falar pelo WhatsApp</a>
+        <a class="link" href="https://www.google.com/maps/search/?api=1&query=Rua+Dr.+Ant%C3%B4nio+Jos%C3%A9+Luciano%2C+293%2C+Osasco+SP" target="_blank" rel="noopener">Ver como chegar</a>
+      </div>
+      <div class="hero-rodape">
+        <div><b>Dr. Jeferson Guilherme dos Santos</b><span class="sc">OAB/SP</span> <span class="num">282.129</span></div>
+        <div><b>Segunda a sexta</b>9h às 18h, presencial ou por vídeo</div>
+      </div>
+    </div>
+    <div class="ladrilhos" data-ladrilhos aria-hidden="true"></div>
+  </section>
+
+  <!-- 2ª dobra: a foto forte -->
+  <section class="corredor">
+    <div class="wrap">
+      <figure class="moldura parallax" data-revelar="baixo" data-parallax="7">
+        <img src="img/corredor.webp" alt="Corredor antigo com piso de ladrilho hidráulico vermelho e preto, iluminado pelas janelas" loading="lazy" width="2400" height="1600">
+      </figure>
+      <div class="legenda"><span>O piso que atravessa gerações.</span><span>Rua Dr. Antônio José Luciano, 293, Centro</span></div>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="wrap manifesto">
+    <p data-acender>Quando alguém da família falta, ficam a casa, os papéis e muitas perguntas. O escritório cuida da parte jurídica com calma, explica cada etapa em linguagem simples e deixa a família decidir com informação.</p>
+    <figure class="moldura parallax" data-revelar="cima" data-parallax="6">
+      <img src="img/chaves.webp" alt="Molho de chaves antigas pendurado numa porta de madeira" loading="lazy" width="1300" height="2311">
+    </figure>
+  </section>
+
+  <!-- Áreas -->
+  <section class="wrap areas" id="areas">
+    <div class="cab">
+      <h2 data-linhas>Áreas de<br>atuação</h2>
+      <p>O foco do escritório é o direito de família e sucessões. Cada assunto começa por uma conversa reservada, presencial ou por vídeo.</p>
+    </div>
+    <ul class="lista">
+      <li data-fluir><a href="#inventario"><h3>Inventário e partilha</h3><span>Em cartório ou na Justiça, com ou sem testamento</span></a><div class="fluir-faixa"><div class="w"><h3>Inventário e partilha</h3><span>Em cartório ou na Justiça, com ou sem testamento</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Divórcio</h3><span>Consensual ou litigioso, com partilha de bens</span></a><div class="fluir-faixa"><div class="w"><h3>Divórcio</h3><span>Consensual ou litigioso, com partilha de bens</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>União estável</h3><span>Reconhecimento e dissolução</span></a><div class="fluir-faixa"><div class="w"><h3>União estável</h3><span>Reconhecimento e dissolução</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Pensão alimentícia</h3><span>Fixação, revisão e cobrança de alimentos</span></a><div class="fluir-faixa"><div class="w"><h3>Pensão alimentícia</h3><span>Fixação, revisão e cobrança de alimentos</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Guarda e convivência</h3><span>Guarda compartilhada ou unilateral e visitas</span></a><div class="fluir-faixa"><div class="w"><h3>Guarda e convivência</h3><span>Guarda compartilhada ou unilateral e visitas</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Herança e testamento</h3><span>Orientação para organizar a sucessão em vida</span></a><div class="fluir-faixa"><div class="w"><h3>Herança e testamento</h3><span>Orientação para organizar a sucessão em vida</span></div></div></li>
+    </ul>
+    <div class="tambem">
+      <strong>O escritório também atua em</strong>
+      <p>Direito do consumidor, imobiliário (usucapião e regularização), previdenciário, do trabalho, criminal e cível.</p>
+    </div>
+  </section>
+
+  <!-- Quem atende -->
+  <section class="quem" id="quem">
+    <div class="wrap">
+      <figure class="retrato moldura parallax" data-revelar="esquerda" data-parallax="5">
+        <img src="img/sala.webp" alt="Sala vazia com luz entrando por uma fresta da janela" loading="lazy" width="1300" height="1929">
+        <figcaption>Espaço reservado para a foto do Dr. Jeferson.<!-- confirmar: foto real --></figcaption>
+      </figure>
+      <div>
+        <h2 data-linhas>Dr. Jeferson<br>Guilherme<br>dos Santos</h2>
+        <p class="oab"><b><span class="sc">OAB/SP</span> <span class="num">282.129</span></b>, advogado responsável</p>
+        <p class="texto">Cada caso é atendido diretamente pelo advogado responsável, do primeiro contato até o fim. O escritório atua na comarca de Osasco e nos tribunais da região, sempre com contrato de honorários por escrito.</p>
+        <ul>
+          <li><span>Atendimento</span><span>Presencial com agendamento ou por videoconferência</span></li>
+          <li><span>Horário</span><span>Segunda a sexta, das 9h às 18h</span></li>
+          <li><span>Onde</span><span>Rua Dr. Antônio José Luciano, 293, Centro de Osasco</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOMENTO-ASSINATURA: inventário passo a passo, foto fixa que troca + ladrilho que gira -->
+  <section class="wrap passos" id="inventario" data-troca>
+    <div class="cab">
+      <h2 data-linhas>O inventário,<br>passo a passo</h2>
+      <p>Cada família tem uma situação. Este é o caminho mais comum, para saber o que esperar antes da primeira conversa.</p>
+    </div>
+    <div class="passos-grade">
+      <div class="troca-wrap">
+        <div class="troca-fotos">
+          <img data-passo="0" src="img/cortina.webp" alt="Cortina clara com luz da tarde" loading="lazy">
+          <img data-passo="1" src="img/janela.webp" alt="Janela de cozinha com sol atravessando a persiana" loading="lazy">
+          <img data-passo="2" src="img/porta.webp" alt="Porta de madeira antiga numa parede branca com sombra de árvore" loading="lazy">
+          <img data-passo="3" src="img/chave.webp" alt="Chave antiga sobre mesa de madeira" loading="lazy">
+          <img data-passo="4" src="img/luz-chao.webp" alt="Luz do sol sobre um piso antigo" loading="lazy">
+          <svg class="troca-ladrilho" viewBox="0 0 100 100" aria-hidden="true"><use href="#lad"/></svg>
+        </div>
+      </div>
+      <ol>
+        <li data-passo="0">
+          <figure class="troca-movel moldura"><img src="img/cortina.webp" alt="" loading="lazy"></figure>
+          <span class="n num">1</span><h3>A primeira conversa</h3>
+          <p>O advogado ouve a família, entende quem são os herdeiros e quais são os bens, e explica os caminhos possíveis. Pode ser no escritório ou por vídeo.</p></li>
+        <li data-passo="1">
+          <figure class="troca-movel moldura"><img src="img/janela.webp" alt="" loading="lazy"></figure>
+          <span class="n num">2</span><h3>Os documentos</h3>
+          <p>Certidões de quem faleceu e dos herdeiros, e os documentos de cada bem. Não precisa ter tudo no primeiro dia: a lista se completa junto com o escritório.</p></li>
+        <li data-passo="2">
+          <figure class="troca-movel moldura"><img src="img/porta.webp" alt="" loading="lazy"></figure>
+          <span class="n num">3</span><h3>Cartório ou Justiça</h3>
+          <p>Quando todos os herdeiros estão de acordo, em regra o inventário pode ser feito em cartório, por escritura pública. Sem acordo, ou em situações específicas, ele segue pela Justiça.</p></li>
+        <li data-passo="3">
+          <figure class="troca-movel moldura"><img src="img/chave.webp" alt="" loading="lazy"></figure>
+          <span class="n num">4</span><h3>O imposto</h3>
+          <p>O <span class="sc">ITCMD</span> é o imposto estadual sobre a herança. Ele é calculado e recolhido antes da partilha, e o atraso na abertura do inventário pode aumentar o valor.</p></li>
+        <li data-passo="4">
+          <figure class="troca-movel moldura"><img src="img/luz-chao.webp" alt="" loading="lazy"></figure>
+          <span class="n num">5</span><h3>A partilha e o registro</h3>
+          <p>Com a escritura ou o formal de partilha, cada bem passa para o nome de quem herdou, incluindo o registro dos imóveis em cartório.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Documentos -->
+  <section class="docs" data-luz>
+    <div class="wrap">
+      <div>
+        <h2 data-linhas>O que levar<br>na primeira<br>conversa</h2>
+        <p class="apoio">Para um inventário. Traga o que tiver em mãos; o restante se organiza depois.</p>
+      </div>
+      <ul>
+        <li>Certidão de óbito</li>
+        <li>RG e CPF de quem faleceu<small>e de cada herdeiro</small></li>
+        <li>Certidão de casamento<small>ou documento da união estável</small></li>
+        <li>Certidões de nascimento dos filhos</li>
+        <li>Matrícula dos imóveis<small>e o carnê do IPTU</small></li>
+        <li>Documento dos veículos</li>
+        <li>Extratos de contas e aplicações</li>
+        <li>Testamento<small>se houver</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Escritório -->
+  <section class="escritorio" id="escritorio">
+    <div class="wrap">
+      <figure class="moldura parallax" data-revelar="direita" data-parallax="6">
+        <img src="img/porta.webp" alt="Porta de madeira com moldura de pedra e sombra de galhos na parede" loading="lazy" width="2000" height="1500">
+      </figure>
+      <div>
+        <h2 data-linhas>O escritório</h2>
+        <dl class="dados">
+          <div><dt>Endereço</dt><dd>Rua Dr. Antônio José Luciano, 293<br>Centro, Osasco/SP, <span class="num">06010-110</span></dd></div>
+          <div><dt>Horário</dt><dd>Segunda a sexta, das 9h às 18h</dd></div>
+          <div><dt>Telefone e WhatsApp</dt><dd class="num">(11) 99911-4671</dd></div>
+        </dl>
+        <div class="acoes">
+          <a class="link" href="https://www.google.com/maps/search/?api=1&query=Rua+Dr.+Ant%C3%B4nio+Jos%C3%A9+Luciano%2C+293%2C+Osasco+SP" target="_blank" rel="noopener" data-rolar>Ver como chegar</a>
+          <a class="link" href="tel:+5511999114671" data-rolar>Ligar para o escritório</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perguntas -->
+  <section class="faq">
+    <div class="wrap">
+      <h2 data-linhas>Perguntas<br>frequentes</h2>
+      <div>
+        <details class="pergunta"><summary>Todo inventário precisa passar pela Justiça?</summary><div class="resposta"><div><p>Não. Quando todos os herdeiros estão de acordo, em regra o inventário pode ser feito em cartório, por escritura pública (Código de Processo Civil, art. 610). Algumas situações ainda exigem o processo judicial, e isso se avalia na primeira conversa.</p></div></div></details>
+        <details class="pergunta"><summary>Existe prazo para abrir o inventário?</summary><div class="resposta"><div><p>Sim. A lei prevê a abertura em até 2 meses depois do falecimento (<span class="sc">CPC</span>, art. 611). Em São Paulo, o atraso pode gerar multa sobre o <span class="sc">ITCMD</span>.</p></div></div></details>
+        <details class="pergunta"><summary>Preciso de advogado para fazer o inventário em cartório?</summary><div class="resposta"><div><p>Sim. A escritura de inventário e partilha exige que as partes estejam assistidas por advogado ou defensor público (<span class="sc">CPC</span>, art. 610, § 2º).</p></div></div></details>
+        <details class="pergunta"><summary>O atendimento pode ser por vídeo?</summary><div class="resposta"><div><p>Pode. O atendimento é presencial, com horário agendado, ou por videoconferência, de segunda a sexta, das 9h às 18h.</p></div></div></details>
+        <details class="pergunta"><summary>Como são combinados os honorários?</summary><div class="resposta"><div><p>Sempre em contrato escrito, antes de começar o trabalho, depois de entender o caso na primeira conversa.</p></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="contato" id="contato">
+    <figure class="moldura parallax" data-parallax="8"><img src="img/cortina-sol.webp" alt="" loading="lazy"></figure>
+    <div class="wrap">
+      <h2 data-linhas>Uma conversa reservada, no seu tempo.</h2>
+      <p>Mande uma mensagem pelo WhatsApp para agendar um horário no escritório ou por vídeo.</p>
+      <div class="acoes">
+        <a class="btn" data-magnetico href="https://wa.me/5511999114671?text=Ol%C3%A1%2C%20Dr.%20Jeferson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <a class="link" href="tel:+5511999114671">Ligar: <span class="num">(11) 99911-4671</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="endereco-marquee" data-marquee="60" aria-hidden="true"><div><span>Rua Dr. Antônio José Luciano, 293, Centro, Osasco</span><span>Família e sucessões</span><span>Segunda a sexta, 9h às 18h</span><span>Rua Dr. Antônio José Luciano, 293, Centro, Osasco</span><span>Família e sucessões</span><span>Segunda a sexta, 9h às 18h</span></div></div>
+  <div class="wrap">
+    <div class="rod-grade">
+      <div><h3>Advogado responsável</h3><p>Dr. Jeferson Guilherme dos Santos</p><p><span class="sc">OAB/SP</span> <span class="num">282.129</span></p></div>
+      <div><h3>Endereço</h3><p>Rua Dr. Antônio José Luciano, 293</p><p>Centro, Osasco/SP, <span class="num">06010-110</span></p></div>
+      <div><h3>Contato</h3><p class="num">(11) 99911-4671</p><p>Segunda a sexta, 9h às 18h</p></div>
+    </div>
+    <div class="nome-grande" data-encaixar>Santos Advocacia</div>
+    <div class="avisos">
+      <p>Este site tem caráter meramente informativo (Provimento 205/2021 do <span class="sc">CFOAB</span>). <a href="#">Política de privacidade</a>.<!-- confirmar: página de privacidade --></p>
+      <p>O escritório não solicita pagamentos por WhatsApp de números desconhecidos. Na dúvida, ligue para (11) 99911-4671.</p>
+      <p>Fotos: Unsplash (ilustrativas). Prévia feita pela AlgUp Digital.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="btn zap-fixo" href="https://wa.me/5511999114671?text=Ol%C3%A1%2C%20Dr.%20Jeferson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">WhatsApp</a>
+
+<!-- O ladrilho hidráulico (âncora) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lad" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#E4E6E0"/>
+    <g fill="#17313A">
+      <circle cx="0" cy="0" r="24"/><circle cx="100" cy="0" r="24"/><circle cx="0" cy="100" r="24"/><circle cx="100" cy="100" r="24"/>
+      <path d="M50 14C62 31 62 39 50 50C38 39 38 31 50 14Z"/><path d="M50 86C38 69 38 61 50 50C62 61 62 69 50 86Z"/>
+      <path d="M14 50C31 38 39 38 50 50C39 62 31 62 14 50Z"/><path d="M86 50C69 62 61 62 50 50C61 38 69 38 86 50Z"/>
+      <circle cx="50" cy="0" r="5"/><circle cx="50" cy="100" r="5"/><circle cx="0" cy="50" r="5"/><circle cx="100" cy="50" r="5"/>
+    </g>
+    <g fill="#E4E6E0"><circle cx="0" cy="0" r="15"/><circle cx="100" cy="0" r="15"/><circle cx="0" cy="100" r="15"/><circle cx="100" cy="100" r="15"/></g>
+    <g fill="#9C3A2B"><circle cx="0" cy="0" r="8"/><circle cx="100" cy="0" r="8"/><circle cx="0" cy="100" r="8"/><circle cx="100" cy="100" r="8"/></g>
+    <rect x="45" y="45" width="10" height="10" transform="rotate(45 50 50)" fill="#9C3A2B"/>
+  </symbol>
+</svg>
+
+<script>
+  // Monta o painel de ladrilhos do hero (20 peças) antes dos efeitos.
+  (() => {
+    const p = document.querySelector('[data-ladrilhos]');
+    if (!p) return;
+    p.innerHTML = Array.from({ length: 20 }, () => '<svg viewBox="0 0 100 100"><use href="#lad"/></svg>').join('');
+  })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+  // Efeitos próprios desta prévia (mesmo padrão do efeitos.js: estado inicial só no JS).
+  (() => {
+    const estatico = /[?&]estatico\b/.test(location.search) || matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (estatico || !window.gsap) return;
+    // Ladrilhos que se assentam um a um, em diagonal, no carregamento.
+    const pecas = document.querySelectorAll('[data-ladrilhos] svg');
+    gsap.from(pecas, { opacity: 0, scale: .82, rotate: -90, duration: 1.2, ease: 'expo.out',
+      stagger: { each: .06, grid: [5, 4], from: 'end' }, delay: .2 });
+    // Ladrilho do passo a passo gira 90° a cada passo.
+    const lad = document.querySelector('.troca-ladrilho');
+    if (lad) document.querySelectorAll('.passos li[data-passo]').forEach(li => ScrollTrigger.create({
+      trigger: li, start: 'top 60%', end: 'bottom 60%',
+      onToggle: s => s.isActive && gsap.to(lad, { rotate: 90 * Number(li.dataset.passo), duration: 1.1, ease: 'expo.out' }) }));
+  })();
+</script>
+</body>
+</html>
