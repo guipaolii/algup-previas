@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advogado em Sorocaba · Advocacia cível, trabalhista e empresarial em Sorocaba – SP</title>
+<meta name="description" content="Advocacia cível, trabalhista e empresarial em Sorocaba – SP. Atendimento presencial em Sorocaba e online em todo o Brasil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root {
+    --fundo: #14171a; --tinta: #e2e3df; --tinta-2: #9ba1a5; --linha: #2c3236;
+    --papel: #d8d9d4; --tinta-papel: #14171a; --tinta-papel-2: #4a5054; --linha-papel: #b4b6b1;
+    --acento: #b5432c;
+    --fonte-titulo: "Mona Sans", "Helvetica Neue", Arial, sans-serif;
+    --fonte-texto: "Mona Sans", "Helvetica Neue", Arial, sans-serif;
+    --corpo: 1.0938rem; --grao: .06; --largura: 1560px;
+    --estreita: 75; --larga: 125;
+  }
+  body { font-variation-settings: "wdth" 100; font-weight: 400; font-variant-numeric: oldstyle-nums; }
+  .num, time { font-variant-numeric: tabular-nums lining-nums; }
+  .tel { font-variant-numeric: lining-nums proportional-nums; }
+  .sigla { font-variant-caps: all-small-caps; letter-spacing: .03em; }
+  .condensada { font-stretch: 75%; font-variation-settings: "wdth" 75; font-weight: 820; letter-spacing: -.02em; line-height: .9; }
+  .larga { font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 300; letter-spacing: -.01em; line-height: 1.08; }
+  .tinta-2 { color: var(--tinta-2); }
+  section { position: relative; }
+
+  /* ---------- Faixa da prévia + navegação ---------- */
+  .faixa-previa { background: var(--papel); color: var(--tinta-papel); font-size: .8125rem; line-height: 1.35; padding: .5rem max(20px, 4vw); text-align: left; }
+  .barra { display: flex; align-items: center; gap: 2rem; padding: 1.1rem max(20px, 4vw); }
+  [data-nav].nav-solida .barra { background: rgb(20 23 26 / .94); border-bottom: 1px solid var(--linha); }
+  [data-nav].nav-solida .faixa-previa { display: none; }
+  .marca { text-decoration: none; font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 640; font-size: 1.02rem; letter-spacing: -.01em; margin-right: auto; }
+  .marca { display: inline-flex; align-items: center; gap: .55rem; }
+  .marca .emblema { height: 2.1rem; width: auto; display: block; }
+  .rodape-emblema { height: 4.5rem; width: auto; display: block; margin: 0 auto 1.2rem; }
+  .marca span { font-weight: 300; color: var(--tinta-2); }
+  .barra nav { display: flex; gap: 1.75rem; font-size: .9375rem; }
+  .barra nav a { text-decoration: none; color: var(--tinta-2); }
+  .barra nav a:hover { color: var(--tinta); }
+  .cta { display: inline-flex; align-items: center; gap: .7rem; min-height: 48px; padding: .8rem 1.35rem; border-radius: 3px; text-decoration: none;
+         background: var(--tinta); color: var(--fundo); font-weight: 600; font-size: .9875rem; letter-spacing: .005em; }
+  .cta::before { content: ""; width: 7px; height: 14px; background: var(--acento); }
+  .cta-pequeno { min-height: 42px; padding: .55rem 1rem; font-size: .9rem; }
+  .link-linha { display: inline-flex; min-height: 48px; align-items: center; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; min-height: auto; }
+
+  /* ---------- Hero (esqueleto D: a trama) ---------- */
+  .hero { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: max(24px, 3vw);
+          padding: 8.2rem max(20px, 4vw) 2.6rem; align-items: end; }
+  .hero-texto { display: grid; gap: 1.9rem; align-self: end; }
+  .hero-sobre { font-size: clamp(1.25rem, 2.2vw, 2.3rem); color: var(--tinta-2); }
+  .hero h1 { font-size: clamp(4.2rem, min(9vw, 14svh), 12rem); }
+  .hero h1 .ponto { color: var(--acento); }
+  .hero-rodape { display: grid; grid-template-columns: minmax(0, 30rem) auto; gap: 1.5rem 3rem; align-items: end; }
+  .hero-rodape p { max-width: 34ch; color: var(--tinta-2); }
+  .hero-acoes { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
+  .trama { height: calc(100svh - 10.5rem); min-height: 520px; align-self: end; margin: 0 calc(-1 * max(20px, 4vw)) 0 0; position: relative; }
+  .trama svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .trama figcaption { position: absolute; left: 0; bottom: -2.1rem; font-size: .8125rem; color: var(--tinta-2); }
+
+  /* ---------- Fábrica 21:9 ---------- */
+  .fabrica { margin-top: 5.5rem; }
+  .fabrica .moldura { aspect-ratio: 21 / 9; width: 100%; }
+  .fabrica .moldura::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(20 23 26 / .55), transparent 45%); }
+  .legenda { display: flex; justify-content: space-between; gap: 2rem; padding: 1rem max(20px, 4vw) 0; font-size: .875rem; color: var(--tinta-2); }
+
+  /* ---------- Manifesto ---------- */
+  .manifesto { padding: 200px 0 150px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22vw); gap: 6vw; align-items: start; }
+  .manifesto > div { padding-left: max(20px, 4vw); }
+  .manifesto p[data-acender] { font-size: clamp(1.75rem, 3.6vw, 3.7rem); max-width: 22ch; }
+  .manifesto .apoio { margin-top: 3rem; max-width: 48ch; color: var(--tinta-2); }
+  .manifesto .moldura { aspect-ratio: 3 / 4.6; margin-top: 18vh; }
+
+  /* ---------- Seções claras ---------- */
+  .claro { background: var(--papel); color: var(--tinta-papel); --tinta-2: var(--tinta-papel-2); --linha: var(--linha-papel); }
+  .claro ::selection { background: var(--tinta-papel); color: var(--papel); }
+
+  /* ---------- Áreas ---------- */
+  .areas { padding: 140px 0 150px; }
+  .areas-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4vw; align-items: end; margin-bottom: 4.5rem; }
+  .areas-topo h2 { font-size: clamp(2.2rem, 4.6vw, 5rem); }
+  .areas-topo p { max-width: 44ch; color: var(--tinta-2); }
+  .areas-corpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27vw); gap: 4vw; align-items: start; }
+  .lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta-papel); }
+  .lista li { border-bottom: 1px solid var(--linha-papel); }
+  .lista li.principal { border-bottom-color: var(--tinta-papel); }
+  .lista a, .fluir-faixa > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; align-items: baseline; text-decoration: none; padding: 1.35rem 0; }
+  .fluir-faixa > div { padding-inline: 1.2rem; align-items: center; background: var(--fundo); color: var(--tinta); }
+  .area-nome { font-stretch: 75%; font-variation-settings: "wdth" 75; font-weight: 760; letter-spacing: -.015em; line-height: .95; font-size: clamp(1.9rem, 3.4vw, 3.4rem); }
+  .principal .area-nome { font-size: clamp(2.6rem, 5.6vw, 6rem); font-weight: 820; }
+  .area-desc { color: var(--tinta-2); max-width: 46ch; }
+  .fluir-faixa .area-desc { color: var(--tinta); }
+  .fluir-faixa .area-nome { color: var(--tinta); }
+  .fluir-faixa .area-nome::after { content: ""; display: inline-block; width: .16em; height: .5em; margin-left: .25em; background: var(--acento); }
+  .lista .tambem { padding: 2.2rem 0 .6rem; font-size: .9375rem; color: var(--tinta-2); border-bottom: 0; }
+  .areas aside { position: sticky; top: 14vh; }
+  .areas aside .moldura { aspect-ratio: 4 / 5; }
+  .areas aside p { margin-top: .9rem; font-size: .8125rem; color: var(--tinta-2); }
+
+  /* ---------- Quem atende ---------- */
+  .quem { padding: 130px max(20px, 4vw) 120px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 5vw; align-items: end; }
+  .quem .moldura { aspect-ratio: 4 / 5; }
+  .quem .retrato-aviso { position: absolute; left: 1rem; bottom: 1rem; right: 1rem; font-size: .8125rem; color: var(--tinta); z-index: 2; }
+  .quem .moldura::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(20 23 26 / .7), transparent 40%); }
+  .quem h2 { font-size: clamp(2rem, 4vw, 4.3rem); margin-bottom: 3rem; }
+  .ficha { border-top: 1px solid var(--tinta); }
+  .ficha > div { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1.5rem; padding: 1.15rem 0; border-bottom: 1px solid var(--linha); }
+  .ficha dt { color: var(--tinta-2); font-size: .9375rem; }
+  .ficha dd { margin: 0; }
+  .ficha .nome-advogado { font-size: clamp(2rem, 3.6vw, 3.6rem); }
+  .a-confirmar { color: var(--tinta-2); text-decoration: underline dashed 1px; text-underline-offset: .18em; }
+  .quem .nota { margin-top: 1.6rem; color: var(--tinta-2); max-width: 52ch; font-size: .9375rem; }
+
+  /* ---------- Atendimento: o fio (momento-assinatura) ---------- */
+  .atendimento { padding: 220px max(20px, 4vw) 230px; border-top: 1px solid var(--linha); }
+  .atendimento h2 { font-size: clamp(2.2rem, 5vw, 5.4rem); max-width: 14ch; margin-bottom: 6rem; }
+  .atendimento-corpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .82fr); gap: 7vw; align-items: start; }
+  .costura { position: relative; padding-left: 5.2rem; }
+  .costura .trilho { position: absolute; left: 1.4rem; top: .4rem; bottom: .4rem; width: 14px;
+                     background: repeating-linear-gradient(to bottom, var(--linha) 0 20px, transparent 20px 40px); }
+  .costura .fio { position: absolute; left: 1.4rem; top: .4rem; bottom: .4rem; width: 14px;
+                  background: repeating-linear-gradient(to bottom, var(--acento) 0 20px, transparent 20px 23px, #5a2216 23px 37px, transparent 37px 40px); }
+  .passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 7.5rem; }
+  .passos li { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 1.4rem; align-items: start; }
+  .passos .n { font-stretch: 75%; font-variation-settings: "wdth" 75; font-weight: 820; font-size: 3.4rem; line-height: .85; color: var(--tinta-2); }
+  .passos h3 { font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 500; font-size: clamp(1.3rem, 2vw, 1.9rem); line-height: 1.15; margin-bottom: .9rem; }
+  .passos p { color: var(--tinta-2); max-width: 46ch; }
+  .atendimento .fixa { position: sticky; top: 12vh; }
+  .atendimento .fixa .moldura { aspect-ratio: 4 / 5.2; }
+  .atendimento .fixa p { margin-top: .9rem; font-size: .8125rem; color: var(--tinta-2); }
+
+  /* ---------- Documentos ---------- */
+  .documentos { padding: 110px max(20px, 4vw) 120px; }
+  .doc-topo { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 5vw; align-items: end; margin-bottom: 4rem; }
+  .doc-topo h2 { font-size: clamp(2.2rem, 4.6vw, 5rem); }
+  .doc-topo .moldura { aspect-ratio: 16 / 9; }
+  .doc-colunas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 3vw; }
+  .doc-colunas h3 { font-stretch: 75%; font-variation-settings: "wdth" 75; font-weight: 780; font-size: clamp(1.7rem, 2.6vw, 2.6rem); padding-bottom: 1rem; border-bottom: 1px solid var(--tinta-papel); }
+  .doc-colunas ul { list-style: none; margin: 0; padding: 0; }
+  .doc-colunas li { padding: .8rem 0; border-bottom: 1px solid var(--linha-papel); }
+  .documentos .rodape-doc { margin-top: 2.5rem; color: var(--tinta-2); max-width: 60ch; font-size: .9375rem; }
+
+  /* ---------- Escritório ---------- */
+  .escritorio { padding: 160px 0 0; }
+  .esc-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr) minmax(0, 3fr); gap: 3vw; padding: 0 max(20px, 4vw); align-items: end; }
+  .esc-grade .grande { aspect-ratio: 3 / 2; }
+  .esc-grade .grande img { object-position: 50% 100%; }
+  .esc-grade .alta { aspect-ratio: 2 / 3; }
+  .esc-grade h2 { font-size: clamp(3rem, 7vw, 8rem); margin-bottom: 2.2rem; }
+  .esc-dados { display: grid; gap: 0; border-top: 1px solid var(--tinta); }
+  .esc-dados > div { padding: .95rem 0; border-bottom: 1px solid var(--linha); }
+  .esc-dados dt { font-size: .8125rem; color: var(--tinta-2); }
+  .esc-dados dd { margin: .2rem 0 0; }
+  .faixa-areas { margin-top: 140px; padding: 2rem 0; border-block: 1px solid var(--linha); --marquee-gap: 3.5rem; }
+  .faixa-areas span { font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 250; font-size: clamp(2rem, 4.4vw, 4.6rem); color: var(--tinta-2); }
+  .faixa-areas span::after { content: ""; display: inline-block; width: .14em; height: .14em; margin-left: 3.5rem; vertical-align: middle; background: var(--linha); }
+
+  /* ---------- Perguntas ---------- */
+  .perguntas { padding: 120px max(20px, 4vw) 130px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 5vw; }
+  .perguntas h2 { font-size: clamp(2.2rem, 4.4vw, 4.8rem); position: sticky; top: 14vh; align-self: start; }
+  details.pergunta { border-bottom: 1px solid var(--linha); }
+  details.pergunta:first-of-type { border-top: 1px solid var(--tinta); }
+  details.pergunta summary { display: grid; grid-template-columns: minmax(0, 1fr) 1.5rem; gap: 1.5rem; align-items: center; padding: 1.6rem 0; min-height: 48px;
+                             font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 420; font-size: clamp(1.1rem, 1.6vw, 1.45rem); line-height: 1.25; }
+  details.pergunta summary::after { content: ""; width: 1.1rem; height: 1.1rem; justify-self: end;
+    background: linear-gradient(currentColor 0 0) center / 100% 1.5px no-repeat, linear-gradient(currentColor 0 0) center / 1.5px 100% no-repeat; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  details.pergunta[open] summary::after { transform: rotate(45deg); }
+  details.pergunta .resposta p { padding: 0 3rem 1.8rem 0; color: var(--tinta-2); max-width: 64ch; }
+
+  /* ---------- Contato ---------- */
+  .contato { margin: 0 max(20px, 4vw); padding: 180px 5vw 170px; border: 1px solid var(--linha); border-radius: 4px; --luz: rgb(181 67 44 / .10); overflow: hidden; }
+  .contato > :not(.trama-contato) { position: relative; z-index: 1; }
+  .trama-contato { position: absolute; top: 0; right: 0; bottom: 0; width: 34%; z-index: 0; -webkit-mask-image: linear-gradient(to right, transparent, #000 40%); mask-image: linear-gradient(to right, transparent, #000 40%); }
+  .trama-contato svg { width: 100%; height: 100%; display: block; }
+  .contato h2 { font-size: clamp(3rem, 8vw, 9.5rem); margin-bottom: 3rem; }
+  .contato-linha { display: flex; flex-wrap: wrap; gap: 2rem 3rem; align-items: center; }
+  .contato .tel { font-stretch: 125%; font-variation-settings: "wdth" 125; font-weight: 300; font-size: clamp(1.4rem, 2.4vw, 2.4rem); text-decoration: none; }
+  .contato p.tinta-2 { margin-top: 2.5rem; max-width: 52ch; }
+  .contato .cta { font-size: 1.05rem; padding: 1.05rem 1.6rem; }
+
+  /* ---------- Rodapé ---------- */
+  footer { padding: 150px max(20px, 4vw) 2.5rem; }
+  .rodape-nome { font-stretch: 75%; font-variation-settings: "wdth" 75; font-weight: 820; letter-spacing: -.02em; color: var(--tinta); }
+  .rodape-grade { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem 4vw; padding: 2.4rem 0; border-top: 1px solid var(--linha); margin-top: 1.2rem; font-size: .9375rem; }
+  .rodape-grade p + p { margin-top: .6rem; }
+  .rodape-grade a { text-decoration-color: var(--linha); text-underline-offset: .2em; }
+  .creditos { font-size: .78rem; color: var(--tinta-2); border-top: 1px solid var(--linha); padding-top: 1.4rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+  .zap-fixo { display: none; }
+
+  /* ---------- Celular ---------- */
+  @media (max-width: 900px) {
+    .barra nav { display: none; }
+    .barra { gap: 1rem; padding-block: .9rem; }
+    .barra .cta { display: none; }
+    .marca { font-size: .98rem; }
+    .faixa-previa { font-size: .75rem; padding-block: .45rem; }
+    .hero { grid-template-columns: 1fr; padding-top: 8.5rem; gap: 2.6rem; min-height: auto; }
+    .hero h1 { font-size: 17.5vw; }
+    .hero-rodape { grid-template-columns: 1fr; }
+    .trama { order: -1; height: 150px; min-height: 0; margin: 0 calc(-1 * max(20px, 4vw)); }
+    .trama figcaption { display: none; }
+    .trama-contato { width: 100%; height: 90px; top: auto; -webkit-mask-image: none; mask-image: none; opacity: .8; }
+    .fabrica { margin-top: 3rem; }
+    .fabrica .moldura { aspect-ratio: 4 / 5; }
+    .legenda { flex-direction: column; gap: .3rem; }
+    .manifesto { grid-template-columns: 1fr; padding: 120px 0 130px; gap: 3rem; }
+    .manifesto > div { padding-inline: 20px; }
+    .manifesto .moldura { margin: 0 0 0 28vw; aspect-ratio: 3 / 4; }
+    .areas { padding: 100px 0; }
+    .areas-topo, .areas-corpo, .quem, .atendimento-corpo, .doc-topo, .perguntas { grid-template-columns: 1fr; }
+    .areas aside { position: static; order: -1; }
+    .areas aside .moldura { aspect-ratio: 16 / 10; }
+    .lista a { grid-template-columns: 1fr; gap: .45rem; }
+    .quem { padding-block: 100px; }
+    .ficha > div { grid-template-columns: 1fr; gap: .25rem; }
+    .atendimento { padding-block: 130px; }
+    .atendimento h2 { margin-bottom: 3.5rem; }
+    .costura { padding-left: 3.4rem; }
+    .costura .trilho, .costura .fio { left: .3rem; width: 10px; }
+    .passos { gap: 4rem; }
+    .passos li { grid-template-columns: 1fr; gap: .6rem; }
+    .atendimento .fixa { position: static; }
+    .atendimento .fixa .moldura { aspect-ratio: 4 / 3; }
+    .doc-colunas { grid-template-columns: 1fr; gap: 2.5rem; }
+    .escritorio { padding-top: 110px; }
+    .esc-grade { grid-template-columns: 1fr 1fr; }
+    .esc-grade > :first-child { grid-column: 1 / -1; order: 2; }
+    .esc-grade .bloco { grid-column: 1 / -1; order: 1; }
+    .esc-grade .alta { order: 3; }
+    .esc-grade .grande, .esc-grade .alta { grid-column: auto; aspect-ratio: 3 / 4; }
+    .esc-grade > .grande { grid-column: auto; }
+    .esc-grade .grande img { object-position: 82% 100%; }
+    .faixa-areas { margin-top: 90px; }
+    .perguntas h2 { position: static; }
+    .contato { padding: 110px 22px 100px; }
+    .contato .cta { width: 100%; justify-content: center; }
+    .rodape-grade { grid-template-columns: 1fr; }
+    .zap-fixo { display: inline-flex; }
+    footer { padding-bottom: 6rem; }
+  }
+  @media (max-width: 900px) and (min-width: 560px) { .hero h1 { font-size: 15vw; } }
+</style>
+</head>
+<body>
+  <header data-nav>
+    <div class="faixa-previa">Prévia de site feita pela AlgUp Digital para Advogado em Sorocaba.</div>
+    <div class="barra">
+      <a class="marca" href="#topo"><img class="emblema" src="img/emblema.png" alt="" width="232" height="214">Advogado <span>em Sorocaba</span></a>
+      <nav aria-label="Seções">
+        <a href="#areas" data-rolar>Áreas</a>
+        <a href="#atendimento" data-rolar>Atendimento</a>
+        <a href="#escritorio" data-rolar>Escritório</a>
+        <a href="#perguntas" data-rolar>Perguntas</a>
+      </nav>
+      <a class="cta cta-pequeno" href="https://wa.me/5515991907090?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="topo">
+    <!-- HERO · esqueleto D: a trama da Manchester Paulista -->
+    <section class="hero" data-hero>
+      <div class="hero-texto">
+        <p class="hero-sobre larga" data-palavras data-atraso="-.4">Advocacia em Sorocaba – SP</p>
+        <h1 class="condensada" data-linhas>Cível,<br>trabalhista<br>e empresarial<span class="ponto">.</span></h1>
+        <div class="hero-rodape">
+          <p data-palavras>Atendimento presencial em Sorocaba e online para todo o Brasil. Para pessoas e para empresas.</p>
+          <div class="hero-acoes">
+            <a class="cta" href="https://wa.me/5515991907090?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico>Falar pelo WhatsApp</a>
+            <a class="link-linha" href="#areas" data-rolar>Ver áreas de atuação</a>
+          </div>
+        </div>
+      </div>
+      <figure class="trama" data-revelar="cima" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="tela" width="40" height="40" patternUnits="userSpaceOnUse">
+              <rect width="40" height="40" fill="#101315"/>
+              <rect x="3" y="0" width="14" height="20" fill="#2f363a"/>
+              <rect x="20" y="3" width="20" height="14" fill="#232a2e"/>
+              <rect x="0" y="23" width="20" height="14" fill="#232a2e"/>
+              <rect x="23" y="20" width="14" height="20" fill="#2f363a"/>
+              <rect x="3" y="0" width="14" height="1" fill="#3d454a"/>
+              <rect x="23" y="20" width="14" height="1" fill="#3d454a"/>
+            </pattern>
+            <pattern id="fio" width="40" height="40" patternUnits="userSpaceOnUse">
+              <rect x="3" y="0" width="14" height="20" fill="#b5432c"/>
+              <rect x="3" y="20" width="14" height="3" fill="#5a2216"/>
+              <rect x="3" y="37" width="14" height="3" fill="#5a2216"/>
+              <rect x="0" y="23" width="20" height="14" fill="#232a2e"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#tela)"/>
+          <rect x="120" y="0" width="20" height="100%" fill="url(#fio)"/>
+        </svg>
+        <figcaption>Trama de tecido plano: Sorocaba, a Manchester Paulista</figcaption>
+      </figure>
+    </section>
+
+    <!-- 2ª dobra: a fábrica -->
+    <section class="fabrica" aria-label="Sorocaba">
+      <figure class="moldura parallax" data-revelar="baixo" data-parallax="10" style="margin:0">
+        <img src="img/fabrica.webp" alt="Antiga fábrica de tecidos em tijolo aparente, com chaminé alta, em preto e branco" width="1800" height="2694" fetchpriority="high">
+      </figure>
+      <div class="legenda"><span>Sorocaba cresceu em volta das fábricas de tecido e ficou conhecida como a Manchester Paulista.</span><span>Foto ilustrativa</span></div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto" aria-label="Como trabalhamos">
+      <div>
+        <p class="larga" data-acender>Um processo se faz como um tecido: fio por fio, sem pular etapa. Explicamos cada passo em português claro, por WhatsApp, por vídeo ou pessoalmente em Sorocaba.</p>
+        <p class="apoio">O escritório atende quem trabalha e quem emprega, pessoas e empresas, em questões do dia a dia: contratos, cobranças, rescisões, benefícios e imóveis.</p>
+      </div>
+      <figure class="moldura parallax" data-revelar="esquerda" data-parallax="8" style="margin-bottom:0;margin-right:0">
+        <img src="img/carreteis.webp" alt="Carretéis de linha branca enfileirados em uma prateleira de madeira" width="1800" height="1202" loading="lazy" style="object-position:62% 50%">
+      </figure>
+    </section>
+
+    <!-- Áreas -->
+    <section class="areas claro" id="areas">
+      <div class="wrap">
+        <div class="areas-topo">
+          <h2 class="larga" data-linhas>Áreas<br>de atuação</h2>
+          <p>Três frentes principais e outras quatro em que o escritório também atua. Toque em uma área para conversar sobre ela.</p>
+        </div>
+        <div class="areas-corpo">
+          <ul class="lista">
+            <li class="principal" data-fluir><a href="#contato"><span class="area-nome">Trabalhista</span><span class="area-desc">Reclamações trabalhistas, verbas rescisórias, <span class="sigla">FGTS</span>, adicionais e acordos.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Trabalhista</span><span class="area-desc">Reclamações trabalhistas, verbas rescisórias, FGTS, adicionais e acordos.</span></div></div></li>
+            <li class="principal" data-fluir><a href="#contato"><span class="area-nome">Cível</span><span class="area-desc">Ações de indenização, cobrança, contratos e responsabilidade civil.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Cível</span><span class="area-desc">Ações de indenização, cobrança, contratos e responsabilidade civil.</span></div></div></li>
+            <li class="principal" data-fluir><a href="#contato"><span class="area-nome">Empresarial</span><span class="area-desc">Consultoria para empresas, constituição societária e gestão de risco jurídico.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Empresarial</span><span class="area-desc">Consultoria para empresas, constituição societária e gestão de risco jurídico.</span></div></div></li>
+            <li class="tambem">O escritório também atua em</li>
+            <li data-fluir><a href="#contato"><span class="area-nome">Previdenciário</span><span class="area-desc">Aposentadorias, auxílio-doença, <span class="sigla">BPC/LOAS</span> e revisões de benefícios.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Previdenciário</span><span class="area-desc">Aposentadorias, auxílio-doença, BPC/LOAS e revisões de benefícios.</span></div></div></li>
+            <li data-fluir><a href="#contato"><span class="area-nome">Contratos</span><span class="area-desc">Elaboração, revisão e análise de contratos.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Contratos</span><span class="area-desc">Elaboração, revisão e análise de contratos.</span></div></div></li>
+            <li data-fluir><a href="#contato"><span class="area-nome">Consumidor</span><span class="area-desc">Compras, contratos abusivos e negativações indevidas.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Consumidor</span><span class="area-desc">Compras, contratos abusivos e negativações indevidas.</span></div></div></li>
+            <li data-fluir><a href="#contato"><span class="area-nome">Usucapião</span><span class="area-desc">Regularização de imóveis pela posse prolongada.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Usucapião</span><span class="area-desc">Regularização de imóveis pela posse prolongada.</span></div></div></li>
+            <li data-fluir><a href="#contato"><span class="area-nome">Criminal</span><span class="area-desc">Defesa em processos criminais, júri, medidas protetivas e habeas corpus.</span></a>
+              <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Criminal</span><span class="area-desc">Defesa em processos criminais, júri, medidas protetivas e habeas corpus.</span></div></div></li>
+          </ul>
+          <aside>
+            <figure class="moldura parallax" data-revelar="baixo" data-parallax="6" style="margin:0">
+              <img src="img/oficina.webp" alt="Fotografia antiga de uma oficina com trabalhadores em mesas longas, luz das janelas" width="1800" height="1248" loading="lazy" style="object-position:40% 50%">
+            </figure>
+            <p>Oficina de confecção, c. 1930. Acervo Museums Victoria (Unsplash).</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quem atende -->
+    <section class="quem" id="quem">
+      <figure class="moldura parallax" data-revelar="cima" data-parallax="6" style="margin:0">
+        <img src="img/maos.webp" alt="Mãos de trabalhador abertas, em preto e branco" width="1400" height="1812" loading="lazy">
+      </figure>
+      <div>
+        <h2 class="larga" data-linhas>Quem atende<br>o seu caso</h2>
+        <dl class="ficha">
+          <div><dt>Escritório</dt><dd class="condensada nome-advogado">Advogado em Sorocaba</dd></div>
+          <div><dt>Atua em</dt><dd>Direito cível, trabalhista e empresarial</dd></div>
+          <div><dt>Atendimento</dt><dd>Presencial em Sorocaba e online</dd></div>
+        </dl>
+        <p class="nota">Atendimento próximo, do primeiro contato à solução, para pessoas e empresas de Sorocaba e região.</p>
+      </div>
+    </section>
+
+    <!-- Atendimento: o fio (momento-assinatura) -->
+    <section class="atendimento" id="atendimento">
+      <h2 class="larga" data-linhas>Como funciona<br>o atendimento</h2>
+      <div class="atendimento-corpo">
+        <div class="costura">
+          <span class="trilho" aria-hidden="true"></span>
+          <span class="fio" data-linha-tempo aria-hidden="true"></span>
+          <ol class="passos">
+            <li><span class="n num">1</span><div><h3>Você manda uma mensagem</h3><p>Pelo WhatsApp, conte em poucas linhas o que aconteceu e em que cidade você está. Não precisa mandar documento ainda.</p></div></li>
+            <li><span class="n num">2</span><div><h3>Primeira conversa</h3><p>Presencial em Sorocaba ou por chamada de vídeo. O advogado entende a situação e diz quais documentos vão ajudar.</p></div></li>
+            <li><span class="n num">3</span><div><h3>Caminhos, prazos e riscos</h3><p>Você recebe uma explicação clara do que pode ser feito, dos prazos envolvidos e do que cada caminho exige.</p></div></li>
+            <li><span class="n num">4</span><div><h3>Acompanhamento</h3><p>Se decidir seguir, você acompanha cada etapa pelo canal que preferir, com o andamento explicado sem juridiquês.</p></div></li>
+          </ol><!-- confirmar: passos com o escritório -->
+        </div>
+        <div class="fixa">
+          <figure class="moldura parallax" data-revelar="direita" data-parallax="8" style="margin:0">
+            <img src="img/galpao.webp" alt="Interior de um galpão industrial antigo com janelas altas e luz entrando" width="2000" height="1332" loading="lazy" style="object-position:70% 50%">
+          </figure>
+          <p>Foto ilustrativa</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentos -->
+    <section class="documentos claro" aria-labelledby="doc-titulo">
+      <div class="doc-topo">
+        <h2 id="doc-titulo" class="larga" data-linhas>O que separar para<br>a primeira conversa</h2>
+        <figure class="moldura parallax" data-revelar="baixo" data-parallax="6" style="margin:0">
+          <img src="img/papeis.webp" alt="Pilhas de papéis e pastas sobre uma mesa" width="1400" height="934" loading="lazy">
+        </figure>
+      </div>
+      <div class="doc-colunas">
+        <div><h3>Trabalhista</h3><ul><li>Carteira de trabalho (<span class="sigla">CTPS</span>) física ou digital</li><li>Holerites dos últimos meses</li><li>Termo de rescisão (<span class="sigla">TRCT</span>), se houver</li><li>Extrato do <span class="sigla">FGTS</span></li><li>Mensagens e registros de horário</li></ul></div>
+        <div><h3>Cível e consumidor</h3><ul><li>Contrato ou pedido de compra</li><li>Comprovantes de pagamento</li><li>Conversas, e-mails e protocolos</li><li>Notificações recebidas</li><li>Documento pessoal com foto</li></ul></div>
+        <div><h3>Empresarial</h3><ul><li>Contrato social e alterações</li><li>Cartão <span class="sigla">CNPJ</span></li><li>Contratos com clientes e fornecedores</li><li>Notificações e cobranças</li><li>Dados dos sócios</li></ul></div>
+      </div>
+      <p class="rodape-doc">Se não tiver tudo, tudo bem. A lista serve para adiantar a conversa, não para impedir que ela aconteça.</p>
+    </section>
+
+    <!-- Escritório -->
+    <section class="escritorio" id="escritorio">
+      <div class="esc-grade">
+        <figure class="moldura parallax grande" data-revelar="baixo" data-parallax="8" style="margin:0">
+          <img src="img/chamine.webp" alt="Chaminé industrial alta sobre um galpão, em preto e branco" width="1600" height="1102" loading="lazy">
+        </figure>
+        <div class="bloco">
+          <h2 class="condensada" data-linhas>Sorocaba<br>e online</h2>
+          <dl class="esc-dados">
+            <div><dt>Cidade</dt><dd>Sorocaba – SP</dd></div>
+            <div><dt>WhatsApp</dt><dd><a class="tel" href="https://wa.me/5515991907090" target="_blank" rel="noopener">(15) 99190-7090</a></dd></div>
+            <div><dt>Online</dt><dd>Atendimento por vídeo em todo o Brasil</dd></div>
+          </dl>
+        </div>
+        <figure class="moldura parallax alta" data-revelar="cima" data-parallax="8" style="margin:0">
+          <img src="img/tijolo.webp" alt="Prédio antigo de tijolo com chaminé contra o céu" width="1200" height="1800" loading="lazy">
+        </figure>
+      </div>
+      <div class="faixa-areas" data-marquee="70" aria-hidden="true"><div><span>Cível</span><span>Trabalhista</span><span>Empresarial</span><span>Previdenciário</span><span>Contratos</span><span>Consumidor</span><span>Usucapião</span><span>Criminal</span></div></div>
+    </section>
+
+    <!-- Perguntas -->
+    <section class="perguntas" id="perguntas">
+      <h2 class="larga" data-linhas>Perguntas<br>frequentes</h2>
+      <div>
+        <details class="pergunta"><summary>Qual o prazo para entrar com uma ação trabalhista?</summary><div class="resposta"><div><p>Em regra, até 2 anos depois do fim do contrato de trabalho, cobrando direitos dos últimos 5 anos (Constituição, art. 7º, <span class="sigla">XXIX</span>). Cada caso tem detalhes que mudam a conta, por isso vale conversar logo.</p></div></div></details>
+        <details class="pergunta"><summary>Preciso ir até o escritório em Sorocaba?</summary><div class="resposta"><div><p>Não. O atendimento pode ser todo online, por WhatsApp e chamada de vídeo, para qualquer cidade do Brasil. Quem preferir pode ser atendido pessoalmente em Sorocaba.</p></div></div></details>
+        <details class="pergunta"><summary>O escritório atende empresas?</summary><div class="resposta"><div><p>Sim. Na área empresarial, o escritório atua em consultoria, constituição de sociedades, contratos e prevenção de riscos jurídicos.</p></div></div></details>
+        <details class="pergunta"><summary>O que é usucapião?</summary><div class="resposta"><div><p>É a forma de regularizar a propriedade de um imóvel a partir da posse prolongada, mansa e contínua. O tempo exigido muda conforme a modalidade prevista em lei.</p></div></div></details>
+        <details class="pergunta"><summary>Como sei se o meu caso tem solução?</summary><div class="resposta"><div><p>Só a análise dos fatos e dos documentos responde. Na primeira conversa o advogado explica os caminhos possíveis e os riscos de cada um, sem promessa de resultado.</p></div></div></details>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato" id="contato" data-luz>
+      <div class="trama-contato" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="url(#tela)"/><rect x="200" y="0" width="20" height="100%" fill="url(#fio)"/></svg></div>
+      <h2 class="condensada" data-linhas>Vamos conversar<br>sobre o seu caso</h2>
+      <div class="contato-linha">
+        <a class="cta" href="https://wa.me/5515991907090?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico>Falar pelo WhatsApp</a>
+        <a class="tel" href="https://wa.me/5515991907090" target="_blank" rel="noopener">(15) 99190-7090</a>
+      </div>
+      <p class="tinta-2">Atendimento presencial em Sorocaba – SP e online em todo o Brasil. Escreva quando puder: o retorno vem pelo mesmo canal.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div><img class="rodape-emblema" src="img/emblema.png" alt="" width="232" height="214"><div class="rodape-nome" data-encaixar>Advogado em Sorocaba</div></div>
+    <div class="rodape-grade">
+      <div>
+        <p>Advocacia cível, trabalhista e empresarial.</p>
+      </div>
+      <div>
+        <p>Sorocaba – SP</p>
+        <p><a href="https://wa.me/5515991907090" target="_blank" rel="noopener" class="tel">WhatsApp (15) 99190-7090</a></p>
+        <p class="tinta-2">Presencial em Sorocaba e online em todo o Brasil.</p>
+      </div>
+      <div>
+        <p class="tinta-2">Este site tem caráter meramente informativo (Provimento 205/2021 do <span class="sigla">CFOAB</span>).</p>
+        <p class="tinta-2">O escritório não solicita pagamentos por WhatsApp de números desconhecidos.</p>
+        <p><a href="#" data-rolar>Política de privacidade</a></p>
+      </div>
+    </div>
+    <div class="creditos"><span>© <span class="num">2026</span> Advogado em Sorocaba</span><span>Fotos: Unsplash (Tanya Barrow, Museums Victoria e outros), uso ilustrativo.</span></div>
+  </footer>
+
+  <a class="cta zap-fixo" href="https://wa.me/5515991907090?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+</body>
+</html>
