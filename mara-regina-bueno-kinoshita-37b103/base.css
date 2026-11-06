@@ -1,0 +1,88 @@
+/* base.css — estrutura e efeitos da skill site-premium. NÃO define a identidade:
+   cada site define seus tokens (--fundo, --tinta, --tinta-2, --acento, --linha, --fonte-titulo, --fonte-texto)
+   num <style> próprio. Tudo aqui é neutro e pode ser sobrescrito. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+body { margin: 0; background: var(--fundo); color: var(--tinta); font-family: var(--fonte-texto); font-size: var(--corpo, 1.0625rem); line-height: 1.6; overflow-x: clip; }
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--fonte-titulo); font-weight: 400; line-height: 1; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; }
+::selection { background: var(--tinta); color: var(--fundo); }
+
+/* Contêiner e gutter */
+.wrap { width: 100%; max-width: var(--largura, 1520px); margin-inline: auto; padding-inline: max(20px, 4vw); }
+
+/* Grão de filme por cima de tudo (desligue com .sem-grao no body) */
+body::after { content: ""; position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: var(--grao, .07);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grao 1.2s steps(6) infinite; }
+body.sem-grao::after { display: none; }
+@keyframes grao { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+.is-estatico body::after { animation: none; }
+
+/* Linhas do SplitText (a máscara é criada pelo próprio SplitText com mask:'lines') */
+.linha { padding-bottom: .06em; }
+
+/* Molduras de foto */
+.moldura { position: relative; overflow: hidden; }
+.moldura > img, .moldura > video { width: 100%; height: 100%; object-fit: cover; }
+.parallax > img, .parallax > video { height: 118%; margin-top: -9%; }
+
+/* Navbar */
+[data-nav] { position: fixed; inset: 0 0 auto; z-index: 50; transition: transform .6s cubic-bezier(.16,1,.3,1), background-color .4s, color .4s; }
+[data-nav].nav-escondida { transform: translateY(-110%); }
+
+/* Marquee */
+[data-marquee] { overflow: hidden; white-space: nowrap; }
+[data-marquee] > * { display: inline-flex; gap: var(--marquee-gap, 3rem); padding-right: var(--marquee-gap, 3rem); animation: marquee var(--dur, 40s) linear infinite; }
+[data-marquee]:hover > * { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Link com texto que rola no hover */
+.rolar { display: inline-grid; overflow: hidden; vertical-align: bottom; line-height: 1.2; }
+.rolar > span { grid-area: 1 / 1; transition: transform .55s cubic-bezier(.16,1,.3,1); }
+.rolar > span + span { transform: translateY(105%); }
+a:hover > .rolar > span:first-child { transform: translateY(-105%); }
+a:hover > .rolar > span + span { transform: translateY(0); }
+
+/* Lista com faixa (data-fluir) */
+[data-fluir] { position: relative; overflow: hidden; }
+.fluir-faixa { position: absolute; inset: 0; transform: translateY(101%); pointer-events: none; overflow: hidden; background: var(--tinta); color: var(--fundo); }
+.fluir-faixa > * { height: 100%; }
+
+/* Nome gigante que encaixa na largura (data-encaixar). Entrelinha folgada e respiro embaixo: NUNCA
+   line-height < .9, translateY ou overflow:hidden cortando a base das letras. */
+[data-encaixar] { display: block; width: max-content; max-width: none; white-space: nowrap; line-height: .95; padding-bottom: .12em; }
+
+/* Foto fixa que troca (data-troca) */
+.troca-fotos { position: sticky; top: 10vh; height: 80vh; overflow: hidden; }
+.troca-fotos > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.06); transition: opacity .9s, transform 1.6s cubic-bezier(.16,1,.3,1); }
+.troca-fotos > :first-child, .troca-fotos > .ativa { opacity: 1; transform: none; }
+.troca-fotos:has(.ativa) > :not(.ativa) { opacity: 0; transform: scale(1.06); }
+.is-estatico .troca-fotos { position: relative; top: 0; }
+
+/* Luz que segue o mouse (data-luz) */
+[data-luz] { position: relative; isolation: isolate; }
+[data-luz]::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .5s;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), var(--luz, rgb(255 255 255 / .09)), transparent 60%); }
+[data-luz]:hover::before { opacity: 1; }
+
+/* Perguntas (details) com abertura animada */
+details.pergunta > summary { list-style: none; cursor: pointer; }
+details.pergunta > summary::-webkit-details-marker { display: none; }
+details.pergunta .resposta { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.16,1,.3,1); }
+details.pergunta[open] .resposta { grid-template-rows: 1fr; }
+details.pergunta .resposta > div { overflow: hidden; }
+@supports (interpolate-size: allow-keywords) { :root { interpolate-size: allow-keywords; } }
+
+/* WhatsApp fixo no celular */
+.zap-fixo { position: fixed; z-index: 60; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
