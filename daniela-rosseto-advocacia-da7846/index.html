@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniela Rosseto Advocacia — Previdenciário em São José do Rio Preto</title>
+<meta name="description" content="Advocacia previdenciária e direitos da pessoa com autismo em São José do Rio Preto. Atendimento presencial no Jardim dos Seixas e por vídeo.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:wght@300..800&family=Host+Grotesk:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+:root{
+  --fundo:#EEF0EC; --tinta:#132630; --tinta-2:#4D5A5F; --linha:#C7CEC9; --escuro:#0F1F27; --acento:#EBC94B;
+  --fonte-titulo:"Ancizar Serif", "Iowan Old Style", Georgia, serif;
+  --fonte-texto:"Host Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --corpo:1.1875rem; --grao:.06; --largura:1480px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+body{font-variant-numeric:oldstyle-nums}
+.num,.cnis,.tel,.oab{font-variant-numeric:tabular-nums lining-nums}
+.sigla{font-variant-caps:all-small-caps;letter-spacing:.02em}
+a{text-decoration:none}
+:focus-visible{outline-color:var(--tinta);outline-width:3px;box-shadow:0 0 0 6px var(--acento)}
+
+/* faixa da prévia */
+.faixa-previa{background:var(--escuro);color:#C9D2D3;font-size:.8125rem;padding:.55rem max(20px,4vw);line-height:1.4}
+.faixa-previa b{color:#fff;font-weight:500}
+
+/* nav */
+[data-nav]{top:0;color:var(--tinta)}
+.nav-in{display:flex;align-items:center;gap:2rem;padding:1.1rem max(20px,4vw)}
+.marca{font-family:var(--fonte-titulo);font-weight:700;font-size:1.35rem;letter-spacing:-.01em;line-height:1;margin-right:auto}
+.marca small{display:block;font-family:var(--fonte-texto);font-weight:400;font-size:.78rem;color:var(--tinta-2);letter-spacing:0;margin-top:.3rem}
+.nav-links{display:flex;gap:1.7rem;font-size:.98rem}
+.nav-links a{padding:.5rem 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:0 1.5rem;border-radius:3px;background:var(--tinta);color:var(--fundo);font-weight:500;font-size:1.02rem;transition:background .4s}
+.btn:hover{background:#06131a}
+.btn.claro{background:var(--fundo);color:var(--tinta)}
+.btn svg{width:20px;height:20px;flex:none}
+.nav-btn{min-height:46px;padding:0 1.1rem;font-size:.95rem}
+[data-nav].nav-solida{background:rgb(238 240 236 / .94);backdrop-filter:none;border-bottom:1px solid var(--linha)}
+.link{display:inline-flex;min-height:48px;align-items:center;background:linear-gradient(var(--acento),var(--acento)) 0 calc(100% - 10px)/0 4px no-repeat;transition:background-size .6s var(--ease)}
+.link:hover{background-size:100% 4px}
+.sub{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+
+/* HERO: grade de competências do CNIS */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);padding-top:8.5rem;overflow:hidden}
+.hero-texto{display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 clamp(2.5rem,6vh,4.5rem) max(20px,4vw);position:relative;z-index:3}
+.hero h1{font-weight:300;font-size:clamp(3.1rem,7.2vw,8.2rem);line-height:.96;letter-spacing:-.025em}
+.hero h1 b{font-weight:780}
+.hero-apoio{max-width:34ch;margin-top:2rem;font-size:clamp(1.15rem,1.45vw,1.4rem);line-height:1.45;color:var(--tinta-2)}
+.hero-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 2rem;margin-top:2.4rem}
+.hero-oab{margin-top:2.6rem;font-size:.95rem;color:var(--tinta-2);line-height:1.45}
+.hero-oab strong{color:var(--tinta);font-weight:500}
+.hero-lado{position:relative}
+.cnis{position:absolute;inset:0 0 0 -6%;display:grid;grid-template-columns:repeat(4,1fr);align-content:start;column-gap:1.4rem;padding:1rem max(20px,4vw) 0 0;font-size:clamp(.8rem,.95vw,1rem);color:rgb(19 38 48 / .26);line-height:2.25;user-select:none;-webkit-mask:linear-gradient(180deg,#000 60%,transparent);mask:linear-gradient(180deg,#000 60%,transparent)}
+.cnis span{border-bottom:1px solid rgb(19 38 48 / .08)}
+.cnis .marcada{position:relative;color:var(--tinta)}
+.cnis .marcada::before{content:"";position:absolute;inset:.35em -.35em .3em;background:var(--acento);z-index:-1;transform-origin:left;transform:scaleX(var(--mt,1));opacity:.9}
+.cnis .marcada{z-index:0}
+.retrato{position:absolute;right:max(0px,3vw);bottom:0;height:min(84vh,860px);aspect-ratio:682/1180;z-index:2}
+.retrato img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+
+/* seções */
+section{position:relative}
+.manifesto{padding:clamp(7rem,15vw,15rem) 0 clamp(6rem,11vw,11rem)}
+.manifesto p{font-family:var(--fonte-titulo);font-weight:340;font-size:clamp(2rem,4.1vw,4.4rem);line-height:1.12;letter-spacing:-.018em;max-width:26ch}
+.manifesto .assina{font-family:var(--fonte-texto);font-size:1rem;color:var(--tinta-2);margin-top:2.5rem;max-width:none;font-weight:400;letter-spacing:0;line-height:1.5}
+
+h2{font-weight:300;font-size:clamp(2.5rem,5vw,5.4rem);letter-spacing:-.022em;line-height:1}
+h2 b{font-weight:760}
+.intro{max-width:52ch;color:var(--tinta-2);margin-top:1.5rem}
+
+/* áreas */
+.areas{padding:clamp(4rem,7vw,7rem) 0 clamp(7rem,12vw,12rem)}
+.areas-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.1fr);gap:clamp(2rem,5vw,6rem);align-items:start}
+.areas-cab{position:sticky;top:7rem}
+.faixa-maos{margin-top:3rem;aspect-ratio:3/5;max-width:300px}
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--tinta)}
+.lista li{border-bottom:1px solid var(--linha)}
+.lista a,.fluir-faixa>div{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:1.5rem;align-items:baseline;padding:1.6rem .2rem}
+.lista h3{font-weight:400;font-size:clamp(1.6rem,2.5vw,2.5rem);letter-spacing:-.015em;line-height:1.05}
+.lista p{color:var(--tinta-2);font-size:1.02rem;line-height:1.5}
+.fluir-faixa{background:var(--tinta)}
+.fluir-faixa>div{padding-inline:1.2rem}
+.fluir-faixa p{color:#B9C6C9}
+.fluir-faixa h3{color:var(--fundo)}
+.tambem{margin-top:2rem;color:var(--tinta-2)}
+
+.marquee{border-block:1px solid var(--linha);padding:1.3rem 0;font-family:var(--fonte-titulo);font-weight:300;font-size:clamp(1.6rem,3vw,2.8rem);color:var(--tinta);--marquee-gap:2.5rem}
+.marquee span{display:inline-flex;align-items:center;gap:2.5rem}
+.marquee span::after{content:"";width:.5em;height:2px;background:var(--tinta-2);display:inline-block}
+
+/* TEA (escuro) */
+.tea{background:var(--escuro);color:#E6EBEA;padding:clamp(7rem,12vw,13rem) 0;--luz:rgb(235 201 75 / .07)}
+.tea-grade{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2.5rem,6vw,7rem);align-items:start}
+.tea h2{color:#fff}
+.tea .intro{color:#AEBBBE}
+.tea-foto{aspect-ratio:4/5;margin-top:-1rem}
+.tea-casos{margin-top:3.5rem;display:grid;gap:0;border-top:1px solid rgb(255 255 255 / .25)}
+.tea-casos article{padding:1.6rem 0;border-bottom:1px solid rgb(255 255 255 / .14);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1.5rem}
+.tea-casos h3{font-weight:500;font-size:clamp(1.35rem,1.9vw,1.75rem);color:#fff;line-height:1.15}
+.tea-casos p{color:#AEBBBE;font-size:1.02rem}
+.direitos{margin-top:3rem;columns:2;column-gap:2.5rem;list-style:none;padding:0;color:#D6DEDD}
+.direitos li{padding:.55rem 0;border-bottom:1px solid rgb(255 255 255 / .1);break-inside:avoid}
+.tea .btn{margin-top:3rem}
+
+/* quem atende */
+.quem{padding:clamp(8rem,14vw,15rem) 0 clamp(6rem,9vw,9rem)}
+.quem-grade{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,6vw,7rem);align-items:end}
+.quem-foto{aspect-ratio:711/800;max-width:520px}
+.quem h2{font-size:clamp(2.6rem,4.6vw,5rem)}
+.quem .oab{display:block;margin-top:1.2rem;font-size:1.05rem;color:var(--tinta-2)}
+.quem-texto p+p{margin-top:1.1rem}
+.quem-texto .corpo{max-width:56ch;margin-top:2.2rem}
+.fatos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:3rem;border-top:1px solid var(--tinta);padding-top:1.4rem}
+.fatos strong{display:block;font-family:var(--fonte-titulo);font-weight:700;font-size:clamp(1.5rem,2.2vw,2.1rem);line-height:1.1}
+.fatos span{color:var(--tinta-2);font-size:.98rem}
+
+/* atendimento: foto fixa que troca */
+.atend{padding:clamp(5rem,9vw,9rem) 0 clamp(8rem,12vw,12rem);border-top:1px solid var(--linha)}
+.atend-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(2rem,6vw,7rem);margin-top:4rem}
+.passos{list-style:none;margin:0;padding:0}
+.passos li{min-height:62vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--linha);opacity:.35;transition:opacity .6s}
+.passos li.ativo,.is-estatico .passos li{opacity:1}
+.passos .n{font-family:var(--fonte-titulo);font-weight:800;font-size:clamp(3.5rem,6vw,6rem);line-height:1;color:var(--tinta)}
+.passos h3{font-weight:500;font-size:clamp(1.8rem,2.6vw,2.6rem);margin-top:.6rem}
+.passos p{max-width:44ch;color:var(--tinta-2);margin-top:1rem}
+.troca-fotos{border-radius:2px}
+.troca-fotos img{filter:none}
+
+/* documentos */
+.docs{padding:clamp(6rem,10vw,10rem) 0;background:#E3E7E2}
+.docs-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(2rem,6vw,7rem)}
+.docs ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--tinta);counter-reset:d}
+.docs li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid var(--linha)}
+.docs li strong{font-weight:500;font-size:1.15rem}
+.docs li span{color:var(--tinta-2);font-size:1rem}
+
+/* escritório */
+.escritorio{padding:clamp(8rem,13vw,14rem) 0 clamp(6rem,9vw,9rem)}
+.esc-foto{aspect-ratio:21/9;margin-top:3.5rem;margin-inline:calc(-1*max(20px,4vw))}
+.enderecos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) minmax(0,.8fr);gap:clamp(1.5rem,4vw,4rem);margin-top:3.5rem}
+.enderecos h3{font-weight:700;font-size:clamp(1.6rem,2.3vw,2.3rem);margin-bottom:1rem}
+.enderecos p{color:var(--tinta-2)}
+.enderecos .tel{display:inline-flex;min-height:48px;align-items:center;color:var(--tinta);font-weight:500;font-size:1.15rem}
+.enderecos .link{font-weight:500}
+
+/* perguntas */
+.faq{padding:clamp(5rem,8vw,8rem) 0 clamp(8rem,12vw,13rem)}
+.faq-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(2rem,6vw,7rem)}
+.faq-foto{aspect-ratio:3/4;max-width:340px;margin-top:3rem}
+details.pergunta{border-bottom:1px solid var(--linha)}
+details.pergunta:first-child{border-top:1px solid var(--tinta)}
+details.pergunta summary{display:flex;justify-content:space-between;gap:1.5rem;align-items:center;padding:1.5rem 0;font-size:clamp(1.2rem,1.6vw,1.45rem);font-weight:500;min-height:48px}
+details.pergunta summary::after{content:"";flex:none;width:16px;height:16px;background:linear-gradient(var(--tinta),var(--tinta)) center/16px 2px no-repeat,linear-gradient(var(--tinta),var(--tinta)) center/2px 16px no-repeat;transition:transform .6s var(--ease)}
+details.pergunta[open] summary::after{transform:rotate(135deg)}
+details.pergunta .resposta p{padding:0 0 1.6rem;max-width:62ch;color:var(--tinta-2)}
+
+/* contato */
+.contato{background:var(--tinta);color:#E6EBEA;padding:clamp(7rem,12vw,12rem) 0;--luz:rgb(255 255 255 / .06)}
+.contato h2{color:#fff;font-size:clamp(2.8rem,6.4vw,7rem)}
+.contato .intro{color:#B3C0C3}
+.contato-acoes{display:flex;flex-wrap:wrap;gap:1.2rem 2.4rem;align-items:center;margin-top:3rem}
+.contato .link{color:#fff}
+.contato .cta{min-height:60px;padding:0 2rem;font-size:1.1rem}
+
+/* rodapé */
+footer{background:var(--escuro);color:#B7C3C5;padding:clamp(4rem,7vw,6rem) 0 2rem;font-size:.95rem}
+.rod-grade{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:2rem 3rem}
+footer h4{font-family:var(--fonte-texto);font-weight:500;color:#fff;font-size:1rem;margin-bottom:.6rem}
+footer a{color:#fff}
+.rod-nome{margin-top:4rem;color:#E6EBEA;font-family:var(--fonte-titulo);font-weight:780;letter-spacing:-.02em}
+.avisos{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgb(255 255 255 / .14);display:grid;gap:.6rem;font-size:.88rem;color:#97A6A9}
+.avisos .golpe{color:#E6EBEA}
+.avisos details summary{cursor:pointer;color:#fff;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:4px}
+.avisos details p{max-width:80ch;margin-top:.4rem}
+
+.zap-fixo{display:none}
+
+/* celular */
+@media (max-width: 900px){
+  .nav-links{display:none}
+  .nav-in{padding:.85rem 20px}
+  .marca{font-size:1.15rem}
+  .nav-btn{display:none}
+  .faixa-previa{font-size:.75rem;padding:.45rem 20px}
+  .hero{grid-template-columns:1fr;padding-top:8.6rem;min-height:auto}
+  .hero-acoes{gap:.4rem 1.6rem}
+  .hero-oab{margin-top:1.6rem}
+  .hero-texto{padding:0 20px 2.5rem;order:1}
+  .hero h1{font-size:12.6vw}
+  .hero-lado{order:2;height:118vw;max-height:640px}
+  .cnis{inset:0;grid-template-columns:repeat(3,1fr);padding:0 20px;font-size:.78rem}
+  .cnis span:nth-child(4n){display:none}
+  .retrato{right:auto;left:50%;transform:translateX(-36%);height:100%}
+  .areas-grade,.tea-grade,.quem-grade,.atend-grade,.docs-grade,.faq-grade,.enderecos,.rod-grade{grid-template-columns:1fr}
+  .areas-cab{position:static}
+  .faixa-maos{max-width:none;aspect-ratio:16/9}
+  .lista a,.fluir-faixa>div{grid-template-columns:1fr;gap:.4rem;padding:1.3rem 0}
+  .tea-casos article,.docs li{grid-template-columns:1fr;gap:.4rem}
+  .direitos{columns:1}
+  .fatos{grid-template-columns:1fr 1fr}
+  .atend-grade .troca-fotos{position:relative;top:0;height:62vw;order:-1}
+  .passos li{min-height:auto;padding:2rem 0;opacity:1}
+  .esc-foto{aspect-ratio:4/3}
+  .faq-foto{display:none}
+  .zap-fixo{display:inline-flex;width:58px;height:58px;padding:0;border-radius:50%;box-shadow:0 6px 20px rgb(15 31 39 / .3)}
+  .zap-fixo svg{width:28px;height:28px}
+  .quem-foto{max-width:none}
+}
+</style>
+</head>
+<body>
+<header data-nav>
+  <div class="faixa-previa">Prévia de site feita pela <b>AlgUp Digital</b> para Daniela Rosseto Advocacia.</div>
+  <div class="nav-in">
+    <a class="marca" href="#topo">Daniela Rosseto<small>Advocacia</small></a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#areas" data-rolar>Áreas</a>
+      <a href="#autismo" data-rolar>Autismo</a>
+      <a href="#atendimento" data-rolar>Atendimento</a>
+      <a href="#escritorio" data-rolar>Escritório</a>
+    </nav>
+    <a class="btn nav-btn" href="https://wa.me/5517992781931?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" data-hero>
+    <div class="hero-texto">
+      <h1 data-linhas>Advocacia<br><b>previdenciária</b><br>em São José<br>do Rio Preto.</h1>
+      <p class="hero-apoio" data-palavras>Aposentadoria, <span class="sigla">BPC/LOAS</span>, benefícios por incapacidade e os direitos da pessoa com autismo.</p>
+      <div class="hero-acoes">
+        <a class="btn" href="https://wa.me/5517992781931?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+          Falar pelo WhatsApp</a>
+        <a class="link" href="#escritorio">Ver como chegar</a>
+      </div>
+      <p class="hero-oab"><strong>Dra. Daniela M. Rosseto de Oliveira</strong><br><span class="oab"><span class="sigla">OAB/SP</span> 277.178</span>. Atendimento presencial e por vídeo.</p>
+    </div>
+    <div class="hero-lado" aria-hidden="true">
+      <div class="cnis" id="cnis"></div>
+      <figure class="retrato moldura" data-revelar="baixo" style="overflow:visible;margin:0"><img src="img/daniela-recorte.webp" alt="" fetchpriority="high" width="682" height="1180"></figure>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap">
+      <p data-acender>Para o <span class="sigla">INSS</span>, a sua vida de trabalho é uma lista de meses. Um mês que falta pode mudar o resultado do pedido. Por isso o atendimento começa pelo extrato: conferimos cada período, juntamos o que comprova e explicamos o caminho antes de qualquer passo.</p>
+      <p class="assina">Escritório fundado pela Dra. Daniela Rosseto, que atua no Direito Previdenciário há mais de 15 anos.</p>
+    </div>
+  </section>
+
+  <section class="areas" id="areas">
+    <div class="wrap areas-grade">
+      <div class="areas-cab">
+        <h2 data-linhas>Áreas de<br><b>atuação</b></h2>
+        <p class="intro">Benefícios do <span class="sigla">INSS</span> e assistenciais, no pedido administrativo, no recurso e na Justiça.</p>
+        <figure class="moldura parallax faixa-maos" data-revelar="cima" data-parallax="7"><img src="img/maos.webp" alt="Mãos abertas de uma pessoa idosa, em preto e branco" loading="lazy"></figure>
+      </div>
+      <div>
+        <ul class="lista">
+          <li data-fluir><a href="#contato"><h3><span class="sigla">BPC/LOAS</span></h3><p>Um salário mínimo por mês ao idoso com mais de 65 anos ou à pessoa com deficiência, mesmo sem ter contribuído.</p></a><div class="fluir-faixa"><div><h3><span class="sigla">BPC/LOAS</span></h3><p>Um salário mínimo por mês ao idoso com mais de 65 anos ou à pessoa com deficiência, mesmo sem ter contribuído.</p></div></div></li>
+          <li data-fluir><a href="#contato"><h3>Benefícios por incapacidade</h3><p>Auxílio-doença e aposentadoria por invalidez, da perícia ao recurso.</p></a><div class="fluir-faixa"><div><h3>Benefícios por incapacidade</h3><p>Auxílio-doença e aposentadoria por invalidez, da perícia ao recurso.</p></div></div></li>
+          <li data-fluir><a href="#contato"><h3>Aposentadorias</h3><p>Por idade urbana, por tempo de contribuição, rural, especial e da pessoa com deficiência, com as regras de transição da Reforma.</p></a><div class="fluir-faixa"><div><h3>Aposentadorias</h3><p>Por idade urbana, por tempo de contribuição, rural, especial e da pessoa com deficiência, com as regras de transição da Reforma.</p></div></div></li>
+          <li data-fluir><a href="#contato"><h3>Auxílio-acidente</h3><p>Quando a sequela de um acidente reduz a capacidade para o trabalho.</p></a><div class="fluir-faixa"><div><h3>Auxílio-acidente</h3><p>Quando a sequela de um acidente reduz a capacidade para o trabalho.</p></div></div></li>
+          <li data-fluir><a href="#contato"><h3>Pensão por morte e auxílio-reclusão</h3><p>Benefícios dos dependentes do segurado.</p></a><div class="fluir-faixa"><div><h3>Pensão por morte e auxílio-reclusão</h3><p>Benefícios dos dependentes do segurado.</p></div></div></li>
+          <li data-fluir><a href="#contato"><h3>Salário-maternidade</h3><p>Para a segurada gestante ou adotante.</p></a><div class="fluir-faixa"><div><h3>Salário-maternidade</h3><p>Para a segurada gestante ou adotante.</p></div></div></li>
+          <li data-fluir><a href="#contato"><h3>Planejamento previdenciário</h3><p>Orientação antes de pedir: qual benefício, qual regra e qual é o melhor momento para você.</p></a><div class="fluir-faixa"><div><h3>Planejamento previdenciário</h3><p>Orientação antes de pedir: qual benefício, qual regra e qual é o melhor momento para você.</p></div></div></li>
+        </ul>
+        <p class="tambem">O escritório também atua em Direito Trabalhista e Direito Civil.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="tea" id="autismo" data-luz>
+    <div class="wrap tea-grade">
+      <div>
+        <h2 data-linhas>Direitos da pessoa<br><b>com autismo</b></h2>
+        <p class="intro">A lei garante direitos à pessoa com Transtorno do Espectro Autista e à família. Na prática, muitos dependem de um pedido bem feito ao plano de saúde, à escola ou ao <span class="sigla">INSS</span>.</p>
+        <div class="tea-casos">
+          <article><h3>O plano de saúde limitou ou negou a terapia</h3><p>Com a prescrição médica, é possível pedir na Justiça a cobertura das terapias, inclusive o método <span class="sigla">ABA</span>, com pedido de liminar para o tratamento começar enquanto o processo corre.</p></article>
+          <article><h3>A escola negou o professor auxiliar</h3><p>As redes de ensino têm o dever de oferecer o auxiliar qualificado em sala, individual ou compartilhado, conforme a necessidade de cada aluno.</p></article>
+          <article><h3><span class="sigla">BPC</span> para a criança ou o adulto autista</h3><p>O benefício assistencial também alcança a pessoa com <span class="sigla">TEA</span>, conforme os requisitos de renda da família.</p></article>
+        </div>
+        <ul class="direitos">
+          <li>Carteira de identificação</li><li>Inclusão escolar</li><li>Redução de jornada dos pais servidores</li><li>Isenção na compra de veículo</li><li>Imposto de renda</li><li>Saúde e transporte</li><li>Atendimento prioritário</li><li>Vaga de estacionamento</li>
+        </ul>
+        <a class="btn claro" href="https://wa.me/5517992781931?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20direitos%20da%20pessoa%20com%20autismo." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      </div>
+      <figure class="moldura parallax tea-foto" data-revelar="esquerda" data-parallax="6"><img src="img/blocos.webp" alt="Mão de criança montando blocos de madeira sobre a mesa" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="quem" id="quem">
+    <div class="wrap quem-grade">
+      <figure class="moldura parallax quem-foto" data-revelar="baixo" data-parallax="5"><img src="img/daniela-retrato.webp" alt="Retrato da advogada Daniela Rosseto" loading="lazy"></figure>
+      <div class="quem-texto">
+        <h2 data-linhas>Dra. Daniela M.<br><b>Rosseto de Oliveira</b></h2>
+        <span class="oab"><span class="sigla">OAB/SP</span> 277.178. Fundadora do escritório.</span>
+        <div class="corpo">
+          <p>Atua no Direito Previdenciário há mais de 15 anos, com atenção especial aos direitos da pessoa com autismo. Atende quem teve o benefício negado ou cortado e quem quer se preparar antes de pedir.</p>
+          <p>O atendimento é feito por ela e pela equipe do escritório, em Rio Preto, em Bilac ou por videochamada, com informação clara sobre cada etapa do processo.</p>
+        </div>
+        <div class="fatos">
+          <div><strong class="num">15+ anos</strong><span>no Direito Previdenciário</span></div>
+          <div><strong>2 cidades</strong><span>Rio Preto e Bilac</span></div>
+          <div><strong>Por vídeo</strong><span>Zoom, Meet ou telefone</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="atend" id="atendimento" data-troca>
+    <div class="wrap">
+      <h2 data-linhas>Como funciona<br><b>o atendimento</b></h2>
+      <div class="atend-grade">
+        <ol class="passos">
+          <li data-passo="0"><span class="n num">1</span><h3>A primeira conversa</h3><p>Pelo WhatsApp, por vídeo ou no escritório. Você conta a sua situação e tira as primeiras dúvidas, sem pressa.</p></li>
+          <li data-passo="1"><span class="n num">2</span><h3>Os documentos</h3><p>Reunimos o extrato do <span class="sigla">CNIS</span>, as carteiras de trabalho, os laudos e a carta do <span class="sigla">INSS</span>. É aqui que se acha o período esquecido.</p></li>
+          <li data-passo="2"><span class="n num">3</span><h3>O pedido</h3><p>Com a análise pronta, você decide o caminho: pedido administrativo, recurso ou ação na Justiça.</p></li>
+          <li data-passo="3"><span class="n num">4</span><h3>O acompanhamento</h3><p>O escritório acompanha cada andamento e avisa você do que acontece, até a decisão final.</p></li>
+        </ol>
+        <div class="troca-fotos" aria-hidden="true">
+          <img data-passo="0" src="img/sala.webp" alt="" loading="lazy">
+          <img data-passo="1" src="img/marcadores.webp" alt="" loading="lazy">
+          <img data-passo="2" src="img/pilhas.webp" alt="" loading="lazy">
+          <img data-passo="3" src="img/janela.webp" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="docs" id="documentos">
+    <div class="wrap docs-grade">
+      <div>
+        <h2 data-linhas>O que levar<br><b>na primeira conversa</b></h2>
+        <p class="intro">Não precisa ter tudo. Traga o que tiver em mãos; o resto a gente ajuda a conseguir.</p>
+      </div>
+      <ol>
+        <li><strong>RG e CPF</strong><span>De quem vai pedir o benefício e, no BPC, de quem mora na casa.</span></li>
+        <li><strong>Carteiras de trabalho</strong><span>Todas, inclusive as antigas e as de período rural.</span></li>
+        <li><strong>Extrato do <span class="sigla">CNIS</span></strong><span>Tirado no aplicativo ou no site Meu <span class="sigla">INSS</span>.</span></li>
+        <li><strong>Laudos e exames</strong><span>Receitas, relatórios médicos e, no autismo, o laudo e a prescrição das terapias.</span></li>
+        <li><strong>Carta do <span class="sigla">INSS</span></strong><span>Se o pedido já foi negado ou o benefício foi cortado.</span></li>
+        <li><strong>Comprovante de endereço</strong><span>Recente, em nome de quem pede ou da família.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="escritorio" id="escritorio">
+    <div class="wrap">
+      <h2 data-linhas>Onde<br><b>atendemos</b></h2>
+      <figure class="moldura parallax esc-foto" data-revelar="baixo" data-parallax="8"><img src="img/sombras.webp" alt="Sombras de pessoas caminhando projetadas na calçada" loading="lazy"></figure>
+      <div class="enderecos">
+        <div>
+          <h3>São José do Rio Preto</h3>
+          <p>Av. das Hortências, 459<br>Jardim dos Seixas, São José do Rio Preto, SP</p>
+          <a class="tel" href="tel:+5517992781931">(17) 99278-1931</a><br>
+          <a class="link" href="https://www.google.com/maps/search/?api=1&query=Av.+das+Hort%C3%AAncias%2C+459%2C+Jardim+dos+Seixas%2C+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+SP" target="_blank" rel="noopener">Ver como chegar</a>
+        </div>
+        <div>
+          <h3>Bilac</h3>
+          <p>Rua Antônia Bertan Rosseto, 210<br>Centro, Bilac, SP</p>
+          <a class="tel" href="tel:+5518997953134">(18) 99795-3134</a><br>
+          <a class="link" href="https://www.google.com/maps/search/?api=1&query=Rua+Ant%C3%B4nia+Bertan+Rosseto%2C+210%2C+Centro%2C+Bilac+SP" target="_blank" rel="noopener">Ver como chegar</a>
+        </div>
+        <div>
+          <h3>Horário</h3>
+          <p>De segunda a sexta, das 9h às 18h.<br>Atendimento por vídeo com horário marcado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="perguntas">
+    <div class="wrap faq-grade">
+      <div>
+        <h2 data-linhas>Perguntas<br><b>frequentes</b></h2>
+        <figure class="moldura parallax faq-foto" data-revelar="cima" data-parallax="6"><img src="img/maos-dadas.webp" alt="Casal de idosos de mãos dadas num campo" loading="lazy"></figure>
+      </div>
+      <div>
+        <details class="pergunta"><summary>Vocês atendem online?</summary><div class="resposta"><div><p>Sim. O atendimento pode ser por videochamada (Zoom, Google Meet) ou por telefone, e os documentos podem ser enviados pelo WhatsApp.</p></div></div></details>
+        <details class="pergunta"><summary>Meu pedido foi negado pelo INSS. E agora?</summary><div class="resposta"><div><p>Ainda dá para recorrer na via administrativa ou entrar com ação na Justiça. O primeiro passo é ler a carta de indeferimento e o extrato do CNIS para entender o motivo da negativa.</p></div></div></details>
+        <details class="pergunta"><summary>Nunca contribuí para o INSS. Tenho direito a algum benefício?</summary><div class="resposta"><div><p>Pode ter. O BPC/LOAS é assistencial e não exige contribuição: é para o idoso com mais de 65 anos ou a pessoa com deficiência, conforme a renda da família.</p></div></div></details>
+        <details class="pergunta"><summary>Como provar que não consigo trabalhar?</summary><div class="resposta"><div><p>A incapacidade é avaliada na perícia médica do INSS. Laudos, exames e relatórios atualizados ajudam a mostrar a sua condição; o escritório orienta o que levar.</p></div></div></details>
+        <details class="pergunta"><summary>Estou desempregado. Posso receber benefício?</summary><div class="resposta"><div><p>Depende do tempo desde a última contribuição. Por um período, a pessoa mantém a qualidade de segurada mesmo sem contribuir. Cada caso precisa ser conferido no extrato.</p></div></div></details>
+        <details class="pergunta"><summary>O plano de saúde pode limitar as sessões de terapia do meu filho?</summary><div class="resposta"><div><p>Quando há prescrição médica, a limitação de horas ou a falta de profissionais capacitados na rede pode ser questionada, inclusive na Justiça, com pedido de liminar.</p></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato" data-luz>
+    <div class="wrap">
+      <h2 data-linhas>Conte a sua situação.<br><b>A gente explica o caminho.</b></h2>
+      <p class="intro">Mande uma mensagem pelo WhatsApp ou ligue para o escritório, de segunda a sexta, das 9h às 18h.</p>
+      <div class="contato-acoes">
+        <a class="btn claro cta" href="https://wa.me/5517992781931?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico>Falar pelo WhatsApp</a>
+        <a class="link" href="tel:+5517992781931">Ligar para o escritório</a>
+        <a class="link" href="mailto:contato@danielarossetoadv.com.br">contato@danielarossetoadv.com.br</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rod-grade">
+      <div>
+        <h4>Daniela Rosseto Advocacia</h4>
+        <p>Dra. Daniela M. Rosseto de Oliveira<br><span class="oab"><span class="sigla">OAB/SP</span> 277.178</span></p>
+      </div>
+      <div>
+        <h4>São José do Rio Preto</h4>
+        <p>Av. das Hortências, 459, Jardim dos Seixas<br><a href="tel:+5517992781931" class="num">(17) 99278-1931</a></p>
+      </div>
+      <div>
+        <h4>Bilac</h4>
+        <p>Rua Antônia Bertan Rosseto, 210, Centro<br><a href="tel:+5518997953134" class="num">(18) 99795-3134</a><br>Segunda a sexta, 9h às 18h</p>
+      </div>
+    </div>
+    <div class="rod-nome" data-encaixar>Daniela Rosseto</div>
+    <div class="avisos">
+      <p class="golpe">O escritório não solicita pagamentos por WhatsApp de números desconhecidos. Na dúvida, ligue para o número oficial acima.</p>
+      <p>Este site tem caráter meramente informativo (Provimento 205/2021 do CFOAB).</p>
+      <details id="privacidade"><summary>Política de privacidade</summary><p>Este site não usa formulários nem cookies de rastreamento. Os dados que você enviar por WhatsApp, telefone ou e-mail são usados só para responder ao seu contato e para o atendimento jurídico, conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018). Para pedir a exclusão, escreva para contato@danielarossetoadv.com.br.</p></details>
+      <p><a href="https://www.instagram.com/danielarossetoadv/" target="_blank" rel="noopener">Instagram @danielarossetoadv</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="btn zap-fixo" href="https://wa.me/5517992781931?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg></a>
+
+<script>
+/* Grade de competências do CNIS (decorativa). Um período marcado a marca-texto. */
+(() => {
+  const el = document.getElementById('cnis'); if (!el) return;
+  let h = ''; const marcados = ['01/2011','02/2011','05/2011','06/2011'];
+  for (let a = 2008; a <= 2015; a++) for (let m = 1; m <= 12; m++) {
+    const c = String(m).padStart(2,'0') + '/' + a;
+    h += `<span${marcados.includes(c) ? ' class="marcada"' : ''}>${c}</span>`;
+  }
+  el.innerHTML = h;
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+/* Marca-texto que corre na linha do extrato (estado inicial só via JS; no ?estatico fica marcado). */
+(() => {
+  if (!window.gsap || document.documentElement.classList.contains('is-estatico')) return;
+  const linhas = document.querySelectorAll('.cnis .marcada');
+  gsap.fromTo(linhas, { '--mt': 0 }, { '--mt': 1, duration: .9, ease: 'expo.out', stagger: .14, delay: 1.3 });
+})();
+</script>
+</body>
+</html>
