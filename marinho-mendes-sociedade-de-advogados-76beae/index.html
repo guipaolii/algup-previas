@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marinho Mendes Sociedade de Advogados · Advocacia para empresas em Campinas e Hortolândia</title>
+<meta name="description" content="Direito societário, empresarial e tributário para empresas de Campinas e Hortolândia. Atendimento nas duas unidades, em dias úteis, das 8h30 às 18h.">
+<meta name="theme-color" content="#121619">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+:root{
+  --fundo:#121619; --tinta:#E3E6E4; --tinta-2:#8C959B; --linha:#2A3137; --acento:#9DBFAF;
+  --papel:#E3E6E4; --grafite:#121619; --linha-clara:#C3C8C6; --tinta-2-clara:#59626A;
+  --fonte-titulo:"Mona Sans","Helvetica Neue",Arial,sans-serif; --fonte-texto:"Mona Sans","Helvetica Neue",Arial,sans-serif;
+  --corpo:1.0625rem; --grao:.06; --largura:1560px;
+}
+body{font-stretch:100%;font-variant-numeric:oldstyle-nums}
+h1,h2,h3{font-stretch:125%;font-weight:780;letter-spacing:-.025em}
+.cond{font-stretch:75%;font-weight:340;letter-spacing:0}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.sigla{font-variant-caps:all-small-caps;letter-spacing:.02em}
+a{text-decoration:none}
+.tinta2{color:var(--tinta-2)}
+
+/* faixa da prévia */
+.previa{position:relative;z-index:70;background:#0B0E10;color:var(--tinta-2);font-size:.8125rem;text-align:center;padding:9px 20px;line-height:1.4}
+.previa strong{color:var(--tinta);font-weight:500}
+
+/* nav */
+[data-nav]{top:37px;padding-block:18px;transition:transform .6s cubic-bezier(.16,1,.3,1),background-color .4s,top .4s}
+[data-nav].nav-solida{top:0;background:rgb(18 22 25 / .92);backdrop-filter:none}
+.nav{display:flex;align-items:center;gap:2.5rem}
+.marca{font-stretch:125%;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;line-height:1;margin-right:auto}
+.marca span{display:block;font-stretch:75%;font-weight:340;font-size:.78rem;letter-spacing:.01em;color:var(--tinta-2);margin-top:4px}
+.nav ul{display:flex;gap:2rem;list-style:none;margin:0;padding:0;font-size:.9375rem}
+.nav ul a{color:var(--tinta-2);transition:color .3s}
+.nav ul a:hover{color:var(--tinta)}
+.btn{display:inline-flex;align-items:center;gap:.6em;min-height:48px;padding:0 1.35rem;border-radius:3px;font-weight:560;font-size:.9375rem;line-height:1}
+.btn-claro{background:var(--tinta);color:var(--grafite)}
+.btn-linha{border:1px solid var(--linha);color:var(--tinta)}
+.btn-linha:hover{border-color:var(--tinta-2)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:end;padding:150px 0 clamp(40px,6vh,72px)}
+.hero-mm{position:absolute;right:-.08em;top:50%;transform:translateY(-54%);font-stretch:75%;font-weight:200;font-size:min(78vh,62vw);line-height:1;letter-spacing:-.04em;color:#1B2126;pointer-events:none;user-select:none;padding-bottom:.1em}
+.hero-grade{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.42fr);gap:clamp(24px,5vw,96px);align-items:end}
+.hero h1{font-size:clamp(3rem,7.4vw,8.6rem);line-height:.94;max-width:11.5ch}
+.hero-apoio{display:grid;grid-template-columns:auto auto;gap:clamp(24px,4vw,64px);align-items:end;margin-top:clamp(28px,5vh,56px);justify-content:start}
+.hero-apoio p{max-width:34ch;color:var(--tinta-2);font-size:1.0625rem}
+.hero-apoio p b{color:var(--tinta);font-weight:520}
+.acoes{display:flex;gap:12px;flex-wrap:wrap}
+.hero-foto{aspect-ratio:3/4;width:100%;border-radius:2px;margin-bottom:6px}
+.hero-legenda{display:flex;justify-content:space-between;font-size:.8125rem;color:var(--tinta-2);margin-top:12px}
+
+/* manifesto */
+.manifesto{padding:clamp(120px,16vw,220px) 0 clamp(110px,13vw,190px)}
+.manifesto-grade{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);align-items:start}
+.manifesto-foto{aspect-ratio:4/5;border-radius:2px;margin-top:.6rem}
+.manifesto p[data-acender]{font-stretch:112%;font-weight:560;font-size:clamp(1.65rem,3.3vw,3.3rem);line-height:1.12;letter-spacing:-.02em;max-width:22ch}
+.margem{font-stretch:75%;font-weight:420;font-size:1.08rem;color:var(--tinta-2);line-height:1.35;letter-spacing:.005em}
+.manifesto .assina{display:flex;gap:2.5rem;margin-top:clamp(40px,6vw,72px);color:var(--tinta-2);font-size:1.0625rem;max-width:52ch;padding-top:20px;border-top:1px solid var(--linha)}
+
+/* faixa fachada */
+.faixa-foto{aspect-ratio:21/8;width:calc(100% - max(20px,4vw));margin-left:auto;border-radius:2px 0 0 2px}
+
+/* áreas */
+.areas{padding:clamp(100px,11vw,160px) 0 clamp(90px,10vw,150px)}
+.cabeca{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);margin-bottom:clamp(40px,6vw,80px);align-items:end}
+.cabeca h2{font-size:clamp(2.4rem,5.4vw,5.6rem);line-height:.95}
+.cabeca .lead{max-width:46ch;color:var(--tinta-2);margin-top:1.4rem}
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
+.lista li{border-bottom:1px solid var(--linha)}
+.item{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,.66fr) minmax(0,.9fr);gap:clamp(16px,6vw,120px);align-items:baseline;padding:clamp(22px,2.6vw,34px) max(20px,4vw)}
+.item h3{font-size:clamp(1.55rem,2.7vw,2.75rem);line-height:1}
+.item p{color:var(--tinta-2);max-width:52ch}
+.item .margem{align-self:center}
+.fluir-faixa .item h3,.fluir-faixa .item p,.fluir-faixa .item .margem{color:var(--grafite)}
+.tambem{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:clamp(32px,6vw,120px)}
+.tambem p:last-child{max-width:60ch;color:var(--tinta-2)}
+.tambem b{color:var(--tinta);font-weight:520}
+
+/* equipe */
+.equipe{padding:clamp(110px,12vw,170px) 0 clamp(120px,13vw,200px);border-top:1px solid var(--linha)}
+.time{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:clamp(14px,1.6vw,28px);align-items:end}
+.pessoa figure{margin:0;aspect-ratio:4/5;border-radius:2px;background:#1B2126}
+.pessoa:first-child figure{aspect-ratio:3/4}
+.pessoa h3{font-size:clamp(1.05rem,1.35vw,1.4rem);letter-spacing:-.015em;margin-top:16px;line-height:1.08}
+.pessoa p{font-size:.95rem;color:var(--tinta-2);margin-top:6px}
+.estagio{margin-top:clamp(36px,4vw,56px);display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;max-width:520px;margin-left:auto}
+.estagio figure{margin:0;aspect-ratio:4/5;border-radius:2px}
+.estagio h3{font-size:1.05rem;letter-spacing:-.01em;line-height:1.1}
+.estagio p{color:var(--tinta-2);font-size:.95rem;margin-top:4px}
+
+/* folha (atendimento + documentos) */
+.folha{background:var(--papel);color:var(--grafite);--tinta:#121619;--tinta-2:var(--tinta-2-clara);--linha:var(--linha-clara);--acento:#2F5E4E}
+.folha ::selection{background:var(--grafite);color:var(--papel)}
+.atendimento{padding:clamp(140px,16vw,240px) 0 clamp(100px,10vw,150px)}
+.atend-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.36fr);gap:clamp(32px,6vw,120px)}
+.atendimento h2{font-size:clamp(2.6rem,6vw,6.2rem);line-height:.95;max-width:12ch}
+.atendimento .lead{color:var(--tinta-2);max-width:48ch;margin-top:1.6rem}
+.clausulas-box{position:relative;margin-top:clamp(56px,7vw,100px)}.clausulas{list-style:none;margin:0;padding:0}
+.trilho{position:absolute;left:calc(clamp(110px,12vw,180px) - 1px);top:6px;bottom:6px;width:1px;background:var(--linha)}
+.trilho i{position:absolute;inset:0;background:var(--grafite);display:block}
+.clausulas li{display:grid;grid-template-columns:clamp(110px,12vw,180px) minmax(0,1fr);gap:0;padding-bottom:clamp(44px,5vw,72px)}
+.clausulas li:last-child{padding-bottom:0}
+.clausulas .margem{padding-right:24px;padding-top:.35rem;text-align:right}
+.clausulas .corpo{padding-left:clamp(24px,3vw,48px);max-width:60ch}
+.clausulas h3{font-size:clamp(1.5rem,2.4vw,2.4rem);line-height:1.02}
+.clausulas p{margin-top:.8rem;color:var(--tinta-2)}
+.rubrica{display:flex;align-items:flex-end;gap:18px;margin-top:clamp(56px,6vw,90px);padding-left:clamp(110px,12vw,180px)}
+.rubrica .traco{flex:1;max-width:420px;border-bottom:1px solid var(--grafite);padding-bottom:6px;font-stretch:75%;font-weight:200;font-size:clamp(2.6rem,4vw,3.8rem);line-height:1.1;letter-spacing:-.04em}
+.rubrica small{font-size:.85rem;color:var(--tinta-2);max-width:26ch;line-height:1.35}
+.atend-foto{position:sticky;top:12vh;aspect-ratio:9/16;max-height:76vh;border-radius:2px}
+
+.documentos{padding:0 0 clamp(120px,12vw,180px)}
+.docs-grade{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);align-items:start;border-top:1px solid var(--linha);padding-top:clamp(56px,6vw,90px)}
+.docs-foto{aspect-ratio:3/4;border-radius:2px}
+.documentos h2{font-size:clamp(2rem,3.8vw,3.8rem);line-height:.98;max-width:14ch}
+.docs{list-style:none;padding:0;margin:clamp(28px,4vw,48px) 0 0;columns:2;column-gap:clamp(24px,4vw,64px)}
+.docs li{break-inside:avoid;padding:14px 0;border-top:1px solid var(--linha)}
+.docs b{display:block;font-weight:600}
+.docs span{color:var(--tinta-2);font-size:.95rem}
+
+/* escritório */
+.escritorio{padding:clamp(120px,13vw,190px) 0 clamp(100px,10vw,150px)}
+.escr-foto{aspect-ratio:16/7;border-radius:2px;margin-bottom:clamp(40px,5vw,72px)}
+.unidades{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,.5fr) minmax(0,.5fr);gap:clamp(24px,6vw,120px)}
+.unidades h2{font-size:clamp(2.2rem,3.6vw,3.8rem);line-height:.95}
+.unidade h3{font-size:clamp(1.4rem,2vw,2rem);margin-bottom:14px}
+.unidade address{font-style:normal;color:var(--tinta-2);line-height:1.6}
+.unidade .acoes{margin-top:22px}
+.dados{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:clamp(24px,6vw,120px);margin-top:clamp(48px,6vw,80px);padding-top:28px;border-top:1px solid var(--linha)}
+.dados dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0}
+.dados dt{font-size:.875rem;color:var(--tinta-2)}
+.dados dd{margin:6px 0 0;font-size:1.0625rem;white-space:nowrap}
+.link-sub{border-bottom:1px solid var(--linha);padding-bottom:2px;transition:border-color .3s}
+.link-sub:hover{border-color:var(--acento)}
+
+/* artigos */
+.artigos{padding:clamp(80px,8vw,120px) 0}
+.artigos ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--linha)}
+.artigos li a{display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--linha);font-stretch:112%;font-weight:560;font-size:clamp(1.15rem,1.8vw,1.7rem);letter-spacing:-.015em}
+.artigos li a small{font-stretch:75%;font-weight:340;font-size:.95rem;color:var(--tinta-2);letter-spacing:0;flex:none}
+
+/* perguntas */
+.perguntas{padding:clamp(100px,10vw,150px) 0 clamp(110px,12vw,170px)}
+.perguntas .lista-p{border-top:1px solid var(--linha)}
+details.pergunta{border-bottom:1px solid var(--linha)}
+details.pergunta summary{display:flex;justify-content:space-between;gap:24px;padding:24px 0;font-stretch:112%;font-weight:600;font-size:clamp(1.1rem,1.6vw,1.5rem);letter-spacing:-.01em;min-height:48px}
+details.pergunta summary::after{content:"";flex:none;width:14px;height:14px;margin-top:.35em;background:linear-gradient(var(--tinta),var(--tinta)) center/14px 1px no-repeat,linear-gradient(var(--tinta),var(--tinta)) center/1px 14px no-repeat;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+details.pergunta[open] summary::after{transform:rotate(45deg)}
+details.pergunta .resposta p{padding:0 0 26px;color:var(--tinta-2);max-width:66ch}
+
+/* contato */
+.contato{padding:clamp(130px,15vw,230px) 0;background:#0D1013;--luz:rgb(157 191 175 / .08)}
+.contato h2{font-size:clamp(2.8rem,7vw,7.4rem);line-height:.93;max-width:13ch}
+.contato-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.5fr);gap:clamp(32px,6vw,120px);align-items:end}
+.contato .canais{display:grid;gap:12px;justify-items:start}
+.contato .canais p{color:var(--tinta-2);font-size:.95rem;margin-top:8px;max-width:38ch}
+.cta-grande{min-height:64px;padding:0 2rem;font-size:1.0625rem}
+
+/* rodapé */
+footer{padding:clamp(80px,8vw,120px) 0 40px;border-top:1px solid var(--linha)}
+.rod-grade{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);font-size:.95rem;color:var(--tinta-2)}
+.rod-grade h4{font-family:var(--fonte-texto);font-stretch:100%;font-weight:600;font-size:.95rem;color:var(--tinta);margin-bottom:10px;letter-spacing:0}
+.rod-grade p+p{margin-top:8px}
+.rod-oab{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.rod-nome{margin-top:clamp(56px,7vw,100px);font-stretch:125%;font-weight:800;letter-spacing:-.035em;color:var(--tinta)}
+.rod-fim{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:24px;border-top:1px solid var(--linha);font-size:.8125rem;color:var(--tinta-2)}
+.rod-fim a{border-bottom:1px solid var(--linha)}
+
+.zap-fixo{display:none;transition:opacity .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+.is-animado .zap-fixo:not(.visivel){opacity:0;transform:translateY(120%);pointer-events:none}
+
+/* celular */
+@media (max-width:900px){
+  .nav ul{display:none}
+  .nav .btn{min-height:44px;padding:0 1rem}
+  .hero{padding-top:118px;align-items:start;min-height:auto;padding-bottom:64px}
+  .hero-grade{grid-template-columns:1fr;gap:28px}
+  .hero h1{font-size:clamp(2.4rem,10.6vw,4.6rem);max-width:none;text-wrap:nowrap}
+  .hero-apoio{grid-template-columns:1fr;gap:22px;margin-top:26px}
+  .hero-grade>div:last-child{order:-1;width:64%;margin-left:auto}
+  .hero-foto{aspect-ratio:4/3}
+  .hero-mm{font-size:96vw;top:23%;right:auto;left:-.1em}
+  .manifesto-grade,.cabeca,.tambem,.atend-grade,.docs-grade,.unidades,.dados,.contato-grade{grid-template-columns:1fr}
+  .manifesto-foto{width:58%;order:2}
+  .faixa-foto{aspect-ratio:4/3;width:calc(100% - 20px)}
+  .item{grid-template-columns:1fr;gap:8px}
+  .item .margem{order:-1}
+  .time{grid-template-columns:1fr 1fr}
+  .pessoa:first-child{grid-column:1/-1}
+  .pessoa:first-child figure{aspect-ratio:4/5;width:78%}
+  .estagio{margin-left:0}
+  .atend-foto{display:none}
+  .clausulas li{grid-template-columns:88px minmax(0,1fr)}
+  .trilho{left:87px}
+  .clausulas .margem{padding-right:14px;font-size:.85rem}
+  .clausulas .corpo{padding-left:20px}
+  .rubrica{padding-left:0;flex-wrap:wrap}
+  .docs{columns:1}
+  .docs-foto{width:70%}
+  .dados dl{grid-template-columns:1fr}
+  .artigos li a{flex-direction:column;gap:6px}
+  .rod-grade{grid-template-columns:1fr}
+  .zap-fixo{display:inline-flex;box-shadow:0 8px 28px rgb(0 0 0 / .35)}
+  .contato{padding-bottom:130px}
+}
+</style>
+</head>
+<body>
+<div class="previa">Prévia de site feita pela AlgUp Digital para <strong>Marinho Mendes Sociedade de Advogados</strong>.</div>
+
+<header data-nav>
+  <div class="wrap nav">
+    <a class="marca" href="#topo" aria-label="Marinho Mendes Sociedade de Advogados, início">Marinho Mendes<span>Sociedade de Advogados</span></a>
+    <nav aria-label="Seções"><ul>
+      <li><a href="#areas" data-rolar>Áreas</a></li>
+      <li><a href="#equipe" data-rolar>Equipe</a></li>
+      <li><a href="#atendimento" data-rolar>Atendimento</a></li>
+      <li><a href="#escritorio" data-rolar>Endereços</a></li>
+    </ul></nav>
+    <a class="btn btn-linha" href="https://wa.me/5519974100605?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20com%20o%20escrit%C3%B3rio." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" data-hero>
+    <div class="hero-mm" aria-hidden="true">MM</div>
+    <div class="wrap hero-grade">
+      <div>
+        <h1 data-linhas>Advocacia<br>para empresas<br>de Campinas<br>e Hortolândia.</h1>
+        <div class="hero-apoio">
+          <p data-palavras data-atraso=".3"><b>Societário, empresarial e tributário.</b> Do contrato social à defesa da empresa, com quatro advogados e duas unidades na região.</p>
+          <div class="acoes">
+            <a class="btn btn-claro" href="https://wa.me/5519974100605?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20com%20o%20escrit%C3%B3rio." target="_blank" rel="noopener" data-magnetico>Falar pelo WhatsApp</a>
+            <a class="btn btn-linha" href="tel:+551932090417"><span data-rolar>Ligar para o escritório</span></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <figure class="moldura parallax hero-foto" data-revelar="cima" data-parallax="6" style="margin:0"><img src="img/sala.webp" alt="Sala de reunião vazia, com mesas e cadeiras contra uma janela clara" fetchpriority="high" width="1800" height="1200"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap manifesto-grade">
+      <figure class="moldura parallax manifesto-foto" data-revelar="baixo" data-parallax="8" style="margin:0"><img src="img/escada.webp" alt="Escada de concreto com luz e sombra marcadas" loading="lazy" width="1800" height="1200"></figure>
+      <div>
+        <p data-acender>Empresa não para à espera do jurídico. Por isso o escritório acompanha sócios e gestores de perto: lê o contrato antes da assinatura, organiza a sociedade antes da briga e cuida do tributo antes da autuação.</p>
+        <div class="assina">
+          <p>Postura ética, técnica e disponibilidade dos advogados: é assim que o próprio escritório descreve o seu trabalho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="moldura faixa-foto" data-revelar="esquerda" style="margin:0"><img src="img/fachada-curva.webp" alt="Fachada curva de um edifício moderno contra o céu" loading="lazy" width="1800" height="1200"></figure>
+
+  <section class="areas" id="areas">
+    <div class="wrap cabeca">
+      <p class="margem">Onde o escritório atua</p>
+      <div>
+        <h2 data-linhas>Áreas de atuação</h2>
+        <p class="lead">O foco é a empresa e quem está à frente dela. Cada área com advogados que acompanham o caso do começo ao fim.</p>
+      </div>
+    </div>
+    <ul class="lista">
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Para sócios</span><h3>Societário</h3><p>Contrato social e alterações, entrada e saída de sócios, acordo de sócios e reorganização da sociedade.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Para sócios</span><h3>Societário</h3><p>Contrato social e alterações, entrada e saída de sócios, acordo de sócios e reorganização da sociedade.</p></div></div></li>
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Dia a dia</span><h3>Empresarial</h3><p>Contratos com clientes e fornecedores, cobrança e recuperação de crédito, para a inadimplência não travar o caixa.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Dia a dia</span><h3>Empresarial</h3><p>Contratos com clientes e fornecedores, cobrança e recuperação de crédito, para a inadimplência não travar o caixa.</p></div></div></li>
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Fisco</span><h3>Tributário</h3><p>Análise da carga tributária, defesa em autuações e discussões administrativas e judiciais com o fisco.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Fisco</span><h3>Tributário</h3><p>Análise da carga tributária, defesa em autuações e discussões administrativas e judiciais com o fisco.</p></div></div></li>
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Equipe</span><h3>Trabalhista empresarial</h3><p>Prevenção de passivos, revisão de rotinas e defesa da empresa em reclamações trabalhistas.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Equipe</span><h3>Trabalhista empresarial</h3><p>Prevenção de passivos, revisão de rotinas e defesa da empresa em reclamações trabalhistas.</p></div></div></li>
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Setor público</span><h3>Administrativo e licitações</h3><p>Apoio para a empresa que vende ou quer vender ao poder público: editais, contratos e recursos.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Setor público</span><h3>Administrativo e licitações</h3><p>Apoio para a empresa que vende ou quer vender ao poder público: editais, contratos e recursos.</p></div></div></li>
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Dados</span><h3><span class="sigla">LGPD</span> e proteção de dados</h3><p>Adequação à Lei Geral de Proteção de Dados, políticas internas e resposta a incidentes.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Dados</span><h3><span class="sigla">LGPD</span> e proteção de dados</h3><p>Adequação à Lei Geral de Proteção de Dados, políticas internas e resposta a incidentes.</p></div></div></li>
+      <li data-fluir><a class="item" href="#contato"><span class="margem">Litígio</span><h3>Contencioso cível e imobiliário</h3><p>Ações de cobrança, indenização, negativação indevida, locação e questões de imóveis.</p></a>
+        <div class="fluir-faixa" aria-hidden="true"><div class="item"><span class="margem">Litígio</span><h3>Contencioso cível e imobiliário</h3><p>Ações de cobrança, indenização, negativação indevida, locação e questões de imóveis.</p></div></div></li>
+    </ul>
+    <div class="wrap tambem">
+      <p class="margem">Também para pessoas</p>
+      <p>O escritório atende ainda em <b>família e sucessões</b> (divórcio, partilha, pensão e inventário), <b>direito previdenciário</b> e <b>direito do consumidor</b>.</p>
+    </div>
+  </section>
+
+  <section class="equipe" id="equipe">
+    <div class="wrap cabeca">
+      <p class="margem">Quem atende</p>
+      <div>
+        <h2 data-linhas>Os advogados</h2>
+        <p class="lead">Quem cuida do caso é quem conversa com você. Cada advogado com o seu registro na <span class="sigla">OAB</span> de São Paulo.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="time">
+        <article class="pessoa">
+          <figure class="moldura" data-revelar="baixo"><img src="img/daniel.webp" alt="Retrato de Daniel Marinho Mendes" loading="lazy" width="864" height="1080"></figure>
+          <h3>Daniel Marinho Mendes</h3><p class="num"><span class="sigla">OAB/SP</span> 286.959</p>
+        </article>
+        <article class="pessoa">
+          <figure class="moldura" data-revelar="baixo"><img src="img/sergio.webp" alt="Retrato de Sergio Rodrigo Costa" loading="lazy" width="864" height="1080"></figure>
+          <h3>Sergio Rodrigo Costa</h3><p class="num"><span class="sigla">OAB/SP</span> 287.252</p>
+        </article>
+        <article class="pessoa">
+          <figure class="moldura" data-revelar="baixo"><img src="img/naama.webp" alt="Retrato de Naamã da Silva Pimentel" loading="lazy" width="864" height="1080"></figure>
+          <h3>Naamã da Silva Pimentel</h3><p class="num"><span class="sigla">OAB/SP</span> 348.916</p>
+        </article>
+        <article class="pessoa">
+          <figure class="moldura" data-revelar="baixo"><img src="img/eviane.webp" alt="Retrato de Eviane de Oliveira Silva" loading="lazy" width="864" height="1080"></figure>
+          <h3>Eviane de Oliveira Silva</h3><p class="num"><span class="sigla">OAB/SP</span> 414.369</p>
+        </article>
+      </div>
+      <div class="estagio">
+        <figure class="moldura" data-revelar="baixo"><img src="img/nayra.webp" alt="Retrato de Nayra Celeste de Souza Mendes" loading="lazy" width="864" height="1080"></figure>
+        <div><h3>Nayra Celeste de Souza Mendes</h3><p>Estagiária de Direito</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="folha">
+    <section class="atendimento" id="atendimento">
+      <div class="wrap atend-grade">
+        <div>
+          <h2 data-linhas>Como funciona o atendimento</h2>
+          <p class="lead">Escrito como se escreve um contrato: em cláusulas, na ordem em que acontecem.</p>
+          <div class="clausulas-box"><div class="trilho" aria-hidden="true"><i data-linha-tempo></i></div>
+          <ol class="clausulas">
+            <li><span class="margem">Cláusula primeira</span><div class="corpo"><h3>A primeira conversa</h3><p>Você conta o que está acontecendo na empresa, pelo WhatsApp, por telefone ou em uma das unidades. Já sai sabendo se o assunto é com o escritório.</p></div></li>
+            <li><span class="margem">Cláusula segunda</span><div class="corpo"><h3>A leitura dos documentos</h3><p>Os advogados leem o contrato social, os contratos e as notificações envolvidas, e apontam os riscos com clareza.</p></div></li>
+            <li><span class="margem">Cláusula terceira</span><div class="corpo"><h3>A proposta por escrito</h3><p>O escritório apresenta o caminho, as etapas e a proposta de honorários por escrito, antes de qualquer passo.</p></div></li>
+            <li><span class="margem">Cláusula quarta</span><div class="corpo"><h3>O acompanhamento</h3><p>Um advogado responsável acompanha o caso e mantém a empresa informada a cada movimentação.</p></div></li>
+          </ol></div>
+          <div class="rubrica"><span class="traco" aria-hidden="true">MM</span><small>Marinho Mendes Sociedade de Advogados, Campinas e Hortolândia.</small></div>
+        </div>
+        <figure class="moldura parallax atend-foto" data-revelar="cima" data-parallax="7" style="margin:0"><img src="img/marmore.webp" alt="Luz do sol cortando uma superfície de mármore" loading="lazy" width="1800" height="1200"></figure>
+      </div>
+    </section>
+
+    <section class="documentos">
+      <div class="wrap docs-grade">
+        <figure class="moldura parallax docs-foto" data-revelar="baixo" data-parallax="7" style="margin:0"><img src="img/papeis.webp" alt="Pilhas de papéis e pastas sobre uma mesa" loading="lazy" width="1800" height="1200"></figure>
+        <div>
+          <h2 data-linhas>O que levar na primeira conversa</h2>
+          <ul class="docs">
+            <li><b>Contrato social</b><span>e a última alteração registrada</span></li>
+            <li><b>Cartão do <span class="sigla">CNPJ</span></b><span>para identificar a empresa</span></li>
+            <li><b>Contratos em discussão</b><span>com clientes, fornecedores ou sócios</span></li>
+            <li><b>Notificações e autuações</b><span>do fisco, de órgãos públicos ou de terceiros</span></li>
+            <li><b>Processos em andamento</b><span>o número já ajuda</span></li>
+            <li><b>Uma linha do tempo</b><span>datas e fatos, do jeito que você lembrar</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="escritorio" id="escritorio">
+    <div class="wrap">
+      <figure class="moldura parallax escr-foto" data-revelar="baixo" data-parallax="8" style="margin:0 0 clamp(40px,5vw,72px)"><img src="img/sombra.webp" alt="Sombra de um edifício projetada sobre parede de concreto" loading="lazy" width="1800" height="1200"></figure>
+      <div class="unidades">
+        <h2 data-linhas>Duas unidades na região</h2>
+        <div class="unidade">
+          <h3>Campinas</h3>
+          <address>Av. José Rocha Bonfim, 214<br>Edifício Milão, Praça Capital<br>Bloco J, sala 228<br>Loteamento Center Santa Genebra<br><span class="num">13080-650</span>, Campinas, SP</address>
+          <div class="acoes"><a class="btn btn-linha" href="https://www.google.com/maps/search/?api=1&query=Av.+Jos%C3%A9+Rocha+Bonfim%2C+214%2C+Campinas+SP" target="_blank" rel="noopener"><span data-rolar>Ver como chegar</span></a></div>
+        </div>
+        <div class="unidade">
+          <h3>Hortolândia</h3>
+          <address>Rua Antônio Nelson Barbosa, 93<br>Jardim do Bosque<br><span class="num">13186-231</span>, Hortolândia, SP</address>
+          <div class="acoes"><a class="btn btn-linha" href="https://www.google.com/maps/search/?api=1&query=Rua+Ant%C3%B4nio+Nelson+Barbosa%2C+93%2C+Hortol%C3%A2ndia+SP" target="_blank" rel="noopener"><span data-rolar>Ver como chegar</span></a></div>
+        </div>
+      </div>
+      <div class="dados">
+        <p class="margem">Horário e contato</p>
+        <dl class="num">
+          <div><dt>Dias úteis</dt><dd>8h30 às 18h</dd></div>
+          <div><dt>Telefones</dt><dd><a class="link-sub" href="tel:+551932090417">(19) 3209-0417</a><br><a class="link-sub" href="tel:+551938454946">(19) 3845-4946</a></dd></div>
+          <div><dt>E-mail</dt><dd><a class="link-sub" href="mailto:adm@marinhomendes.adv.br">adm@marinhomendes.adv.br</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="artigos">
+    <div class="wrap cabeca">
+      <p class="margem">Do blog do escritório</p>
+      <h2 data-linhas>Artigos recentes</h2>
+    </div>
+    <div class="wrap">
+      <ul>
+        <li><a href="http://www.marinhomendes.adv.br/blog" target="_blank" rel="noopener"><span>Ransomware e vazamento de dados</span><small>Proteção de dados</small></a></li>
+        <li><a href="http://www.marinhomendes.adv.br/blog" target="_blank" rel="noopener"><span><span class="sigla">LGPD</span> na era da IA generativa</span><small>Proteção de dados</small></a></li>
+        <li><a href="http://www.marinhomendes.adv.br/blog" target="_blank" rel="noopener"><span>Inventário em 2025</span><small>Família e sucessões</small></a></li>
+        <li><a href="http://www.marinhomendes.adv.br/blog" target="_blank" rel="noopener"><span>Auxílio-doença em 2025</span><small>Previdenciário</small></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="perguntas">
+    <div class="wrap cabeca">
+      <p class="margem">Perguntas frequentes</p>
+      <h2 data-linhas>Antes de marcar</h2>
+    </div>
+    <div class="wrap">
+      <div class="lista-p">
+        <details class="pergunta"><summary>O escritório atende só empresas?</summary><div class="resposta"><div><p>O foco é a empresa e seus sócios, em societário, empresarial e tributário. O escritório também atende pessoas em família e sucessões, previdenciário e consumidor.</p></div></div></details>
+        <details class="pergunta"><summary>Posso ser atendido em Hortolândia?</summary><div class="resposta"><div><p>Sim. O escritório tem uma unidade em Campinas, no Edifício Milão, e outra em Hortolândia, no Jardim do Bosque. Combine pelo WhatsApp qual fica melhor para você.</p></div></div></details>
+        <details class="pergunta"><summary>Como agendar um atendimento?</summary><div class="resposta"><div><p>Pelo WhatsApp (19) 97410-0605, pelos telefones (19) 3209-0417 e (19) 3845-4946 ou pelo e-mail adm@marinhomendes.adv.br, em dias úteis, das 8h30 às 18h.</p></div></div></details>
+        <details class="pergunta"><summary>O que levar na primeira conversa?</summary><div class="resposta"><div><p>O contrato social, o cartão do CNPJ e os documentos ligados ao assunto: contratos, notificações, autuações ou números de processo. Se não tiver tudo, a conversa acontece assim mesmo.</p></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato" data-luz>
+    <div class="wrap contato-grade">
+      <h2 data-linhas>Fale com o escritório.</h2>
+      <div class="canais">
+        <a class="btn btn-claro cta-grande" href="https://wa.me/5519974100605?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20com%20o%20escrit%C3%B3rio." target="_blank" rel="noopener" data-magnetico>Falar pelo WhatsApp</a>
+        <a class="btn btn-linha" href="tel:+551932090417"><span data-rolar>Ligar para o escritório</span></a>
+        <p class="num">WhatsApp (19) 97410-0605. Dias úteis, das 8h30 às 18h.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rod-grade">
+      <div>
+        <h4>Marinho Mendes Sociedade de Advogados</h4>
+        <p>Av. José Rocha Bonfim, 214, Bloco J, sala 228, Edifício Milão, Praça Capital, Campinas, SP.</p>
+        <p>Rua Antônio Nelson Barbosa, 93, Jardim do Bosque, Hortolândia, SP.</p>
+        <p class="num">Dias úteis, das 8h30 às 18h.</p>
+      </div>
+      <div>
+        <h4>Advogados</h4>
+        <ul class="rod-oab num">
+          <li>Daniel Marinho Mendes, <span class="sigla">OAB/SP</span> 286.959</li>
+          <li>Sergio Rodrigo Costa, <span class="sigla">OAB/SP</span> 287.252</li>
+          <li>Naamã da Silva Pimentel, <span class="sigla">OAB/SP</span> 348.916</li>
+          <li>Eviane de Oliveira Silva, <span class="sigla">OAB/SP</span> 414.369</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Avisos</h4>
+        <p>Este site tem caráter meramente informativo (Provimento 205/2021 do <span class="sigla">CFOAB</span>).</p>
+        <p>O escritório não solicita pagamentos por WhatsApp de números desconhecidos. Na dúvida, ligue para (19) 3209-0417.</p>
+      </div>
+    </div>
+    <div class="rod-nome" data-encaixar>Marinho Mendes</div>
+    <div class="rod-fim">
+      <span>© 2026 Marinho Mendes Sociedade de Advogados</span>
+      <a href="privacidade.html">Política de privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-claro zap-fixo" href="https://wa.me/5519974100605?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento%20com%20o%20escrit%C3%B3rio." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+  // WhatsApp fixo do celular aparece depois da primeira dobra.
+  (() => { const z = document.querySelector('.zap-fixo'); const f = () => z.classList.toggle('visivel', scrollY > innerHeight * .7);
+    addEventListener('scroll', f, { passive: true }); f(); })();
+</script>
+</body>
+</html>
