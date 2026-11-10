@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ivo Roberto Perez Advogado | Direito do consumidor em Sorocaba</title>
+<meta name="description" content="Advocacia em direito do consumidor em Sorocaba desde 1998: negativação indevida, cobrança abusiva, produto com defeito e serviço não contratado.">
+<meta name="theme-color" content="#161A27">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=zodiak@100,400,900&f[]=switzer@400,500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root {
+    --fundo: #E8EBEC; --tinta: #161A27; --tinta-2: #545B69; --linha: #C3C8CE; --cupom: #F6F7F5; --acento: #2E44C4;
+    --fonte-titulo: "Zodiak", "Century Schoolbook", Georgia, serif;
+    --fonte-texto: "Switzer", "Helvetica Neue", Arial, sans-serif;
+    --grao: .06; --largura: 1560px;
+  }
+  body { font-variant-numeric: oldstyle-nums; }
+  .sc { font-size: .84em; letter-spacing: .045em; }
+  .num { font-variant-numeric: tabular-nums lining-nums; }
+  .pequeno { font-size: .875rem; color: var(--tinta-2); }
+
+  /* Faixa da prévia + nav */
+  [data-nav] { color: #fff; }
+  .faixa-previa { font-size: .78rem; padding: 7px max(20px, 4vw); background: var(--tinta); color: #C9CED8; border-bottom: 1px solid rgb(255 255 255 / .08); }
+  .nav-linha { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 18px max(20px, 4vw); }
+  .marca { font-family: var(--fonte-titulo); font-size: 1.2rem; text-decoration: none; white-space: nowrap; }
+  .nav-links { display: flex; gap: 2rem; font-size: .95rem; }
+  .nav-links a { text-decoration: none; }
+  .nav-cta { text-decoration: none; font-size: .95rem; border: 1px solid currentColor; padding: 10px 18px; border-radius: 2px; }
+  [data-nav].nav-solida { background: rgb(232 235 236 / .94); color: var(--tinta); backdrop-filter: none; }
+  [data-nav].nav-solida .nav-linha { border-bottom: 1px solid var(--linha); }
+
+  /* HERO (esqueleto C) */
+  .hero { position: relative; height: 100svh; min-height: 620px; background: var(--tinta); }
+  .hero-foto { position: absolute; inset: 0; }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+  .hero-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(10 12 20 / .55) 0%, rgb(10 12 20 / .25) 38%, rgb(10 12 20 / .72) 100%); }
+  .hero-nome { position: absolute; left: 0; right: 0; top: 44%; display: flex; justify-content: space-between; padding-inline: max(20px, 4vw); color: #fff;
+    font-family: var(--fonte-titulo); font-weight: 400; font-size: clamp(1.15rem, 2.1vw, 2.3rem); letter-spacing: -.01em; }
+  .hero-pe { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 max(20px, 4vw) clamp(28px, 5vh, 56px); display: grid; grid-template-columns: 1fr minmax(260px, 30%); align-items: end; gap: 3rem; color: #fff; }
+  .hero h1 { font-weight: 100; font-size: clamp(3rem, 7.4vw, 8.8rem); line-height: .96; letter-spacing: -.025em; }
+  .hero-apoio p { color: #DCE0E6; max-width: 34ch; margin-bottom: 1.6rem; }
+  .hero-apoio .pequeno { color: #AEB4BF; margin-top: 1.2rem; }
+
+  .cta { display: inline-flex; align-items: center; gap: .7rem; min-height: 52px; padding: 0 26px; background: var(--cupom); color: var(--tinta); text-decoration: none; font-weight: 500; border-radius: 3px; }
+  .cta.escuro { background: var(--tinta); color: var(--cupom); }
+  .cta svg { width: 18px; height: 18px; }
+  .link-sec { display: inline-flex; min-height: 48px; align-items: center; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+  /* Manifesto */
+  .manifesto { padding: clamp(110px, 16vw, 220px) 0 clamp(96px, 12vw, 170px); }
+  .manifesto .wrap { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; align-items: start; }
+  .manifesto p[data-acender] { grid-column: 1 / span 3; font-family: var(--fonte-titulo); font-size: clamp(1.7rem, 3.35vw, 3.6rem); line-height: 1.14; letter-spacing: -.012em; }
+  .manifesto figure { grid-column: 4; margin: 0 calc(-1 * max(20px, 4vw)) 0 0; aspect-ratio: 3 / 4; margin-top: 18vh; }
+
+  /* Situações */
+  .situacoes { padding: clamp(40px, 6vw, 90px) 0 clamp(120px, 14vw, 200px); }
+  .sit-topo { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; margin-bottom: clamp(40px, 5vw, 72px); }
+  .sit-topo h2 { font-size: clamp(2.2rem, 5vw, 5.6rem); letter-spacing: -.02em; font-weight: 400; }
+  .sit-topo figure { width: clamp(180px, 22vw, 340px); aspect-ratio: 4 / 3; margin: 0; }
+  .lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+  .lista li { border-bottom: 1px solid var(--linha); }
+  .lista a, .fluir-faixa > div { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 9rem; gap: 2rem; align-items: baseline; padding: clamp(20px, 2.4vw, 34px) 0; text-decoration: none; }
+  .fluir-faixa > div { padding-inline: 0; }
+  .lista .t { font-family: var(--fonte-titulo); font-size: clamp(1.55rem, 3vw, 3.1rem); line-height: 1.04; letter-spacing: -.015em; }
+  .lista .d { color: var(--tinta-2); max-width: 46ch; }
+  .lista .a { text-align: right; font-size: 1rem; color: var(--tinta-2); }
+  .fluir-faixa { background: var(--tinta); }
+  .fluir-faixa > div { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .fluir-faixa .d { color: #B8BECA; }
+  .tambem { display: grid; grid-template-columns: 1fr 3fr; gap: 2rem; margin-top: clamp(48px, 6vw, 80px); }
+  .tambem ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 0; font-family: var(--fonte-titulo); font-size: clamp(1.15rem, 1.8vw, 1.6rem); }
+  .tambem li:not(:last-child)::after { content: "/"; color: var(--linha); margin: 0 .7em; }
+
+  /* Faixa de foto */
+  .faixa-foto { position: relative; }
+  .faixa-foto figure { margin: 0; aspect-ratio: 21 / 9; }
+  .faixa-foto figcaption { position: absolute; left: max(20px, 4vw); bottom: clamp(20px, 4vw, 56px); color: #fff; font-family: var(--fonte-titulo); font-size: clamp(1.5rem, 3.6vw, 3.8rem); line-height: 1.05; max-width: 16ch; letter-spacing: -.015em; text-shadow: 0 1px 30px rgb(0 0 0 / .35); }
+  .faixa-foto figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(10 12 20 / .55), transparent 60%); pointer-events: none; }
+
+  /* Quem atende */
+  .quem { padding: clamp(110px, 13vw, 200px) 0 clamp(96px, 10vw, 150px); }
+  .quem .wrap { display: grid; grid-template-columns: 5fr 1fr 6fr; gap: 2rem; align-items: end; }
+  .quem figure { margin: 0; aspect-ratio: 4 / 5; }
+  .quem .txt { grid-column: 3; }
+  .ano { font-family: var(--fonte-titulo); font-weight: 900; font-size: clamp(5.5rem, 15vw, 15rem); line-height: .9; letter-spacing: -.03em; display: block; padding-bottom: .06em; }
+  .quem h2 { font-size: clamp(1.9rem, 3.4vw, 3.4rem); margin: 1.8rem 0 1.2rem; font-weight: 400; letter-spacing: -.015em; }
+  .quem p { max-width: 60ch; color: var(--tinta-2); }
+  .ficha { margin-top: 2.2rem; border-top: 1px solid var(--tinta); display: grid; grid-template-columns: 10rem 1fr; }
+  .ficha dt, .ficha dd { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--linha); }
+  .ficha dt { color: var(--tinta-2); font-size: .95rem; }
+
+  /* Atendimento + cupom (assinatura) */
+  .atendimento { background: var(--tinta); color: #E9ECF1; padding: clamp(120px, 14vw, 230px) 0; --luz: rgb(140 160 255 / .08); }
+  .atendimento .wrap { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(2rem, 6vw, 7rem); }
+  .atendimento h2 { font-size: clamp(2.4rem, 5.2vw, 5.8rem); font-weight: 100; letter-spacing: -.025em; margin-bottom: clamp(48px, 6vw, 96px); }
+  .passos { list-style: none; margin: 0; padding: 0; }
+  .passos li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; padding: clamp(28px, 3vw, 44px) 0; border-top: 1px solid rgb(255 255 255 / .14); }
+  .passos .n { font-family: var(--fonte-titulo); font-weight: 900; font-size: 1.8rem; color: #7E8798; }
+  .passos h3 { font-size: clamp(1.5rem, 2.4vw, 2.3rem); font-weight: 400; margin-bottom: .7rem; }
+  .passos p { color: #AEB4BF; max-width: 48ch; }
+  .cupom-coluna { position: relative; }
+  .cupom-fixo { position: sticky; top: 12vh; }
+  .fenda { height: 10px; border-radius: 2px; background: #0A0C14; box-shadow: inset 0 2px 4px rgb(0 0 0 / .8), 0 1px 0 rgb(255 255 255 / .08); margin: 0 -14px; }
+  .cupom { --dente: 14px; background: var(--cupom); color: #2A2F3C; padding: 34px 30px 44px; margin: 0 6px;
+    -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--dente) 100%;
+            mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--dente) 100%;
+    font-variant-numeric: tabular-nums lining-nums; font-size: .95rem; }
+  .cupom .cab { text-align: center; border-bottom: 1px dashed #9AA1AD; padding-bottom: 16px; margin-bottom: 14px; }
+  .cupom .cab strong { display: block; font-family: var(--fonte-titulo); font-weight: 900; font-size: 1.35rem; color: var(--tinta); }
+  .cupom ul { list-style: none; margin: 0; padding: 0; }
+  .cupom li { display: flex; align-items: baseline; gap: .5rem; padding: 7px 0; }
+  .cupom li .pt { flex: 1; border-bottom: 1px dotted #9AA1AD; transform: translateY(-4px); min-width: 1rem; }
+  .cupom .tique { color: var(--acento); font-weight: 500; }
+  .cupom .pe { border-top: 1px dashed #9AA1AD; margin-top: 14px; padding-top: 14px; text-align: center; font-size: .85rem; color: #5A6170; }
+  .cupom .barras { height: 34px; margin: 14px auto 0; width: 70%; background: repeating-linear-gradient(90deg, #2A2F3C 0 2px, transparent 2px 4px, #2A2F3C 4px 5px, transparent 5px 8px, #2A2F3C 8px 11px, transparent 11px 12px); opacity: .85; }
+  .atendimento .cta { margin-top: clamp(40px, 5vw, 64px); }
+
+  /* Escritório */
+  .escritorio { padding: clamp(110px, 12vw, 180px) 0 clamp(96px, 9vw, 130px); }
+  .escritorio .wrap { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+  .escritorio figure { margin: 0 0 0 calc(-1 * max(20px, 4vw)); aspect-ratio: 3 / 2; }
+  .escritorio h2 { font-size: clamp(2.2rem, 4.6vw, 5rem); font-weight: 400; letter-spacing: -.02em; margin-bottom: 1.6rem; }
+  .endereco { font-family: var(--fonte-titulo); font-size: clamp(1.3rem, 2vw, 1.9rem); line-height: 1.25; margin-bottom: 1.8rem; font-style: normal; }
+  .contatos { display: flex; flex-wrap: wrap; gap: .5rem 2rem; }
+
+  /* Perguntas */
+  .perguntas { padding: clamp(96px, 10vw, 160px) 0 clamp(120px, 14vw, 210px); border-top: 1px solid var(--linha); }
+  .perguntas .wrap { display: grid; grid-template-columns: 4fr 7fr; gap: clamp(2rem, 6vw, 6rem); }
+  .perguntas h2 { font-size: clamp(2.2rem, 4.4vw, 4.6rem); font-weight: 100; letter-spacing: -.02em; margin-bottom: 2rem; }
+  .perguntas aside figure { margin: 0; aspect-ratio: 4 / 5; max-width: 380px; }
+  details.pergunta { border-top: 1px solid var(--linha); }
+  details.pergunta:last-child { border-bottom: 1px solid var(--linha); }
+  details.pergunta summary { display: flex; justify-content: space-between; gap: 2rem; padding: 26px 0; font-family: var(--fonte-titulo); font-size: clamp(1.2rem, 1.9vw, 1.75rem); line-height: 1.2; min-height: 48px; }
+  details.pergunta summary .mais { flex: none; width: 18px; height: 18px; position: relative; margin-top: .35em; }
+  details.pergunta summary .mais::before, details.pergunta summary .mais::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  details.pergunta summary .mais::after { transform: rotate(90deg); }
+  details.pergunta[open] summary .mais::after { transform: rotate(0); }
+  details.pergunta .resposta p { padding: 0 0 28px; color: var(--tinta-2); max-width: 64ch; }
+
+  /* Contato */
+  .contato { background: var(--cupom); padding: clamp(110px, 13vw, 200px) 0; }
+  .contato .wrap { display: grid; grid-template-columns: 8fr 3fr; gap: 3rem; align-items: end; }
+  .contato h2 { font-size: clamp(3rem, 8vw, 9.4rem); font-weight: 100; letter-spacing: -.03em; line-height: .96; }
+  .contato .acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2.6rem; }
+  .contato figure { margin: 0; aspect-ratio: 5 / 4; }
+
+  /* Rodapé */
+  footer { background: var(--tinta); color: #C9CED8; padding: clamp(80px, 9vw, 130px) 0 34px; }
+  .rod-grade { display: grid; grid-template-columns: 2fr 1.3fr 1.3fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgb(255 255 255 / .14); }
+  .rod-grade h3 { font-family: var(--fonte-texto); font-size: .9rem; font-weight: 500; color: #fff; margin-bottom: .7rem; }
+  .rod-grade p { font-size: .95rem; }
+  .rod-nome { padding: clamp(36px, 5vw, 64px) 0 8px; color: #F0F2F5; }
+  .rod-nome [data-encaixar] { font-family: var(--fonte-titulo); font-weight: 900; letter-spacing: -.02em; }
+  .rod-avisos { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; font-size: .82rem; color: #8F96A4; padding-top: 22px; border-top: 1px solid rgb(255 255 255 / .14); }
+  .rod-avisos a { min-height: 24px; }
+
+  .zap-fixo { display: none; width: 56px; height: 56px; border-radius: 50%; background: var(--tinta); color: #fff; place-items: center; box-shadow: 0 6px 24px rgb(0 0 0 / .25); }
+  .zap-fixo svg { width: 26px; height: 26px; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-linha { padding-block: 14px; }
+    .nav-cta { padding: 9px 14px; font-size: .9rem; }
+    .marca { font-size: 1.05rem; }
+    [data-nav]:not(.nav-solida) .marca { visibility: hidden; }
+    .nav-linha { justify-content: flex-end; }
+    [data-nav].nav-solida .nav-linha { justify-content: space-between; }
+    .hero-nome { top: 128px; flex-wrap: wrap; row-gap: 0; font-size: clamp(1.4rem, 6.4vw, 2rem); }
+    .faixa-previa { font-size: .72rem; }
+    .passos li { grid-template-columns: 2.4rem 1fr; }
+    .hero-nome span { width: 50%; }
+    .hero-nome span:nth-child(even) { text-align: right; }
+    .hero-pe { grid-template-columns: 1fr; gap: 1.4rem; }
+    .hero h1 { font-size: clamp(2.9rem, 13vw, 5rem); }
+    .manifesto .wrap, .quem .wrap, .atendimento .wrap, .escritorio .wrap, .perguntas .wrap, .contato .wrap, .tambem, .sit-topo { grid-template-columns: 1fr; }
+    .manifesto p[data-acender] { grid-column: 1; }
+    .manifesto figure { grid-column: 1; margin: 0 calc(-1 * max(20px, 4vw)) 0 30%; margin-top: 2rem; }
+    .sit-topo figure { width: 70%; }
+    .lista a, .fluir-faixa > div { grid-template-columns: 1fr; gap: .5rem; }
+    .lista .a { text-align: left; }
+    .faixa-foto figure { aspect-ratio: 4 / 5; }
+    .quem .txt { grid-column: 1; }
+    .quem figure { width: 82%; }
+    .cupom-fixo { position: relative; top: 0; }
+    .escritorio figure { margin-right: 0; }
+    .perguntas aside figure { display: none; }
+    .contato figure { display: none; }
+    .rod-grade { grid-template-columns: 1fr; }
+    .zap-fixo { display: grid; }
+    .ficha { grid-template-columns: 7.5rem 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header data-nav>
+    <div class="faixa-previa">Prévia de site feita pela AlgUp Digital para Ivo Roberto Perez Advogado.</div>
+    <div class="nav-linha">
+      <a class="marca" href="#topo">Ivo Roberto Perez</a>
+      <nav class="nav-links" aria-label="Seções">
+        <a href="#situacoes" data-rolar>Situações</a>
+        <a href="#atendimento" data-rolar>Atendimento</a>
+        <a href="#escritorio" data-rolar>Escritório</a>
+        <a href="#perguntas" data-rolar>Perguntas</a>
+      </nav>
+      <a class="nav-cta" href="https://wa.me/5515991965152?text=Ol%C3%A1%2C%20Dr.%20Ivo.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-rolar>Falar pelo WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="hero" data-hero>
+      <div class="hero-foto" data-encolher>
+        <img src="img/cupons.webp" alt="Cupons fiscais rasgados presos no trilho de um caixa" fetchpriority="high" width="2400" height="3000">
+      </div>
+      <div class="hero-nome" aria-hidden="true"><span>Ivo</span><span>Roberto</span><span>Perez</span><span>Advogado</span></div>
+      <div class="hero-pe">
+        <h1 data-linhas>Direito do<br>consumidor<br>em Sorocaba.</h1>
+        <div class="hero-apoio">
+          <p data-palavras>Nome negativado sem dever, cobrança que constrange, produto com defeito e serviço que ninguém pediu.</p>
+          <a class="cta" href="https://wa.me/5515991965152?text=Ol%C3%A1%2C%20Dr.%20Ivo.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Falar pelo WhatsApp
+          </a>
+          <p class="pequeno">Dr. Ivo Roberto Perez, <span class="sc">OAB</span>/<span class="sc">SP</span> <span class="num">148.245</span><br>Advocacia em Sorocaba desde <span class="num">1998</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="wrap">
+        <p data-acender>Um nome no cadastro de devedores sem dívida nenhuma. Uma tarifa que apareceu na fatura sem explicação. Uma geladeira que parou no segundo mês. O Código de Defesa do Consumidor foi escrito para essas situações, e o primeiro passo costuma ser o mais simples: juntar os papéis e olhar para eles com calma.</p>
+        <figure class="moldura parallax" data-revelar="esquerda" data-parallax="7"><img src="img/maquininha.webp" alt="Maquininha de cartão imprimindo um comprovante comprido" loading="lazy" width="1600" height="1068"></figure>
+      </div>
+    </section>
+
+    <section class="situacoes" id="situacoes">
+      <div class="wrap">
+        <div class="sit-topo">
+          <h2 data-linhas>Situações que<br>o escritório atende</h2>
+          <figure class="moldura" data-revelar="direita"><img src="img/caixa.webp" alt="Mãos no caixa de uma loja segurando um comprovante" loading="lazy" width="1400" height="934"></figure>
+        </div>
+        <ul class="lista">
+          <li data-fluir><a href="#atendimento"><span class="t">Inscrição indevida no <span class="sc">SPC</span> ou Serasa</span><span class="d">Nome negativado por dívida paga, desconhecida ou que não era sua.</span><span class="a"><span class="sc">CDC</span>, art. <span class="num">43</span></span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="t">Inscrição indevida no <span class="sc">SPC</span> ou Serasa</span><span class="d">Nome negativado por dívida paga, desconhecida ou que não era sua.</span><span class="a"><span class="sc">CDC</span>, art. 43</span></div></div></li>
+          <li data-fluir><a href="#atendimento"><span class="t">Cobrança vexatória e cobrança indevida</span><span class="d">Ligações que constrangem, ameaça, exposição ou valor cobrado que não é devido.</span><span class="a"><span class="sc">CDC</span>, art. <span class="num">42</span></span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="t">Cobrança vexatória e cobrança indevida</span><span class="d">Ligações que constrangem, ameaça, exposição ou valor cobrado que não é devido.</span><span class="a"><span class="sc">CDC</span>, art. 42</span></div></div></li>
+          <li data-fluir><a href="#atendimento"><span class="t">Serviço não contratado</span><span class="d">Seguro, pacote ou assinatura que surgiu na conta sem o seu pedido.</span><span class="a"><span class="sc">CDC</span>, art. <span class="num">39</span>, III</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="t">Serviço não contratado</span><span class="d">Seguro, pacote ou assinatura que surgiu na conta sem o seu pedido.</span><span class="a"><span class="sc">CDC</span>, art. 39, III</span></div></div></li>
+          <li data-fluir><a href="#atendimento"><span class="t">Venda casada</span><span class="d">Quando um produto ou serviço só é vendido se você levar outro junto.</span><span class="a"><span class="sc">CDC</span>, art. <span class="num">39</span>, I</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="t">Venda casada</span><span class="d">Quando um produto ou serviço só é vendido se você levar outro junto.</span><span class="a"><span class="sc">CDC</span>, art. 39, I</span></div></div></li>
+          <li data-fluir><a href="#atendimento"><span class="t">Produto defeituoso e vício oculto</span><span class="d">O defeito que aparece logo, ou o que só se revela com o uso.</span><span class="a"><span class="sc">CDC</span>, arts. <span class="num">18</span> e <span class="num">26</span></span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="t">Produto defeituoso e vício oculto</span><span class="d">O defeito que aparece logo, ou o que só se revela com o uso.</span><span class="a"><span class="sc">CDC</span>, arts. 18 e 26</span></div></div></li>
+          <li data-fluir><a href="#atendimento"><span class="t">Restituição, abatimento ou substituição</span><span class="d">Quando a loja ou o fabricante não resolve o problema do produto.</span><span class="a"><span class="sc">CDC</span>, art. <span class="num">18</span>, §&nbsp;<span class="num">1</span>º</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="t">Restituição, abatimento ou substituição</span><span class="d">Quando a loja ou o fabricante não resolve o problema do produto.</span><span class="a"><span class="sc">CDC</span>, art. 18, § 1º</span></div></div></li>
+        </ul>
+        <div class="tambem">
+          <p class="pequeno">O escritório também atua em</p>
+          <ul>
+            <li>Direito bancário</li><li>Sucessões e inventário</li><li>Direito imobiliário</li><li>Direito à saúde</li><li>Contratos e obrigações</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="faixa-foto">
+      <figure class="moldura parallax" data-revelar="baixo" data-parallax="9">
+        <img src="img/pilha.webp" alt="Pilha de comprovantes e cupons fiscais guardados" loading="lazy" width="1600" height="898">
+        <figcaption>Guarde o papel. Ele conta a história.</figcaption>
+      </figure>
+    </section>
+
+    <section class="quem" id="quem">
+      <div class="wrap">
+        <figure class="moldura parallax" data-revelar="cima" data-parallax="6"><img src="img/papeis.webp" alt="Pilha de documentos vista de perto" loading="lazy" width="1800" height="1198"></figure>
+        <div class="txt">
+          <span class="ano num" data-contar="1998" data-de="1970">1998</span>
+          <h2 data-linhas>Advocacia em Sorocaba<br>há mais de 25 anos</h2>
+          <p>O escritório Ivo Roberto Perez Advogados Associados atua em Sorocaba desde 1998. A maior parte do trabalho começa do mesmo jeito: alguém chega com uma fatura, um contrato ou um print do celular e quer entender o que aconteceu. A conversa serve para ler esses papéis e explicar, em linguagem simples, quais caminhos existem.</p>
+          <dl class="ficha">
+            <dt>Advogado</dt><dd>Dr. Ivo Roberto Perez</dd>
+            <dt>Inscrição</dt><dd><span class="sc">OAB</span>/<span class="sc">SP</span> <span class="num">148.245</span></dd>
+            <dt>Cidade</dt><dd>Sorocaba, São Paulo</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="atendimento" id="atendimento" data-luz>
+      <div class="wrap">
+        <div>
+          <h2 data-linhas>Como funciona<br>o atendimento</h2>
+          <ol class="passos">
+            <li><span class="n num">1</span><div><h3>Você manda uma mensagem</h3><p>Pelo WhatsApp, conte em poucas linhas o que aconteceu e com qual empresa. Não precisa ter tudo organizado.</p></div></li>
+            <li><span class="n num">2</span><div><h3>Marcamos a conversa</h3><p>Combinamos um horário no escritório, na Avenida Santos Dumont, para olhar o caso com calma.</p></div></li>
+            <li><span class="n num">3</span><div><h3>Lemos os documentos</h3><p>Contrato, faturas, protocolos e prints. É deles que sai a resposta sobre o que pode ser feito.</p></div></li>
+            <li><span class="n num">4</span><div><h3>Você decide o próximo passo</h3><p>Com os caminhos explicados, seja reclamação, acordo ou ação, a decisão fica com você.</p></div></li>
+          </ol>
+          <a class="cta" href="https://wa.me/5515991965152?text=Ol%C3%A1%2C%20Dr.%20Ivo.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Agendar atendimento</a>
+        </div>
+        <div class="cupom-coluna">
+          <div class="cupom-fixo">
+            <div class="fenda" aria-hidden="true"></div>
+            <div data-imprimir>
+              <div class="cupom">
+                <div class="cab"><strong>Para levar na primeira conversa</strong>Ivo Roberto Perez Advogado<br>Sorocaba/<span class="sc">SP</span></div>
+                <ul>
+                  <li>RG e <span class="sc">CPF</span><span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Comprovante de endereço<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Contrato, nota fiscal ou cupom<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Faturas e boletos da cobrança<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Consulta ao <span class="sc">SPC</span> ou Serasa<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Números de protocolo<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Prints de conversas e e-mails<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                  <li>Fotos do produto com defeito<span class="pt"></span><span class="tique" aria-hidden="true">✓</span></li>
+                </ul>
+                <div class="pe">Via do consumidor<br>Se faltar algum papel, traga o que tiver.<div class="barras" aria-hidden="true"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="escritorio" id="escritorio">
+      <div class="wrap">
+        <figure class="moldura parallax" data-revelar="esquerda" data-parallax="7"><img src="img/folhas.webp" alt="Folhas de papel abertas em leque sob luz lateral" loading="lazy" width="1600" height="1200"></figure>
+        <div>
+          <h2 data-linhas>O escritório</h2>
+          <address class="endereco">Avenida Santos Dumont, <span class="num">1.275</span><br>lote <span class="num">1</span>B, Hangar <span class="num">2</span><br>Sorocaba/<span class="sc">SP</span></address>
+          <div class="contatos">
+            <a class="link-sec" href="https://www.google.com/maps/search/?api=1&query=Avenida%20Santos%20Dumont%2C%201275%2C%20Sorocaba%20SP" target="_blank" rel="noopener" data-rolar>Ver como chegar</a>
+            <a class="link-sec" href="tel:+5515991965152" data-rolar>Ligar para o escritório</a>
+            <a class="link-sec" href="mailto:contato@ivoperezadv.com.br" data-rolar>contato@ivoperezadv.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="perguntas" id="perguntas">
+      <div class="wrap">
+        <aside>
+          <h2 data-linhas>Perguntas<br>frequentes</h2>
+          <figure class="moldura" data-revelar="baixo"><img src="img/carrinho.webp" alt="Carrinho de compras num corredor de mercado desfocado" loading="lazy" width="1600" height="2000"></figure>
+        </aside>
+        <div>
+          <details class="pergunta"><summary>Meu nome foi negativado por uma dívida que eu não reconheço. Por onde começar?<span class="mais" aria-hidden="true"></span></summary>
+            <div class="resposta"><div><p>Guarde a consulta ao <span class="sc">SPC</span> ou Serasa, com a data, e junte o que tiver sobre a dívida: contrato, faturas e protocolos. O art. 43 do Código de Defesa do Consumidor trata dos cadastros de crédito e prevê, entre outras coisas, que o consumidor seja comunicado antes da inscrição. Com os papéis em mãos, a conversa fica mais objetiva.</p></div></div></details>
+          <details class="pergunta"><summary>O que é cobrança vexatória?<span class="mais" aria-hidden="true"></span></summary>
+            <div class="resposta"><div><p>É a cobrança que expõe o consumidor ao ridículo ou usa ameaça e constrangimento, como ligações insistentes no trabalho ou recados a vizinhos. O art. 42 do <span class="sc">CDC</span> proíbe essa prática. Anote datas, horários e números, e guarde os prints das mensagens.</p></div></div></details>
+          <details class="pergunta"><summary>Comprei um produto com defeito. Qual é o prazo para reclamar?<span class="mais" aria-hidden="true"></span></summary>
+            <div class="resposta"><div><p>Pelo art. 26 do <span class="sc">CDC</span>, são 30 dias para produtos não duráveis e 90 dias para os duráveis. No vício oculto, o prazo começa quando o defeito aparece. Registre a reclamação na loja ou no fabricante e guarde o número do protocolo.</p></div></div></details>
+          <details class="pergunta"><summary>Preciso ir ao Procon antes de procurar um advogado?<span class="mais" aria-hidden="true"></span></summary>
+            <div class="resposta"><div><p>Não é obrigatório. O Procon é um caminho administrativo e, em muitos casos, resolve. Na conversa, as opções são explicadas e você decide qual seguir.</p></div></div></details>
+          <details class="pergunta"><summary>O escritório atende outras áreas?<span class="mais" aria-hidden="true"></span></summary>
+            <div class="resposta"><div><p>Sim. Além do direito do consumidor, o escritório atua em direito bancário, imobiliário, sucessões e inventário, direito à saúde e contratos.</p></div></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="wrap">
+        <div>
+          <h2 data-linhas>Conte o que<br>aconteceu.</h2>
+          <div class="acoes">
+            <a class="cta escuro" href="https://wa.me/5515991965152?text=Ol%C3%A1%2C%20Dr.%20Ivo.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico>Falar pelo WhatsApp</a>
+            <a class="link-sec num" href="tel:+5515991965152">(15) 99196-5152</a>
+          </div>
+        </div>
+        <figure class="moldura" data-revelar="cima"><img src="img/envelope.webp" alt="Envelope branco fechado sobre fundo escuro" loading="lazy" width="1400" height="1120"></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rod-grade">
+        <div>
+          <h3>Ivo Roberto Perez Advogados Associados</h3>
+          <p>Dr. Ivo Roberto Perez, <span class="sc">OAB</span>/<span class="sc">SP</span> <span class="num">148.245</span><br>Direito do consumidor, bancário, imobiliário e sucessões, desde <span class="num">1998</span>.</p>
+        </div>
+        <div>
+          <h3>Endereço</h3>
+          <p>Avenida Santos Dumont, <span class="num">1.275</span>, lote <span class="num">1</span>B, Hangar <span class="num">2</span><br>Sorocaba/<span class="sc">SP</span></p>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <p><a href="tel:+5515991965152" class="num">(15) 99196-5152</a><br><a href="mailto:contato@ivoperezadv.com.br">contato@ivoperezadv.com.br</a></p>
+        </div>
+      </div>
+      <div class="rod-nome"><div data-encaixar>Ivo Roberto Perez</div></div>
+      <div class="rod-avisos">
+        <p>Este site tem caráter meramente informativo (Provimento 205/2021 do <span class="sc">CFOAB</span>).<br>O escritório não solicita pagamentos por WhatsApp de números desconhecidos.</p>
+        <p><a href="privacidade.html">Política de privacidade</a><br>Fotos: Unsplash. Prévia: AlgUp Digital.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="zap-fixo" href="https://wa.me/5515991965152?text=Ol%C3%A1%2C%20Dr.%20Ivo.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  </a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+</body>
+</html>
