@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bruna Couto — Advocacia empresarial em Indaiatuba</title>
+<meta name="description" content="Bruna Couto, advogada. Direito societário, contratos empresariais e relações de trabalho para empresas, presencial em Indaiatuba e on-line para todo o Brasil.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Fontes (Fontshare, ITF FFL). URLs com https explícito para abrir também em file:// */
+  @font-face { font-family: "Gambarino"; font-weight: 400; font-style: normal; font-display: swap;
+    src: url("https://cdn.fontshare.com/wf/ZINX7PW4XMYISLZAZKYY4QHYYHYNPKAV/Z54IGKTR4PBLA5KTYL3IDQZHFQPJJVNZ/6KBHT5NXCZVM6GHTPKGIR6DXZLQAYIFK.woff2") format("woff2"); }
+  @font-face { font-family: "Author"; font-weight: 200 700; font-style: normal; font-display: swap;
+    src: url("https://cdn.fontshare.com/wf/QZLHF3POTW3Q4X3B52OFR36T6QNVHQFS/5FBYPSFR2SRQ6KYXCBCN3RAWZYT24FWF/U3WWVCRZ5YHQTK3ABY6QQSB4YY63S65B.woff2") format("woff2"); }
+
+  :root {
+    --fundo: #E3E4E0; --tinta: #131518; --tinta-2: #575C61; --linha: #C4C6C2;
+    --escuro: #131518; --claro: #E3E4E0; --claro-2: #9EA3A6; --acento: #6E1F2B;
+    --fonte-titulo: "Gambarino", "Times New Roman", serif;
+    --fonte-texto: "Author", "Helvetica Neue", Arial, sans-serif;
+    --corpo: 1.0625rem; --grao: .06; --largura: 1480px;
+    --risca: repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 22px);
+  }
+  body { font-variant-numeric: oldstyle-nums; }
+  .num { font-variant-numeric: tabular-nums lining-nums; }
+  .sc { font-variant-caps: all-small-caps; letter-spacing: .04em; }
+  h1, h2, h3 { letter-spacing: -.005em; }
+
+  /* Faixa da prévia + nav */
+  .faixa-previa { font-size: .8125rem; text-align: center; padding: .45rem 1rem; background: var(--escuro); color: var(--claro-2); }
+  .faixa-previa strong { color: var(--claro); font-weight: 500; }
+  [data-nav] { color: var(--tinta); }
+  [data-nav] .barra { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1.1rem; }
+  [data-nav].nav-solida { background: color-mix(in srgb, var(--fundo) 94%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--linha); }
+  [data-nav].nav-solida .faixa-previa { display: none; }
+  .marca { font-family: var(--fonte-titulo); font-size: 1.75rem; line-height: 1; text-decoration: none; }
+  .links { display: flex; gap: 2rem; align-items: center; font-size: .9375rem; }
+  .links a { text-decoration: none; }
+  .cta-nav { display: inline-flex; align-items: center; gap: .55rem; min-height: 44px; padding: 0 1.1rem; border: 1px solid var(--tinta); border-radius: 2px; text-decoration: none; font-weight: 500; transition: background .4s, color .4s; }
+  .cta-nav:hover { background: var(--tinta); color: var(--fundo); }
+  .ponto { width: 7px; height: 7px; border-radius: 50%; background: var(--acento); flex: none; }
+
+  /* Hero (esqueleto A) */
+  .hero { position: relative; min-height: 100svh; padding-top: 9.5rem; padding-bottom: clamp(2.5rem, 5vw, 4.5rem); display: grid; }
+  .risca { position: absolute; inset: 0 0 18% 0; color: var(--linha); background: var(--risca); opacity: .7;
+    -webkit-mask: linear-gradient(#000 0 55%, transparent); mask: linear-gradient(#000 0 55%, transparent); pointer-events: none; }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 33%); gap: clamp(2rem, 4vw, 5rem); align-items: end; }
+  .hero h1 { font-size: clamp(3.3rem, 6.1vw, 7.4rem); line-height: .94; }
+  .hero-apoio { display: grid; grid-template-columns: minmax(0, 32rem) auto; gap: 2.5rem; align-items: end; margin-top: clamp(2rem, 3.5vw, 3.25rem); }
+  .hero-apoio p { font-size: 1.1875rem; line-height: 1.55; color: var(--tinta-2); max-width: 34ch; }
+  .cta { display: inline-flex; align-items: center; gap: .8rem; min-height: 56px; padding: 0 1.6rem; background: var(--tinta); color: var(--fundo); text-decoration: none; font-weight: 500; font-size: 1.0625rem; border-radius: 3px; white-space: nowrap; justify-self: start; }
+  .cta .ponto { background: #B65A69; }
+  .hero figure { margin: 0; aspect-ratio: 3 / 4; border-radius: 2px; }
+  .hero figure img { object-position: 50% 20%; }
+  .hero-legenda { position: absolute; left: max(20px, 4vw); top: 7.6rem; font-size: .875rem; color: var(--tinta-2); }
+
+  /* Manifesto escuro */
+  .manifesto { background: var(--escuro); color: var(--claro); padding-block: clamp(7rem, 14vw, 13rem); --luz: rgb(227 228 224 / .06); overflow: clip; }
+  .manifesto .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 30%); gap: clamp(2rem, 6vw, 7rem); align-items: center; }
+  .manifesto p { font-family: var(--fonte-titulo); font-size: clamp(2.1rem, 4.3vw, 4.6rem); line-height: 1.08; max-width: 23ch; }
+  .manifesto figure { margin: 0 calc(-1 * max(20px, 4vw)) 0 0; aspect-ratio: 9 / 14; }
+  .manifesto figure img { object-position: 40% 30%; }
+  .manifesto small { display: block; margin-top: 2.5rem; font-size: .9375rem; color: var(--claro-2); max-width: 46ch; line-height: 1.6; }
+
+  /* Atuação */
+  .atuacao { padding-block: clamp(6rem, 11vw, 10rem) clamp(5rem, 8vw, 7rem); }
+  .cabeca { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 2rem; align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+  h2 { font-size: clamp(2.6rem, 5.4vw, 5.6rem); line-height: .98; }
+  .cabeca p { color: var(--tinta-2); }
+  .areas { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+  .areas li { border-bottom: 1px solid var(--linha); }
+  .areas a, .fluir-faixa > div { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2rem; align-items: baseline; padding: clamp(1.4rem, 2.4vw, 2.1rem) 0; text-decoration: none; }
+  .areas a, .fluir-faixa > div { padding-inline: clamp(.25rem, 1.2vw, 1.25rem); }
+  .fluir-faixa > div { position: relative; }
+  .fluir-faixa { background: var(--escuro); }
+  .fluir-faixa::before { content: ""; position: absolute; inset: 0; color: rgb(227 228 224 / .07); background: var(--risca); }
+  .area-nome { font-family: var(--fonte-titulo); font-size: clamp(2rem, 3.6vw, 3.5rem); line-height: 1; }
+  .area-desc { color: var(--tinta-2); max-width: 48ch; }
+  .fluir-faixa .area-desc { color: var(--claro-2); }
+
+  /* Método (assinatura) */
+  .metodo { padding-block: clamp(5rem, 9vw, 8rem) clamp(8rem, 14vw, 14rem); border-top: 1px solid var(--linha); }
+  .metodo .grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(2.5rem, 6vw, 7rem); }
+  .metodo ol { list-style: none; margin: 0; padding: 0; }
+  .metodo li { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid var(--linha); opacity: .38; transition: opacity .7s; }
+  .metodo li.ativo, .is-estatico .metodo li { opacity: 1; }
+  .metodo li .n { font-family: var(--fonte-titulo); font-size: 1.5rem; color: var(--tinta-2); }
+  .metodo h3 { font-size: clamp(2.2rem, 3.8vw, 3.9rem); line-height: 1; margin: .7rem 0 1.3rem; }
+  .metodo li p { max-width: 42ch; color: var(--tinta-2); }
+  .metodo .intro { margin-top: 1.6rem; max-width: 40ch; color: var(--tinta-2); }
+  .troca-fotos { border-radius: 2px; }
+  .passo-foto { display: none; }
+
+  /* Quem atende */
+  .quem { padding-block: clamp(4rem, 7vw, 6rem) clamp(7rem, 12vw, 11rem); }
+  .quem .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 7vw, 8rem); align-items: end; }
+  .quem figure { margin: 0; aspect-ratio: 4 / 5; border-radius: 2px; }
+  .quem figure img { object-position: 50% 25%; }
+  .quem h2 { margin-bottom: 2.2rem; }
+  .quem .texto p + p { margin-top: 1.1rem; }
+  .quem .texto { max-width: 38rem; }
+  .fatos { margin: 2.8rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; border-top: 1px solid var(--tinta); padding-top: 1.4rem; }
+  .fatos dt { font-size: .875rem; color: var(--tinta-2); }
+  .fatos dd { margin: .35rem 0 0; font-family: var(--fonte-titulo); font-size: 1.6rem; line-height: 1.1; }
+
+  /* Atendimento */
+  .atendimento { background: #D9DBD6; padding-block: clamp(6rem, 10vw, 9rem); }
+  .passos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.5rem, 2.5vw, 2.5rem); }
+  .passos li { border-top: 1px solid var(--tinta); padding-top: 1.2rem; }
+  .passos .n { font-family: var(--fonte-titulo); font-size: 3.2rem; line-height: 1; display: block; margin-bottom: 1.4rem; }
+  .passos h3 { font-family: var(--fonte-texto); font-weight: 600; font-size: 1.125rem; line-height: 1.3; margin-bottom: .5rem; }
+  .passos p { color: var(--tinta-2); font-size: 1rem; }
+  .levar { margin-top: clamp(4rem, 7vw, 6rem); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 2rem; }
+  .levar h3 { font-size: clamp(2rem, 3vw, 3rem); line-height: 1; }
+  .levar ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 2.5rem; }
+  .levar li { break-inside: avoid; padding: .85rem 0; border-bottom: 1px solid var(--linha); }
+
+  /* Escritório */
+  .escritorio { padding-block: clamp(7rem, 12vw, 12rem) clamp(5rem, 8vw, 7rem); }
+  .escritorio figure { margin: 0 0 clamp(2.5rem, 4vw, 3.5rem); aspect-ratio: 21 / 9; border-radius: 2px; }
+  .escritorio .info { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: start; }
+  .escritorio address { font-style: normal; font-size: 1.1875rem; line-height: 1.5; }
+  .rot { display: block; font-size: .875rem; color: var(--tinta-2); margin-bottom: .45rem; }
+  .linkzin { display: inline-flex; align-items: center; min-height: 48px; text-decoration: none; border-bottom: 1px solid var(--tinta); font-weight: 500; }
+
+  /* Perguntas */
+  .perguntas { padding-block: clamp(5rem, 8vw, 7rem) clamp(7rem, 11vw, 10rem); }
+  .perguntas .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(2rem, 6vw, 7rem); }
+  .perguntas figure { margin: 2.5rem 0 0; aspect-ratio: 3 / 4; max-width: 300px; border-radius: 2px; }
+  details.pergunta { border-top: 1px solid var(--linha); }
+  details.pergunta:last-child { border-bottom: 1px solid var(--linha); }
+  details.pergunta summary { display: flex; justify-content: space-between; gap: 1.5rem; align-items: center; padding: 1.5rem 0; min-height: 48px; font-size: 1.25rem; font-weight: 500; }
+  details.pergunta summary::after { content: ""; width: 14px; height: 14px; flex: none; background: linear-gradient(currentColor 0 0) center / 100% 1px no-repeat, linear-gradient(currentColor 0 0) center / 1px 100% no-repeat; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  details.pergunta[open] summary::after { transform: rotate(45deg); }
+  .resposta p { padding-bottom: 1.6rem; max-width: 60ch; color: var(--tinta-2); }
+
+  /* Contato */
+  .contato { background: var(--escuro); color: var(--claro); padding-block: clamp(6rem, 10vw, 9rem); position: relative; overflow: clip; --luz: rgb(227 228 224 / .06); }
+  .contato .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 26%); gap: clamp(2rem, 6vw, 6rem); align-items: end; }
+  .contato h2 { font-size: clamp(3rem, 7vw, 7.4rem); line-height: .95; }
+  .contato .cta { background: var(--claro); color: var(--escuro); margin-top: 2.8rem; }
+  .contato .cta .ponto { background: var(--acento); }
+  .canais { display: flex; flex-wrap: wrap; gap: .5rem 2.5rem; margin-top: 2.2rem; color: var(--claro-2); }
+  .canais a { display: inline-flex; align-items: center; min-height: 48px; text-decoration: none; color: var(--claro); }
+  .contato figure { margin: 0; aspect-ratio: 9 / 15; }
+  .contato figure img { object-position: 50% 30%; }
+
+  /* Rodapé */
+  footer { background: var(--escuro); color: var(--claro-2); padding: clamp(3rem, 5vw, 4.5rem) 0 2rem; border-top: 1px solid #2A2E33; font-size: .9375rem; }
+  .rodape-nome { font-family: var(--fonte-titulo); color: var(--claro); }
+  .rodape-grade { display: grid; grid-template-columns: 2fr 1.2fr 1fr; gap: 2rem; padding-top: 2rem; margin-top: 1.2rem; border-top: 1px solid #2A2E33; }
+  .rodape-grade strong { display: block; color: var(--claro); font-weight: 500; margin-bottom: .4rem; }
+  .rodape-grade a { text-decoration: none; }
+  .avisos { margin-top: 2.5rem; display: grid; gap: .5rem; font-size: .875rem; }
+  footer details summary { cursor: pointer; display: inline-flex; min-height: 44px; align-items: center; text-decoration: underline; text-underline-offset: 3px; }
+  footer details p { max-width: 70ch; margin-bottom: 1rem; }
+
+  .zap-fixo { display: none; }
+  :focus-visible { outline-color: var(--acento); }
+  .contato :focus-visible, .manifesto :focus-visible, footer :focus-visible { outline-color: var(--claro); }
+
+  /* Celular / tablet */
+  @media (max-width: 1080px) {
+    .links .some { display: none; }
+    .passos { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 3rem; }
+    .rodape-grade { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    .links a:not(.cta-nav) { display: none; }
+    .cta-nav { padding: 0 .9rem; font-size: .9375rem; }
+    .faixa-previa { font-size: .75rem; }
+    .hero { padding-top: 7.6rem; min-height: auto; }
+    .hero-legenda { display: none; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 2.2rem; }
+    .hero h1 { font-size: 13.4vw; }
+    .hero-apoio { grid-template-columns: 1fr; gap: 1.8rem; }
+    .hero-apoio .cta { display: none; }
+    .hero figure { aspect-ratio: 4 / 5; }
+    .risca { inset: 0 0 45% 0; }
+    .manifesto .wrap, .cabeca, .metodo .grade, .quem .wrap, .levar, .perguntas .wrap, .contato .wrap, .escritorio .info { grid-template-columns: 1fr; }
+    .manifesto figure { margin: 0 calc(-1 * max(20px, 4vw)) 0 30%; aspect-ratio: 4 / 5; }
+    .areas a { grid-template-columns: 1fr; gap: .6rem; }
+    .metodo .troca-fotos { display: none; }
+    .metodo li { min-height: 0; padding: 2.2rem 0 2.6rem; opacity: 1; }
+    .passo-foto { display: block; aspect-ratio: 16 / 10; margin-bottom: 1.6rem; overflow: hidden; border-radius: 2px; }
+    .passo-foto img { width: 100%; height: 100%; object-fit: cover; }
+    .fatos { grid-template-columns: 1fr 1fr; }
+    .passos { grid-template-columns: 1fr; }
+    .levar ul { columns: 1; }
+    .escritorio figure { aspect-ratio: 4 / 3; }
+    .perguntas figure { display: none; }
+    .contato figure { display: none; }
+    .rodape-grade { grid-template-columns: 1fr; }
+    .zap-fixo { display: inline-flex; align-items: center; gap: .6rem; min-height: 52px; padding: 0 1.2rem; background: var(--tinta); color: var(--fundo); text-decoration: none; font-weight: 500; border-radius: 3px; box-shadow: 0 6px 24px rgb(0 0 0 / .25); }
+    .zap-fixo .ponto { background: #B65A69; }
+  }
+</style>
+</head>
+<body>
+  <header data-nav>
+    <div class="faixa-previa">Prévia de site feita pela <strong>AlgUp Digital</strong> para Bruna Couto.</div>
+    <div class="wrap barra">
+      <a class="marca" href="#topo" aria-label="Bruna Couto, início">Bruna Couto</a>
+      <nav class="links" aria-label="Seções">
+        <a href="#atuacao" data-rolar>Atuação</a>
+        <a href="#metodo" data-rolar>Método 3Cs</a>
+        <a class="some" href="#quem" data-rolar>Quem atende</a>
+        <a class="some" href="#escritorio" data-rolar>Escritório</a>
+        <a class="cta-nav" href="https://wa.me/5519989902329?text=Ol%C3%A1%2C%20Dra.%20Bruna.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><span class="ponto" aria-hidden="true"></span>WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="hero" data-hero>
+      <div class="risca" aria-hidden="true"></div>
+      <p class="hero-legenda">Rua Tuiuti, 504, Centro, Indaiatuba/SP</p>
+      <div class="wrap">
+        <div>
+          <h1 data-linhas>Direito empresarial<br>para quem empreende<br>em Indaiatuba.</h1>
+          <div class="hero-apoio">
+            <p data-palavras data-atraso=".35">Sociedade, contratos e relações de trabalho, com olhar de quem também estudou gestão. Presencial em Indaiatuba e on-line para todo o Brasil.</p>
+            <a class="cta" href="https://wa.me/5519989902329?text=Ol%C3%A1%2C%20Dra.%20Bruna.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico><span class="ponto" aria-hidden="true"></span>Falar pelo WhatsApp</a>
+          </div>
+        </div>
+        <figure class="moldura parallax" data-revelar="cima" data-parallax="6">
+          <img src="img/bruna-frente.webp" alt="Bruna Couto, advogada, de blazer risca de giz, em retrato de estúdio" width="968" height="1280" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section class="manifesto" data-luz>
+      <div class="wrap">
+        <div>
+          <p data-acender>Toda empresa começa num acordo entre pessoas. O contrato social, o acordo de sócios e os contratos com clientes e fornecedores deixam esse acordo claro desde o início, enquanto ele ainda é uma conversa.</p>
+          <small>Por isso o trabalho começa pela empresa inteira: quem são os sócios, como a equipe se organiza, como o negócio funciona. Os documentos vêm depois, e vêm sob medida.</small>
+        </div>
+        <figure class="moldura parallax" data-revelar="baixo" data-parallax="8">
+          <img src="img/bruna-sentada.webp" alt="Bruna Couto sentada, em retrato preto e branco sobre fundo escuro" width="720" height="1280" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section class="atuacao" id="atuacao">
+      <div class="wrap">
+        <div class="cabeca">
+          <h2 data-linhas>Onde a Dra. Bruna atua</h2>
+          <p>Consultoria para empresas que estão nascendo, crescendo ou mudando de formato, e para quem ainda está tirando o negócio do papel.</p>
+        </div>
+        <ul class="areas">
+          <li data-fluir>
+            <a href="#contato"><span class="area-nome">Questões societárias</span><span class="area-desc">Constituição de empresas, contrato social e suas alterações, acordo de sócios e reorganizações societárias.</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Questões societárias</span><span class="area-desc">Constituição de empresas, contrato social e suas alterações, acordo de sócios e reorganizações societárias.</span></div></div>
+          </li>
+          <li data-fluir>
+            <a href="#contato"><span class="area-nome">Contratos empresariais</span><span class="area-desc">Elaboração e revisão de contratos com clientes, fornecedores e parceiros, franquias, acordos de confidencialidade e apoio em negociações.</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Contratos empresariais</span><span class="area-desc">Elaboração e revisão de contratos com clientes, fornecedores e parceiros, franquias, acordos de confidencialidade e apoio em negociações.</span></div></div>
+          </li>
+          <li data-fluir>
+            <a href="#contato"><span class="area-nome">Trabalhista para empresas</span><span class="area-desc">Adequação à legislação, contratos de trabalho, políticas internas, prevenção de passivos e defesa em ações trabalhistas.</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Trabalhista para empresas</span><span class="area-desc">Adequação à legislação, contratos de trabalho, políticas internas, prevenção de passivos e defesa em ações trabalhistas.</span></div></div>
+          </li>
+          <li data-fluir>
+            <a href="#contato"><span class="area-nome">Contratos imobiliários</span><span class="area-desc">Contratos de compra, venda e locação ligados à empresa ou ao patrimônio dos sócios.</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Contratos imobiliários</span><span class="area-desc">Contratos de compra, venda e locação ligados à empresa ou ao patrimônio dos sócios.</span></div></div>
+          </li>
+          <li data-fluir>
+            <a href="#contato"><span class="area-nome">Mentoria para empreender</span><span class="area-desc">Para quem está abrindo o primeiro negócio: planejamento, primeiros passos jurídicos e os erros mais comuns do começo.</span></a>
+            <div class="fluir-faixa" aria-hidden="true"><div><span class="area-nome">Mentoria para empreender</span><span class="area-desc">Para quem está abrindo o primeiro negócio: planejamento, primeiros passos jurídicos e os erros mais comuns do começo.</span></div></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="metodo" id="metodo" data-troca>
+      <div class="wrap grade">
+        <div>
+          <h2 data-linhas>Método 3Cs</h2>
+          <p class="intro">Um trabalho de 3 a 4 meses, presencial ou on-line, para empresas que precisam alinhar os sócios, organizar a casa e firmar a base jurídica. Em três partes:</p>
+          <ol>
+            <li data-passo="0">
+              <div class="passo-foto"><img src="img/escada.webp" alt="Escada de concreto com sombra marcada" loading="lazy"></div>
+              <span class="n num">1</span>
+              <h3>O sócio no centro da estratégia</h3>
+              <p>Entender o perfil e as forças de cada sócio e colocar cada um na função em que rende mais. A empresa reflete quem está no comando.</p>
+            </li>
+            <li data-passo="1">
+              <div class="passo-foto"><img src="img/sala.webp" alt="Sala ampla com mesas diante de uma janela iluminada" loading="lazy"></div>
+              <span class="n num">2</span>
+              <h3>A empresa com estrutura e direção</h3>
+              <p>Uma leitura da empresa de ponta a ponta: processos, equipe, comunicação e cultura, para ver onde o negócio trava e por quê.</p>
+            </li>
+            <li data-passo="2">
+              <div class="passo-foto"><img src="img/pastas.webp" alt="Pilhas de documentos e pastas em um escritório" loading="lazy"></div>
+              <span class="n num">3</span>
+              <h3>A base jurídica que sustenta tudo</h3>
+              <p>Revisão dos contratos, da estrutura societária e das obrigações legais, para que o que foi organizado nas duas primeiras partes fique de pé no papel.</p>
+            </li>
+          </ol>
+        </div>
+        <div class="troca-fotos" aria-hidden="true">
+          <img data-passo="0" src="img/escada.webp" alt="" loading="lazy">
+          <img data-passo="1" src="img/sala.webp" alt="" loading="lazy">
+          <img data-passo="2" src="img/pastas.webp" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="quem" id="quem">
+      <div class="wrap">
+        <figure class="moldura parallax" data-revelar="esquerda" data-parallax="7">
+          <img src="img/bruna-perfil.webp" alt="Bruna Couto de perfil, de blazer risca de giz, em preto e branco" width="854" height="1280" loading="lazy">
+        </figure>
+        <div class="texto">
+          <h2 data-linhas>Quem atende</h2>
+          <p>Bruna Couto é advogada e atua na área jurídica desde 2015, com foco em direito empresarial e contratos.</p>
+          <p>Além do Direito, tem formação técnica em Administração e experiência com gestão de riscos. Estuda comportamento humano, e isso aparece no atendimento: antes dos papéis, ela olha para os sócios, a equipe e o jeito como a empresa funciona.</p>
+          <dl class="fatos">
+            <div><dt>Na área jurídica</dt><dd>desde <span class="num">2015</span></dd></div>
+            <div><dt>Formação técnica</dt><dd>Administração</dd></div>
+            <div><dt>Atendimento</dt><dd>presencial e on-line</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="atendimento" id="atendimento">
+      <div class="wrap">
+        <div class="cabeca">
+          <h2 data-linhas>Como funciona<br>o atendimento</h2>
+          <p>Do primeiro contato ao acompanhamento, sempre com a mesma advogada.</p>
+        </div>
+        <ol class="passos">
+          <li><span class="n num">1</span><h3>A primeira mensagem</h3><p>Pelo WhatsApp ou por e-mail, conte em poucas linhas o momento da empresa.</p></li>
+          <li><span class="n num">2</span><h3>Uma conversa</h3><p>Presencial em Indaiatuba ou por vídeo, para entender o negócio, os sócios e o que precisa ser resolvido.</p></li>
+          <li><span class="n num">3</span><h3>O escopo por escrito</h3><p>Você recebe a proposta de trabalho: o que será feito, em que ordem e em quanto tempo.</p></li>
+          <li><span class="n num">4</span><h3>Acompanhamento</h3><p>Contratos, alterações e dúvidas do dia a dia seguem com quem já conhece a empresa.</p></li>
+        </ol>
+        <div class="levar">
+          <h3 data-linhas>O que separar para<br>a primeira conversa</h3>
+          <ul>
+            <li>Contrato social e as últimas alterações</li>
+            <li>Acordo de sócios, se houver</li>
+            <li>Contratos em vigor com clientes, fornecedores e parceiros</li>
+            <li>Modelo de contrato de trabalho e regras internas</li>
+            <li>Cartão do CNPJ</li>
+            <li>Uma lista com as suas dúvidas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="escritorio" id="escritorio">
+      <div class="wrap">
+        <figure class="moldura parallax" data-revelar="baixo" data-parallax="8">
+          <img src="img/sombra.webp" alt="Luz e sombra em lâminas verticais sobre uma parede de concreto" loading="lazy">
+        </figure>
+        <div class="info">
+          <div>
+            <h2 data-linhas>O escritório</h2>
+          </div>
+          <div>
+            <span class="rot">Endereço</span>
+            <address>Rua Tuiuti, 504, Centro<br>Indaiatuba/SP, <span class="num">13339-010</span></address>
+            <a class="linkzin" href="https://www.google.com/maps/search/?api=1&amp;query=R.+Tuiuti,+504+-+Centro,+Indaiatuba+-+SP,+13339-010" target="_blank" rel="noopener" data-rolar>Ver como chegar</a>
+          </div>
+          <div>
+            <span class="rot">Horário</span>
+            <p style="font-size:1.1875rem;line-height:1.5">Segunda a sexta<br>das <span class="num">9h</span> às <span class="num">17h</span></p>
+            <span class="rot" style="margin-top:1.4rem">Também on-line</span>
+            <p>Atendimento por vídeo para empresas de todo o Brasil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="perguntas" id="perguntas">
+      <div class="wrap">
+        <div>
+          <h2 data-linhas>Perguntas<br>frequentes</h2>
+        </div>
+        <div>
+          <details class="pergunta"><summary>Preciso estar em Indaiatuba para ser atendido?</summary><div class="resposta"><div><p>Não. O atendimento é presencial em Indaiatuba, Campinas e região, e on-line para empresas de todo o Brasil.</p></div></div></details>
+          <details class="pergunta"><summary>Ainda não abri a empresa. Já faz sentido conversar?</summary><div class="resposta"><div><p>Faz. A mentoria para quem está começando trata do planejamento do novo negócio e dos primeiros passos jurídicos, em encontros avulsos ou num programa de 3 a 4 meses.</p></div></div></details>
+          <details class="pergunta"><summary>O que é o Método 3Cs?</summary><div class="resposta"><div><p>É um trabalho de 3 a 4 meses, presencial ou on-line, que olha para os sócios, para a organização da empresa e para a base jurídica do negócio: contratos, estrutura societária e obrigações legais.</p></div></div></details>
+          <details class="pergunta"><summary>A Dra. Bruna atua em questões trabalhistas?</summary><div class="resposta"><div><p>Sim, do lado da empresa: adequação à legislação, contratos de trabalho, políticas internas, prevenção de passivos e defesa em ações trabalhistas.</p></div></div></details>
+          <details class="pergunta"><summary>Como marco o primeiro atendimento?</summary><div class="resposta"><div><p>Pelo WhatsApp <span class="num">(19) 98990-2329</span> ou pelo e-mail contato@advbrunacouto.com.br, de segunda a sexta, das 9h às 17h.</p></div></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato" data-luz>
+      <div class="wrap">
+        <div>
+          <h2 data-linhas>Para começar,<br>uma mensagem.</h2>
+          <a class="cta" href="https://wa.me/5519989902329?text=Ol%C3%A1%2C%20Dra.%20Bruna.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" data-magnetico><span class="ponto" aria-hidden="true"></span>Falar pelo WhatsApp</a>
+          <div class="canais">
+            <a href="tel:+5519989902329" data-rolar>Ligar: (19) 98990-2329</a>
+            <a href="mailto:contato@advbrunacouto.com.br" data-rolar>contato@advbrunacouto.com.br</a>
+            <a href="https://www.instagram.com/brunacouto.adv/" target="_blank" rel="noopener" data-rolar>Instagram @brunacouto.adv</a>
+          </div>
+        </div>
+        <figure class="moldura parallax" data-revelar="baixo" data-parallax="6">
+          <img src="img/bruna-sentada-2.webp" alt="Bruna Couto sentada, em retrato preto e branco" width="720" height="1280" loading="lazy">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-nome" data-encaixar>Bruna Couto</div>
+      <div class="rodape-grade">
+        <div><strong>Bruna Couto, advogada</strong>Direito empresarial, societário e contratos</div>
+        <div><strong>Endereço e horário</strong>Rua Tuiuti, 504, Centro<br>Indaiatuba/SP, <span class="num">13339-010</span><br>Segunda a sexta, <span class="num">9h</span> às <span class="num">17h</span></div>
+        <div><strong>Contato</strong><a href="tel:+5519989902329" class="num">(19) 98990-2329</a><br><a href="mailto:contato@advbrunacouto.com.br">contato@advbrunacouto.com.br</a></div>
+      </div>
+      <div class="avisos">
+        <p>Este site tem caráter meramente informativo (Provimento 205/2021 do CF<span class="sc">OAB</span>).</p>
+        <p>O escritório não solicita pagamentos por WhatsApp de números desconhecidos. Na dúvida, ligue para <span class="num">(19) 98990-2329</span>.</p>
+        <details><summary>Política de privacidade</summary><p>Os dados enviados por WhatsApp, telefone ou e-mail são usados apenas para responder ao seu contato e para o atendimento jurídico, com sigilo profissional, e não são compartilhados com terceiros. Para pedir a exclusão dos seus dados, escreva para contato@advbrunacouto.com.br.</p></details>
+        <p>© 2026 Bruna Couto</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="zap-fixo" href="https://wa.me/5519989902329?text=Ol%C3%A1%2C%20Dra.%20Bruna.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><span class="ponto" aria-hidden="true"></span>Falar pelo WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+  // Risca de giz do hero: as linhas descem como um tecido sendo cortado (só no modo animado).
+  if (document.documentElement.classList.contains('is-animado') && window.gsap) {
+    gsap.fromTo('.risca', { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.6, ease: 'expo.inOut', delay: .15 });
+    gsap.to('.risca', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  }
+</script>
+</body>
+</html>
