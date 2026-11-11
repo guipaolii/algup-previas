@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniel de Campos Leite Advocacia — Família e sucessões em Indaiatuba</title>
+<meta name="description" content="Advocacia de família e sucessões em Indaiatuba: divórcio, guarda, pensão, partilha, união estável, inventário e testamento. Atendimento na Vila Almeida.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#121B22">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=erode@300,400,500&f[]=author@400,500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root {
+    --noite: #121B22; --papel: #E4E6E1; --tinta: #E8E9E3; --tinta-2: #95A1A9; --linha: #2B3943; --luz: #E2A85A;
+    --fundo: var(--noite); --acento: var(--luz);
+    --fonte-titulo: "Erode", "Iowan Old Style", Georgia, serif;
+    --fonte-texto: "Author", "Avenir Next", "Segoe UI", sans-serif;
+    --grao: .06; --largura: 1480px;
+  }
+  body { font-variant-numeric: oldstyle-nums; }
+  .num, .tel, .oab { font-variant-numeric: lining-nums tabular-nums; }
+  .sc { font-variant-caps: all-small-caps; letter-spacing: .02em; }
+  h1, h2, h3 { font-weight: 300; letter-spacing: -.02em; }
+  .apoio { color: var(--tinta-2); }
+  .fino { font-size: .9375rem; }
+
+  /* Faixa da prévia + nav */
+  .previa { background: var(--luz); color: #1a140b; font-size: .8125rem; text-align: center; padding: 6px 16px; line-height: 1.35; }
+  [data-nav] { color: var(--tinta); }
+  [data-nav] .barra { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 18px; }
+  [data-nav].nav-solida { background: rgb(18 27 34 / .94); }
+  .marca { font-family: var(--fonte-titulo); font-size: 1.25rem; text-decoration: none; letter-spacing: -.01em; white-space: nowrap; }
+  .marca small { font-family: var(--fonte-texto); font-size: .8125rem; color: var(--tinta-2); margin-left: .6em; }
+  .menu { display: flex; gap: 28px; align-items: center; font-size: .9375rem; }
+  .menu a { text-decoration: none; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 2px; text-decoration: none; font-weight: 500; font-size: .9375rem; transition: background-color .4s, color .4s; }
+  .btn-luz { background: var(--luz); color: #1a140b; }
+  .btn-luz:hover { background: #EDBB72; }
+  .btn-linha { border: 1px solid var(--linha); color: var(--tinta); }
+  .btn-linha:hover { border-color: var(--tinta-2); }
+
+  /* Hero A */
+  .hero { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .64fr); gap: max(24px, 4vw); align-items: end; padding-top: 150px; padding-bottom: 56px; position: relative; }
+  .hero-texto { position: relative; padding-bottom: 8px; }
+  .planta.planta-hero { position: absolute; right: 2%; top: 4px; width: min(300px, 34%); pointer-events: none; }
+  .hero h1 { font-size: clamp(3rem, 5.9vw, 6.9rem); line-height: .98; position: relative; }
+  .so-cel { display: none; }
+  .hero .lead { max-width: 34ch; margin-top: 36px; font-size: 1.1875rem; color: var(--tinta); }
+  .hero .acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .hero .rodape-hero { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--linha); color: var(--tinta-2); font-size: .875rem; }
+  .hero figure { margin: 0; aspect-ratio: 4 / 5; border-radius: 3px; align-self: stretch; max-height: calc(100svh - 190px); }
+  .hero figure img { object-position: 30% 50%; }
+
+  /* Traço da planta */
+  .planta { width: 100%; height: auto; overflow: visible; }
+  .planta .parede { fill: none; stroke: var(--tinta-2); stroke-width: 2; stroke-linecap: square; }
+  .planta .porta { fill: none; stroke: var(--tinta-2); stroke-width: 1; opacity: .7; }
+  .planta .cota { stroke: var(--linha); stroke-width: 1; fill: none; }
+  .planta text { font-family: var(--fonte-texto); font-size: 13px; fill: var(--tinta-2); }
+  .planta-hero .parede { stroke: #31424e; }
+  .planta-hero .porta { stroke: #31424e; }
+  .planta-hero text { fill: #6b7c88; font-size: 24px; }
+  .planta-hero .luz-hero { fill: var(--luz); opacity: .5; }
+
+  /* Manifesto */
+  .manifesto { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: max(32px, 6vw); padding-block: 200px 160px; align-items: start; }
+  .manifesto figure { margin: 0; aspect-ratio: 3 / 5; border-radius: 2px; margin-left: calc(-1 * max(20px, 4vw)); }
+  .manifesto .texto { padding-top: 6vh; }
+  .manifesto p[data-acender] { font-family: var(--fonte-titulo); font-weight: 300; font-size: clamp(1.75rem, 3.3vw, 3.4rem); line-height: 1.16; letter-spacing: -.015em; max-width: 22ch; }
+  .manifesto .assina { margin-top: 48px; color: var(--tinta-2); max-width: 46ch; }
+
+  /* Áreas */
+  .areas { padding-block: 120px 200px; }
+  .cab { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 40px; align-items: end; margin-bottom: 64px; }
+  .cab h2 { font-size: clamp(2.3rem, 4.8vw, 5rem); line-height: 1; }
+  .cab p { color: var(--tinta-2); max-width: 46ch; }
+  .lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
+  .lista li { border-bottom: 1px solid var(--linha); }
+  .lista a, .fluir-faixa > div { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 40px; align-items: baseline; padding: 30px 0; text-decoration: none; }
+  .lista h3 { font-size: clamp(1.6rem, 2.8vw, 2.7rem); line-height: 1.05; }
+  .lista p { color: var(--tinta-2); max-width: 52ch; }
+  .fluir-faixa { background: var(--papel); color: var(--noite); }
+  .fluir-faixa > div { padding-inline: 18px; }
+  .fluir-faixa p { color: #46525a; }
+
+
+
+  /* Faixa 21:9 */
+  .faixa { aspect-ratio: 21 / 9; width: 100%; }
+  .faixa img { object-position: 50% 40%; }
+  .legenda { display: flex; justify-content: space-between; gap: 24px; padding-top: 14px; color: var(--tinta-2); font-size: .875rem; }
+
+  /* Quem atende */
+  .quem { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: max(32px, 7vw); padding-block: 220px 140px; align-items: end; }
+  .quem figure { margin: 0; aspect-ratio: 3 / 4; border-radius: 3px; }
+  .quem figure img { object-position: 50% 18%; }
+  .quem h2 { font-size: clamp(2.6rem, 5.4vw, 5.6rem); line-height: .98; }
+  .quem .oab { display: block; margin-top: 20px; color: var(--luz); font-size: 1rem; }
+  .quem dl { display: grid; grid-template-columns: max-content 1fr; gap: 14px 32px; margin: 44px 0 0; padding-top: 28px; border-top: 1px solid var(--linha); max-width: 620px; }
+  .quem dt { color: var(--tinta-2); }
+  .quem dd { margin: 0; }
+  .quem .bio { margin-top: 32px; max-width: 56ch; color: var(--tinta); }
+
+  /* Assinatura: a planta acende */
+  .acende { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: max(32px, 6vw); padding-block: 140px 120px; }
+  .acende .fixa { position: sticky; top: 12vh; height: 76vh; display: flex; flex-direction: column; justify-content: center; }
+  .acende .fixa h2 { font-size: clamp(2.2rem, 4.2vw, 4.4rem); margin-bottom: 40px; }
+  .is-estatico .acende .fixa { position: relative; top: 0; height: auto; }
+  .planta .comodo { fill: var(--luz); opacity: 0; transition: opacity 1.1s cubic-bezier(.16,1,.3,1); }
+  .planta .comodo.acesa, .is-estatico .planta .comodo { opacity: .16; }
+  .planta .comodo.agora { opacity: .78; }
+  .is-estatico .planta .comodo[data-comodo="3"] { opacity: .78; }
+  .planta .nome { transition: fill .8s; }
+  .planta .nome.agora, .is-estatico .planta .nome[data-comodo="3"] { fill: #1a140b; }
+  .planta .nome.acesa { fill: var(--tinta); }
+  .passos { list-style: none; margin: 0; padding: 30vh 0 20vh; counter-reset: p; }
+  .passos li { padding: 0 0 22vh; opacity: .35; transition: opacity .8s; }
+  .passos li.ativo, .is-estatico .passos li { opacity: 1; }
+  .is-estatico .passos { padding: 0; } .is-estatico .passos li { padding-bottom: 56px; }
+  .passos .n { display: block; font-family: var(--fonte-titulo); font-size: 1rem; color: var(--luz); margin-bottom: 14px; }
+  .passos h3 { font-size: clamp(1.9rem, 3vw, 3rem); margin-bottom: 18px; }
+  .passos p { color: var(--tinta-2); max-width: 44ch; }
+
+  /* Documentos (claro) */
+  .claro { background: var(--papel); color: var(--noite); }
+  .claro .apoio, .claro .cab p { color: #4a565e; }
+  .docs { padding-block: 150px; }
+  .docs-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: max(32px, 6vw); align-items: start; }
+  .docs ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid #c3c8c4; }
+  .docs li { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid #c3c8c4; }
+  .docs li strong { font-family: var(--fonte-titulo); font-weight: 400; font-size: 1.375rem; line-height: 1.15; }
+  .docs li span { color: #3f4a52; }
+  .docs figure { margin: 0; aspect-ratio: 4 / 5; border-radius: 2px; position: sticky; top: 14vh; }
+  .docs .nota { margin-top: 28px; color: #4a565e; max-width: 54ch; }
+  .is-estatico .docs figure { position: relative; top: 0; }
+
+  /* Escritório */
+  .escritorio { padding-block: 200px 120px; }
+  .esc-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 0; align-items: stretch; }
+  .esc-grade figure { margin: 0; min-height: 520px; }
+  .esc-info { background: #18232B; padding: max(32px, 4vw); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; --luz: rgb(226 168 90 / .10); }
+  .esc-info h2 { font-size: clamp(2.2rem, 3.8vw, 3.8rem); }
+  .esc-info address { font-style: normal; font-size: 1.1875rem; line-height: 1.5; }
+  .esc-info dl { display: grid; grid-template-columns: max-content 1fr; gap: 10px 28px; margin: 0; }
+  .esc-info dt { color: var(--tinta-2); }
+  .esc-info dd { margin: 0; }
+  .esc-info .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Perguntas */
+  .faq { padding-block: 160px 140px; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: max(32px, 6vw); }
+  .faq h2 { font-size: clamp(2.2rem, 4.2vw, 4.4rem); position: sticky; top: 16vh; }
+  .is-estatico .faq h2 { position: static; }
+  details.pergunta { border-bottom: 1px solid var(--linha); }
+  details.pergunta:first-of-type { border-top: 1px solid var(--linha); }
+  details.pergunta summary { display: flex; justify-content: space-between; gap: 24px; padding: 26px 0; font-family: var(--fonte-titulo); font-size: clamp(1.25rem, 1.8vw, 1.6rem); line-height: 1.25; }
+  details.pergunta summary::after { content: ""; flex: none; width: 14px; height: 14px; margin-top: .35em; border-right: 1px solid var(--tinta-2); border-bottom: 1px solid var(--tinta-2); transform: rotate(45deg); transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  details.pergunta[open] summary::after { transform: rotate(225deg); }
+  details.pergunta .resposta p { padding: 0 0 28px; color: var(--tinta-2); max-width: 62ch; }
+
+  /* Contato */
+  .contato { padding-block: 120px 180px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 40px; align-items: end; border-top: 1px solid var(--linha); }
+  .contato h2 { font-size: clamp(2.6rem, 6vw, 6.4rem); line-height: .98; }
+  .contato .lado { display: flex; flex-direction: column; gap: 18px; }
+  .contato .cta { min-height: 64px; padding: 0 34px; font-size: 1.0625rem; align-self: flex-start; }
+  .contato .tel { font-size: 1.25rem; text-decoration: none; }
+
+  /* Rodapé */
+  footer { padding-top: 64px; padding-bottom: 40px; border-top: 1px solid var(--linha); }
+  .rod-nome { font-family: var(--fonte-titulo); font-weight: 300; letter-spacing: -.025em; color: var(--tinta); }
+  .rod-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr); gap: 32px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--linha); font-size: .9375rem; color: var(--tinta-2); }
+  .rod-grade strong { display: block; color: var(--tinta); font-weight: 500; margin-bottom: 6px; }
+  .rod-avisos { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: .8125rem; color: var(--tinta-2); }
+
+  .zap-fixo { display: none; }
+
+  @media (max-width: 900px) {
+    .menu { display: none; }
+    .so-cel { display: inline; }
+    .marca small { display: none; }
+    .hero { grid-template-columns: 1fr; padding-top: 220px; min-height: auto; gap: 40px; }
+    .hero h1 { font-size: clamp(2.9rem, 13.2vw, 5rem); }
+    .planta.planta-hero { width: 36%; right: 0; top: -165px; }
+    .hero figure { max-height: none; aspect-ratio: 4 / 5; }
+    .hero .lead { font-size: 1.0625rem; }
+    .manifesto, .quem, .acende, .docs-grade, .esc-grade, .faq, .contato, .cab, .rod-grade { grid-template-columns: 1fr; }
+    .manifesto { padding-block: 120px 100px; }
+    .manifesto figure { width: 62%; aspect-ratio: 3 / 4; }
+    .manifesto .texto { padding-top: 0; }
+    .areas { padding-block: 80px 120px; }
+    .lista a { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; }
+    .faixa { aspect-ratio: 4 / 3; }
+    .quem { padding-block: 130px 90px; }
+    .acende { padding-block: 100px 60px; }
+    .acende .fixa { top: 64px; height: auto; padding: 16px 0 8px; background: var(--noite); z-index: 2; }
+    .acende .fixa h2 { margin-bottom: 18px; font-size: 2.2rem; }
+    .acende .fixa .planta { max-width: 340px; }
+    .passos { padding: 8vh 0 0; }
+    .passos li { padding-bottom: 14vh; }
+    .docs { padding-block: 100px; }
+    .docs figure { position: relative; top: 0; aspect-ratio: 16 / 10; order: -1; }
+    .docs li { grid-template-columns: 1fr; gap: 6px; }
+    .escritorio { padding-block: 120px 80px; }
+    .esc-grade figure { min-height: 0; aspect-ratio: 4 / 3; }
+    .faq { padding-block: 110px 90px; }
+    .faq h2 { position: static; }
+    .contato { padding-block: 90px 120px; }
+    .zap-fixo { display: inline-flex; min-height: 52px; padding: 0 20px; border-radius: 3px; box-shadow: 0 8px 24px rgb(0 0 0 / .35); }
+  }
+</style>
+</head>
+<body>
+  <header data-nav>
+    <p class="previa">Prévia de site feita pela AlgUp Digital para Daniel de Campos Leite Advocacia.</p>
+    <div class="wrap barra">
+      <a class="marca" href="#topo">Daniel de Campos Leite<small>Advocacia</small></a>
+      <nav class="menu" aria-label="Seções">
+        <a href="#areas" data-rolar>Áreas</a>
+        <a href="#atendimento" data-rolar>Atendimento</a>
+        <a href="#escritorio" data-rolar>Escritório</a>
+        <a class="btn btn-linha" href="https://wa.me/5519982719309?text=Ol%C3%A1%2C%20Dr.%20Daniel.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="wrap hero" data-hero>
+      <div class="hero-texto">
+        <svg class="planta planta-hero" viewBox="0 0 600 420" aria-hidden="true">
+          <rect class="luz-hero" x="330" y="0" width="270" height="230"/>
+          <g class="traco">
+            <path class="parede" d="M0 0 H600 V420 H0 Z"/>
+            <path class="parede" d="M330 0 V120 M330 175 V300 M330 360 V420"/>
+            <path class="parede" d="M0 230 H120 M175 230 H460 M520 230 H600"/>
+            <path class="porta" d="M330 120 A55 55 0 0 1 385 175 M120 230 A55 55 0 0 0 175 285 M460 230 A60 60 0 0 1 520 290"/>
+          </g>
+          <text x="22" y="40">sala</text><text x="352" y="40" style="fill:#2a1d0c">quarto</text>
+          <text x="22" y="270">cozinha</text><text x="352" y="270">escritório</text>
+        </svg>
+        <h1 data-linhas>Advocacia<br class="so-cel"> de família<br>e sucessões<br>em Indaiatuba.</h1>
+        <p class="lead" data-palavras>Divórcio, guarda, pensão, partilha e inventário, com atendimento reservado e cada passo explicado antes de ser dado.</p>
+        <div class="acoes">
+          <a class="btn btn-luz" href="https://wa.me/5519982719309?text=Ol%C3%A1%2C%20Dr.%20Daniel.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        </div>
+        <div class="rodape-hero">
+          <span>Dr. Daniel de Campos Leite, <span class="oab"><span class="sc">OAB</span>/<span class="sc">SP</span> 419.217</span></span>
+          <span>Rua Araguaia, 425, Vila Almeida</span>
+        </div>
+      </div>
+      <figure class="moldura parallax" data-revelar="baixo" data-parallax="6">
+        <img src="img/janela.webp" alt="Luz da tarde atravessando a janela e desenhando a sombra dos caixilhos na parede, com uma costela-de-adão no canto" fetchpriority="high" width="1280" height="1600">
+      </figure>
+    </section>
+
+    <section class="wrap manifesto" aria-label="Como o escritório trabalha">
+      <figure class="moldura parallax" data-revelar="cima" data-parallax="10">
+        <img src="img/silhueta.webp" alt="Silhueta de uma mãe erguendo o bebê diante da cortina da janela" loading="lazy" width="1200" height="1800">
+      </figure>
+      <div class="texto">
+        <p data-acender>Divórcio, guarda e inventário mexem com a casa inteira: com quem fica, onde as crianças dormem, o que é de quem. Por isso o atendimento é reservado, a conversa é sem juridiquês e o caminho mais simples é sempre avaliado primeiro.</p>
+        <p class="assina">Atendimento individual pelo próprio advogado, em Indaiatuba e região, com acordo em cartório quando a lei permite e processo judicial quando ele é o caminho necessário.</p>
+      </div>
+    </section>
+
+    <section class="wrap areas" id="areas">
+      <div class="cab">
+        <h2 data-linhas>Áreas de atuação</h2>
+        <p>Direito de família e sucessões, do primeiro acordo ao inventário. Toque em uma área para conversar sobre ela.</p>
+      </div>
+      <ul class="lista">
+        <li data-fluir><a href="#contato"><h3>Divórcio</h3><p>Consensual ou litigioso, em cartório ou na Justiça, com ou sem filhos.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Divórcio</h3><p>Consensual ou litigioso, em cartório ou na Justiça, com ou sem filhos.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>Guarda, convivência e pensão</h3><p>Guarda compartilhada ou unilateral, regulamentação de visitas, fixação e revisão de alimentos.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Guarda, convivência e pensão</h3><p>Guarda compartilhada ou unilateral, regulamentação de visitas, fixação e revisão de alimentos.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>União estável</h3><p>Reconhecimento e dissolução, com a partilha dos bens do período de convivência.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>União estável</h3><p>Reconhecimento e dissolução, com a partilha dos bens do período de convivência.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>Partilha de bens</h3><p>Divisão de imóveis, veículos, contas e dívidas conforme o regime de bens.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Partilha de bens</h3><p>Divisão de imóveis, veículos, contas e dívidas conforme o regime de bens.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>Inventário</h3><p>Judicial ou extrajudicial, em cartório, da abertura à divisão da herança entre os herdeiros.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Inventário</h3><p>Judicial ou extrajudicial, em cartório, da abertura à divisão da herança entre os herdeiros.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>Testamento</h3><p>Orientação e elaboração do testamento, dentro do que a lei reserva aos herdeiros necessários.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Testamento</h3><p>Orientação e elaboração do testamento, dentro do que a lei reserva aos herdeiros necessários.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>Interdição e curatela</h3><p>Proteção de quem não consegue mais cuidar sozinho dos próprios atos e bens.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Interdição e curatela</h3><p>Proteção de quem não consegue mais cuidar sozinho dos próprios atos e bens.</p></div></div></li>
+        <li data-fluir><a href="#contato"><h3>Reconhecimento de paternidade</h3><p>Investigação e reconhecimento, com os direitos que decorrem dele.</p></a><div class="fluir-faixa" aria-hidden="true"><div><h3>Reconhecimento de paternidade</h3><p>Investigação e reconhecimento, com os direitos que decorrem dele.</p></div></div></li>
+      </ul>
+    </section>
+
+    <section class="wrap" aria-label="Fotografia">
+      <figure class="moldura parallax faixa" data-revelar="esquerda" data-parallax="8" style="margin:0">
+        <img src="img/trem.webp" alt="Mãe e filho de costas, olhando pela porta de vidro do trem" loading="lazy" width="1600" height="1060">
+      </figure>
+      <div class="legenda"><span>Guarda e convivência pensadas a partir da rotina das crianças.</span><span>Indaiatuba e região</span></div>
+    </section>
+
+    <section class="wrap quem" id="quem">
+      <figure class="moldura parallax" data-revelar="baixo" data-parallax="6">
+        <img src="img/daniel.webp" alt="Retrato do advogado Daniel de Campos Leite, de terno escuro" loading="lazy" width="880" height="1180">
+      </figure>
+      <div>
+        <p class="apoio">Quem atende</p>
+        <h2 data-linhas>Dr. Daniel<br>de Campos Leite</h2>
+        <span class="oab">Advogado, <span class="sc">OAB</span>/<span class="sc">SP</span> 419.217</span>
+        <p class="bio">Atua em direito de família e sucessões em Indaiatuba e região. Cada caso é ouvido pelo próprio advogado, de forma individual e sigilosa, e só segue depois que o cliente entende as opções que tem.</p>
+        <dl>
+          <dt>Formação</dt><dd>Pós-graduado em Direito de Família e em Direito Civil</dd>
+          <dt>Atuação</dt><dd>Família, divórcio, guarda, pensão, inventário e testamento</dd>
+          <dt>Onde</dt><dd>Vila Almeida, Indaiatuba/<span class="sc">SP</span></dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="wrap acende" id="atendimento" data-planta>
+      <div class="fixa">
+        <h2 data-linhas>Como funciona<br>o atendimento</h2>
+        <svg class="planta" viewBox="0 0 600 420" role="img" aria-label="Planta de uma casa com quatro cômodos que acendem um a um, acompanhando os passos do atendimento">
+          <rect class="comodo" data-comodo="0" x="0" y="230" width="330" height="190"/>
+          <rect class="comodo" data-comodo="1" x="0" y="0" width="330" height="230"/>
+          <rect class="comodo" data-comodo="2" x="330" y="0" width="270" height="230"/>
+          <rect class="comodo" data-comodo="3" x="330" y="230" width="270" height="190"/>
+          <g>
+            <path class="parede" d="M0 0 H600 V420 H0 Z"/>
+            <path class="parede" d="M330 0 V120 M330 175 V300 M330 360 V420"/>
+            <path class="parede" d="M0 230 H120 M175 230 H460 M520 230 H600"/>
+            <path class="porta" d="M330 120 A55 55 0 0 1 385 175 M120 230 A55 55 0 0 0 175 285 M460 230 A60 60 0 0 1 520 290"/>
+            <path class="cota" d="M0 450 H600 M0 444 V456 M600 444 V456"/>
+          </g>
+          <text class="nome" data-comodo="0" x="22" y="262">cozinha</text>
+          <text class="nome" data-comodo="1" x="22" y="34">sala</text>
+          <text class="nome" data-comodo="2" x="352" y="34">quartos</text>
+          <text class="nome" data-comodo="3" x="352" y="262">escritório</text>
+        </svg>
+      </div>
+      <ol class="passos">
+        <li data-passo="0"><span class="n num">1</span><h3>A mensagem</h3><p>Você manda pelo WhatsApp um resumo breve da situação e combina o melhor horário para conversar. Nada é decidido nessa hora.</p></li>
+        <li data-passo="1"><span class="n num">2</span><h3>A primeira conversa</h3><p>Uma conversa reservada para entender a família, os bens e o que já foi tentado. Você sai sabendo quais caminhos a lei oferece no seu caso.</p></li>
+        <li data-passo="2"><span class="n num">3</span><h3>O caminho escolhido</h3><p>Acordo em cartório, acordo homologado ou ação judicial: a estratégia é definida junto com você, considerando os filhos e o patrimônio.</p></li>
+        <li data-passo="3"><span class="n num">4</span><h3>O acompanhamento</h3><p>Cada andamento é explicado em linguagem simples, até o fim, para que você nunca precise adivinhar em que pé está o seu caso.</p></li>
+      </ol>
+    </section>
+
+    <section class="claro docs" aria-labelledby="docs-t">
+      <div class="wrap">
+        <div class="cab">
+          <h2 id="docs-t" data-linhas>Para a primeira<br>conversa</h2>
+          <p>Não é preciso ter tudo. Estes documentos ajudam a entender o caso mais depressa; o que faltar se resolve depois.</p>
+        </div>
+        <div class="docs-grade">
+          <div>
+            <ul>
+              <li><strong>Seus documentos</strong><span>RG, CPF e comprovante de endereço.</span></li>
+              <li><strong>Certidões</strong><span>Casamento ou escritura de união estável, nascimento dos filhos e, no inventário, a certidão de óbito.</span></li>
+              <li><strong>Bens</strong><span>Matrícula dos imóveis, documento dos veículos, extratos e contratos de financiamento.</span></li>
+              <li><strong>Filhos</strong><span>Escola, despesas fixas, plano de saúde e a rotina atual de convivência.</span></li>
+              <li><strong>Renda</strong><span>Holerites, declaração de imposto de renda ou outra forma de comprovar ganhos e gastos.</span></li>
+            </ul>
+            <p class="nota">Tudo o que for conversado fica protegido pelo sigilo profissional do advogado.</p>
+          </div>
+          <figure class="moldura parallax" data-revelar="direita" data-parallax="6">
+            <img src="img/chaves.webp" alt="Mão segurando as chaves de casa diante de uma porta aberta" loading="lazy" width="1600" height="1068" style="object-position:35% 50%">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap escritorio" id="escritorio">
+      <div class="esc-grade">
+        <figure class="moldura parallax" data-revelar="esquerda" data-parallax="8">
+          <img src="img/mesa.webp" alt="Mesa e cadeiras em silhueta diante de uma grande janela iluminada" loading="lazy" width="1600" height="1068">
+        </figure>
+        <div class="esc-info" data-luz>
+          <h2 data-linhas>O escritório</h2>
+          <address>Rua Araguaia, 425<br>Vila Almeida, Indaiatuba/<span class="sc">SP</span><br><span class="num">CEP 13330-660</span></address>
+          <dl>
+            <dt>Horário</dt><dd>Segunda a sexta, das 8h às 18h</dd>
+            <dt>Telefone</dt><dd><a class="tel" href="tel:+5519982719309">(19) 98271-9309</a></dd>
+            <dt>E-mail</dt><dd><a href="mailto:daniel.leite@adv.oabsp.org.br">daniel.leite@adv.oabsp.org.br</a></dd>
+          </dl>
+          <div class="acoes">
+            <a class="btn btn-linha" href="https://www.google.com/maps/search/?api=1&query=Rua+Araguaia+425+Vila+Almeida+Indaiatuba+SP" target="_blank" rel="noopener">Ver como chegar</a>
+            <a class="btn btn-linha" href="tel:+5519982719309">Ligar para o escritório</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap faq" aria-labelledby="faq-t">
+      <h2 id="faq-t" data-linhas>Perguntas<br>frequentes</h2>
+      <div>
+        <details class="pergunta"><summary>Dá para fazer o divórcio em cartório?</summary><div class="resposta"><div><p>Em regra, sim, quando o casal está de acordo e as questões dos filhos menores (guarda, convivência e pensão) já estão resolvidas. A escritura é feita em cartório de notas, sempre com advogado.</p></div></div></details>
+        <details class="pergunta"><summary>A guarda compartilhada é obrigatória?</summary><div class="resposta"><div><p>Ela é a regra no Código Civil quando os dois pais estão aptos e querem exercer a guarda. Compartilhar a guarda não significa dividir o tempo pela metade: a rotina é combinada a partir do que é melhor para a criança.</p></div></div></details>
+        <details class="pergunta"><summary>Existe um percentual fixo de pensão?</summary><div class="resposta"><div><p>Não. A lei não fixa percentual. O valor considera as necessidades de quem recebe e as possibilidades de quem paga, e pode ser revisto quando essa situação muda.</p></div></div></details>
+        <details class="pergunta"><summary>Qual é o prazo para abrir o inventário?</summary><div class="resposta"><div><p>O Código de Processo Civil prevê a abertura em até dois meses do falecimento. Em São Paulo, o atraso pode gerar multa no imposto sobre a herança (<span class="sc">ITCMD</span>). Quando todos os herdeiros concordam, o inventário pode ser feito em cartório.</p></div></div></details>
+        <details class="pergunta"><summary>O atendimento pode começar pelo WhatsApp?</summary><div class="resposta"><div><p>Sim. Você envia um resumo breve da situação e combina a primeira conversa. Detalhes e documentos são tratados depois, com o sigilo que o caso exige.</p></div></div></details>
+      </div>
+    </section>
+
+    <section class="wrap contato" id="contato">
+      <h2 data-linhas>Conte o que está<br>acontecendo.</h2>
+      <div class="lado">
+        <p class="apoio">Uma mensagem breve basta para combinar a primeira conversa.</p>
+        <a class="btn btn-luz cta" data-magnetico href="https://wa.me/5519982719309?text=Ol%C3%A1%2C%20Dr.%20Daniel.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <a class="tel num" href="tel:+5519982719309">(19) 98271-9309</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div><div class="rod-nome" data-encaixar>Daniel de Campos Leite</div></div>
+    <div class="rod-grade">
+      <div><strong>Daniel de Campos Leite Advocacia</strong>Dr. Daniel de Campos Leite, advogado, <span class="oab"><span class="sc">OAB</span>/<span class="sc">SP</span> 419.217</span>.<br>Família e sucessões em Indaiatuba e região.</div>
+      <div><strong>Endereço</strong>Rua Araguaia, 425, Vila Almeida<br>Indaiatuba/<span class="sc">SP</span>, <span class="num">13330-660</span></div>
+      <div><strong>Atendimento</strong>Segunda a sexta, das 8h às 18h<br><a href="tel:+5519982719309" class="num">(19) 98271-9309</a> · <a href="https://www.instagram.com/danielleiteadvogado/" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+    <div class="rod-avisos">
+      <p>Este site tem caráter meramente informativo (Provimento 205/2021 do <span class="sc">CFOAB</span>). O escritório não solicita pagamentos por WhatsApp de números desconhecidos.</p>
+      <p><a href="privacidade.html">Política de privacidade</a></p>
+    </div>
+  </footer>
+
+  <a class="btn btn-luz zap-fixo" href="https://wa.me/5519982719309?text=Ol%C3%A1%2C%20Dr.%20Daniel.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+  // Assinatura: a planta acende cômodo por cômodo com os passos (acumula, como a casa à noite).
+  (() => {
+    const est = document.documentElement.classList.contains('is-estatico');
+    if (est || !window.gsap) return;
+    const sec = document.querySelector('[data-planta]');
+    const comodos = [...sec.querySelectorAll('[data-comodo]')];
+    const passos = [...sec.querySelectorAll('li[data-passo]')];
+    const acender = n => {
+      comodos.forEach(c => { const k = Number(c.dataset.comodo); c.classList.toggle('acesa', k < n); c.classList.toggle('agora', k === n); });
+      passos.forEach(p => p.classList.toggle('ativo', Number(p.dataset.passo) === n));
+    };
+    passos.forEach(p => ScrollTrigger.create({ trigger: p, start: 'top 62%', end: 'bottom 62%',
+      onToggle: s => s.isActive && acender(Number(p.dataset.passo)),
+      onLeaveBack: () => Number(p.dataset.passo) === 0 && acender(-1) }));
+    // Planta do hero: as paredes se desenham no carregamento.
+    document.querySelectorAll('.planta-hero .traco path').forEach((p, i) => {
+      const L = p.getTotalLength();
+      gsap.fromTo(p, { strokeDasharray: L, strokeDashoffset: L }, { strokeDashoffset: 0, duration: 2.2, delay: .3 + i * .18, ease: 'expo.inOut' });
+    });
+    gsap.from('.planta-hero .luz-hero', { opacity: 0, duration: 1.6, delay: 2.2, ease: 'power2.out' });
+    gsap.from('.planta-hero text', { opacity: 0, duration: 1.2, delay: 1.6, stagger: .12, ease: 'power2.out' });
+  })();
+</script>
+</body>
+</html>
