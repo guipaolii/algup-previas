@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Padaria São José — pão do forno, café e balcão</title>
+<meta name="description" content="Padaria São José: pão francês, café e o que sai do forno. Endereço e horário a confirmar.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambarino@400&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=synonym@1,2&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+:root{
+  --fundo:#ECEAE4; --kraft:#C7A274; --kraft-2:#B8915F; --tinta:#1E1A17; --tinta-2:#5D564E; --linha:#CDC6BA; --acento:#2C3A88;
+  --fonte-titulo:"Gambarino","Times New Roman",serif; --fonte-texto:"Synonym","Helvetica Neue",Arial,sans-serif;
+  --corpo:1.0625rem; --grao:.07; --largura:1480px;
+  --pestanas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='120' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%231E1A17' stroke-linecap='round'%3E%3Cpath d='M14 54c22-17 46-25 72-27' stroke-width='5'/%3E%3Cpath d='M22 54c18-11 38-17 58-19' stroke-width='1.4' opacity='.6'/%3E%3Cpath d='M104 108c22-17 46-25 70-27' stroke-width='5'/%3E%3Cpath d='M112 108c18-11 36-17 56-19' stroke-width='1.4' opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+html{background:var(--fundo)}
+body{font-variant-numeric:oldstyle-nums;font-weight:400}
+.faixa-previa{position:relative;z-index:70;background:var(--tinta);color:#D9D3C8;font-size:.8125rem;line-height:1.4;padding:.55rem max(20px,4vw);text-align:left}
+.conf{display:inline-block;font-size:.72em;line-height:1;padding:.32em .55em .36em;border:1px solid currentColor;border-radius:3px;color:var(--acento);vertical-align:.18em;white-space:nowrap;font-weight:600}
+.escuro .conf{color:#AEB8F0}
+
+/* NAV */
+header[data-nav]{top:2.15rem;padding:1rem 0;color:var(--tinta)}
+header[data-nav].nav-solida{top:0;background:rgb(236 234 228 / .94);backdrop-filter:none;border-bottom:1px solid var(--linha)}
+.nav{display:flex;align-items:center;gap:2rem}
+.marca{font-family:var(--fonte-titulo);font-size:1.6rem;text-decoration:none;letter-spacing:-.01em;margin-right:auto}
+.nav a.lk{text-decoration:none;font-size:.95rem}
+.cta{display:inline-flex;align-items:center;gap:.6rem;min-height:48px;padding:0 1.35rem;background:var(--tinta);color:var(--fundo);text-decoration:none;border-radius:4px;font-weight:600;font-size:.95rem}
+.cta svg{width:18px;height:18px}
+
+/* HERO D */
+.hero{position:relative;min-height:100svh;background:var(--kraft);overflow:hidden;display:grid;align-items:end;padding:9rem 0 4.5rem}
+.hero::before{content:"";position:absolute;inset:0;background-image:var(--pestanas);background-size:180px 120px;opacity:.075}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgb(30 26 23 / .08));pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}
+.hero h1{font-size:clamp(4.2rem,12.6vw,13rem);line-height:.9;letter-spacing:-.02em;color:var(--tinta)}
+.hero-apoio{display:grid;grid-template-columns:minmax(0,34rem) 1fr;gap:2rem;margin-top:2.6rem;align-items:start}
+.hero-apoio p{font-size:clamp(1.05rem,1.25vw,1.25rem);max-width:34rem;color:#2A241F}
+.hero-acoes{display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap}
+.hero-acoes a.lk{color:var(--tinta);font-weight:600}
+.pestana-grande{position:absolute;z-index:1;left:60%;top:47%;width:min(30vw,470px);height:auto;pointer-events:none}
+.pestana-grande path{fill:none;stroke:var(--acento);stroke-linecap:round}
+.carimbo{width:clamp(150px,15vw,230px);aspect-ratio:1;color:var(--acento);transform:rotate(-9deg);margin-bottom:1rem;filter:url(#tinta)}
+.carimbo text{font-family:var(--fonte-texto);font-weight:600;letter-spacing:.18em;font-size:12.5px;fill:currentColor}
+.carimbo .sj{font-family:var(--fonte-titulo);font-size:46px;letter-spacing:0}
+
+/* MANIFESTO */
+.manifesto{padding:clamp(7rem,14vw,13rem) 0 clamp(6rem,10vw,9rem)}
+.manifesto .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr);gap:clamp(2rem,7vw,8rem);align-items:end}
+.manifesto p[data-acender]{font-family:var(--fonte-titulo);font-size:clamp(2.1rem,4.3vw,4.4rem);line-height:1.06;letter-spacing:-.012em;max-width:22ch}
+.manifesto figure{margin:0;aspect-ratio:3/4}
+.legenda{font-size:.85rem;color:var(--tinta-2);margin-top:.8rem}
+
+/* BALCÃO */
+.balcao{padding:clamp(5rem,8vw,7rem) 0 clamp(7rem,12vw,11rem)}
+.balcao .topo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,26rem);gap:2rem;align-items:end;margin-bottom:3rem}
+.balcao h2{font-size:clamp(3rem,7vw,6.8rem);line-height:.92}
+.balcao .topo p{color:var(--tinta-2)}
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--tinta)}
+.lista li{border-bottom:1px solid var(--linha)}
+.lista li > a,.fluir-faixa > div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,22rem);gap:2rem;align-items:baseline;padding:1.35rem 0;text-decoration:none}
+.lista .nome{font-family:var(--fonte-titulo);font-size:clamp(2rem,4.4vw,4rem);line-height:1}
+.lista .desc{color:var(--tinta-2);font-size:.98rem}
+.fluir-faixa{background:var(--kraft);color:var(--tinta)}
+.fluir-faixa > div{padding-inline:0}
+.fluir-faixa .desc{color:var(--tinta)}
+
+/* FORNADA (assinatura) */
+.fornada{background:var(--tinta);color:#E8E3DA;padding:clamp(7rem,12vw,11rem) 0}
+.fornada .cab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,24rem);gap:2rem;align-items:end;margin-bottom:clamp(3rem,6vw,5rem)}
+.fornada h2{font-size:clamp(3.6rem,9vw,9rem);line-height:.9;color:#F1ECE3}
+.fornada .cab p{color:#B5ADA2}
+.fornada .grade{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,6vw,7rem)}
+.passos{position:relative}.fornada ol{list-style:none;margin:0;padding:0 0 0 2.6rem}
+.fio{position:absolute;left:.55rem;top:.6rem;bottom:.6rem;width:2px;background:var(--kraft);transform-origin:top}
+.fio-fundo{position:absolute;left:.55rem;top:.6rem;bottom:.6rem;width:2px;background:rgb(255 255 255 / .12)}
+.fornada li{min-height:62vh;padding:1rem 0 4rem;opacity:.42;transition:opacity .6s}
+.fornada li.ativo,.is-estatico .fornada li{opacity:1}
+.fornada li .hora{font-size:.95rem;color:var(--kraft);font-weight:600}
+.fornada h3{font-size:clamp(2.6rem,4.6vw,4.4rem);margin:.4rem 0 1rem;color:#F1ECE3}
+.fornada li p{max-width:30rem;color:#CFC8BD;font-size:1.06rem}
+.troca-fotos{border-radius:2px}
+.troca-fotos img{filter:brightness(.92)}
+
+/* FOTO SANGRANDO */
+.sangra{position:relative}
+.sangra figure{margin:0;width:100%;aspect-ratio:21/9}
+.sangra .frase{position:absolute;left:max(20px,4vw);bottom:clamp(1.5rem,4vw,3.5rem);color:#F4EFE6;font-family:var(--fonte-titulo);font-size:clamp(2.2rem,5vw,5rem);line-height:.95;text-shadow:0 2px 30px rgb(0 0 0 / .35);max-width:14ch}
+.sangra figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgb(20 16 12 / .55),transparent 60%)}
+.marquee{padding:1.6rem 0;border-bottom:1px solid var(--linha);font-family:var(--fonte-titulo);font-size:clamp(2rem,4vw,3.6rem);--marquee-gap:2.4rem;color:var(--tinta)}
+.marquee span{display:inline-flex;align-items:center;gap:2.4rem}
+.marquee svg{width:64px;height:30px;flex:none}
+.marquee path{fill:none;stroke:var(--kraft-2);stroke-linecap:round}
+
+/* ENCOMENDAS */
+.encomendas{padding:clamp(8rem,15vw,15rem) 0 clamp(6rem,10vw,9rem)}
+.encomendas .wrap{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:clamp(2rem,6vw,7rem);align-items:center}
+.encomendas figure{margin:0;aspect-ratio:4/5}
+.encomendas h2{font-size:clamp(2.8rem,5.6vw,5.6rem);line-height:.95;max-width:13ch}
+.encomendas p{max-width:36rem;margin-top:1.6rem;color:var(--tinta-2);font-size:1.1rem}
+.encomendas .cta{margin-top:2.2rem}
+
+/* CAFÉ (bloco escuro com luz) */
+.cafe{background:#26211C;color:#E8E3DA;--luz:rgb(199 162 116 / .16)}
+.cafe .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:0;padding-inline:0;max-width:none}
+.cafe figure{margin:0;min-height:72vh}
+.cafe .txt{padding:clamp(4rem,8vw,8rem) max(20px,5vw);align-self:center}
+.cafe h2{font-size:clamp(3rem,6vw,6rem);line-height:.92;color:#F1ECE3}
+.cafe p{max-width:30rem;margin-top:1.4rem;color:#C9C1B5}
+
+/* PERGUNTAS */
+.perguntas{padding:clamp(7rem,11vw,10rem) 0 clamp(5rem,8vw,7rem)}
+.perguntas .wrap{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(2rem,6vw,6rem)}
+.perguntas h2{font-size:clamp(2.8rem,5vw,5rem);line-height:.95}
+details.pergunta{border-bottom:1px solid var(--linha)}
+details.pergunta:first-child{border-top:1px solid var(--tinta)}
+details.pergunta summary{display:flex;justify-content:space-between;gap:1rem;padding:1.4rem 0;font-size:clamp(1.15rem,1.6vw,1.45rem);font-weight:600;min-height:48px}
+details.pergunta summary::after{content:"";flex:none;width:14px;height:14px;margin-top:.45rem;border-right:2px solid var(--tinta);border-bottom:2px solid var(--tinta);transform:rotate(45deg);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+details.pergunta[open] summary::after{transform:rotate(225deg)}
+details.pergunta .resposta p{padding:0 0 1.6rem;color:var(--tinta-2);max-width:40rem}
+
+/* VISITE + RODAPÉ */
+.visite{background:var(--kraft);padding:clamp(6rem,10vw,9rem) 0 0;position:relative;overflow:hidden}
+.visite::before{content:"";position:absolute;inset:0;background-image:var(--pestanas);background-size:180px 120px;opacity:.06}
+.visite .wrap{position:relative}
+.visite h2{font-size:clamp(3.4rem,8vw,8rem);line-height:.9}
+.dados{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem 3rem;margin:3.5rem 0 4rem;padding-top:2rem;border-top:1px solid var(--tinta)}
+.dados dt{font-size:.9rem;color:#4A4038}
+.dados dd{margin:.35rem 0 0;font-size:1.2rem;font-weight:600}
+.dados .acoes{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+footer{background:var(--kraft);position:relative;overflow:hidden}
+footer .wrap{position:relative;padding-bottom:2rem}
+.nome-grande{font-family:var(--fonte-titulo);color:var(--tinta);padding-top:1rem}
+.rodape-linha{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;justify-content:space-between;padding-top:1.4rem;border-top:1px solid rgb(30 26 23 / .3);font-size:.88rem;color:#3E352D}
+.zap-fixo{display:none}
+
+@media (max-width: 860px){
+  header[data-nav]{top:3.4rem}
+  .nav a.lk{display:none}
+  .nav .cta{display:none}
+  .hero{padding:10rem 0 3rem;min-height:100svh}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(3.6rem,16.5vw,7rem)}
+  .carimbo{position:absolute;right:max(20px,4vw);top:-1rem;width:112px;transform:translateY(-100%) rotate(-9deg)}
+  .hero-apoio{grid-template-columns:1fr;margin-top:1.8rem;gap:1.4rem}
+  .pestana-grande{left:8%;top:24%;width:58vw}
+  .manifesto .wrap,.balcao .topo,.fornada .cab,.fornada .grade,.encomendas .wrap,.cafe .wrap,.perguntas .wrap{grid-template-columns:1fr}
+  .manifesto figure{width:72%;margin-left:auto}
+  .lista li > a,.fluir-faixa > div{grid-template-columns:1fr;gap:.35rem}
+  .fornada .troca-fotos{display:none}
+  .fornada li{min-height:auto;opacity:1;padding-bottom:3rem}
+  .fornada li .foto-celular{display:block;margin-top:1.4rem;aspect-ratio:4/3;width:100%;object-fit:cover}
+  .sangra figure{aspect-ratio:4/5}
+  .encomendas figure{order:2;width:80%}
+  .cafe figure{min-height:52vh}
+  .dados{grid-template-columns:1fr}
+  .zap-fixo{display:inline-flex;box-shadow:0 8px 24px rgb(0 0 0 / .25);transition:opacity .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+  .zap-fixo.no-hero{opacity:0;transform:translateY(20px);pointer-events:none}
+  .rodape-linha{padding-bottom:5rem}
+}
+.foto-celular{display:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="tinta"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.2"/><feComponentTransfer><feFuncA type="discrete" tableValues="0 1 1 1 0.85 1"/></feComponentTransfer></filter>
+  <symbol id="pestana" viewBox="0 0 64 30"><path d="M4 24C20 12 38 6 60 5" stroke-width="4"/><path d="M10 23C23 15 37 11 53 10" stroke-width="1.2" opacity=".6"/></symbol>
+</svg>
+
+<div class="faixa-previa" role="note">Prévia de site feita pela AlgUp Digital para Fabiano Padaria São José. Textos e fotos para aprovação.</div>
+
+<header data-nav>
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="marca" href="#topo">Padaria São José</a>
+    <a class="lk" href="#balcao" data-rolar>No balcão</a>
+    <a class="lk" href="#fornada" data-rolar>A fornada</a>
+    <a class="lk" href="#encomendas" data-rolar>Encomendas</a>
+    <a class="lk" href="#visite" data-rolar>Como chegar</a>
+    <!-- confirmar: número de WhatsApp da padaria (wa.me/55DDDNUMERO) -->
+    <a class="cta" href="#visite">Falar pelo WhatsApp</a>
+  </nav>
+</header>
+
+<main id="topo">
+  <section class="hero" data-hero>
+    <svg class="pestana-grande" viewBox="0 0 1000 300" aria-hidden="true">
+      <path class="p1" d="M30 250C260 90 560 30 970 22" stroke-width="7"/>
+      <path class="p2" d="M90 246C300 128 560 78 900 66" stroke-width="2" opacity=".55"/>
+    </svg>
+    <div class="wrap">
+      <div>
+        <h1 data-linhas>Pão do forno<br>da São José,<br>na sua rua.</h1>
+        <div class="hero-apoio">
+          <p data-palavras data-atraso=".25">Padaria em <span class="conf">cidade e bairro a confirmar</span>. Pão francês, café passado e o que sai do forno em cada fornada.</p>
+          <div class="hero-acoes">
+            <a class="cta" href="#visite" data-magnetico><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Falar pelo WhatsApp</a>
+            <a class="lk" href="#visite" data-rolar>Ver como chegar</a>
+          </div>
+        </div>
+      </div>
+      <svg class="carimbo" viewBox="0 0 200 200" role="img" aria-label="Carimbo Padaria São José">
+        <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="3.5"/>
+        <circle cx="100" cy="100" r="66" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path id="aro" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1-160 0" fill="none"/>
+        <text><textPath href="#aro" startOffset="0">PADARIA SÃO JOSÉ  •  PÃO QUENTE  •  CAFÉ  •</textPath></text>
+        <text class="sj" x="100" y="114" text-anchor="middle">S. J.</text>
+        <path d="M70 132c18-9 40-12 60-12" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="manifesto" aria-label="Sobre a padaria">
+    <div class="wrap">
+      <p data-acender>Tem coisa que não cabe em foto: o saco de papel ainda quente na mão, o cheiro que chega na calçada antes da porta, o bom dia de quem já sabe o seu pedido. Este site é o caminho até o balcão da São José.</p>
+      <div>
+        <figure class="moldura parallax" data-revelar="cima" data-parallax="7"><img src="img/saco.webp" alt="Pães recém-assados ao lado de um saco de papel pardo, sobre mesa escura polvilhada de farinha" loading="lazy" width="960" height="640"></figure>
+        <p class="legenda">Foto de banco, só para a prévia. Entra a foto do pão de vocês.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="balcao" id="balcao">
+    <div class="wrap">
+      <div class="topo">
+        <h2 data-linhas>No balcão</h2>
+        <p>O que tem todo dia e o que sai em fornada. <span class="conf">lista a confirmar</span></p>
+      </div>
+      <!-- confirmar: produtos reais da padaria -->
+      <ul class="lista">
+        <li data-fluir><a href="#fornada"><span class="nome">Pão francês</span><span class="desc">Casca fina, miolo leve, direto do forno para o saco.</span></a><div class="fluir-faixa" aria-hidden="true"><div><span class="nome">Pão francês</span><span class="desc">Casca fina, miolo leve, direto do forno para o saco.</span></div></div></li>
+        <li data-fluir><a href="#fornada"><span class="nome">Pães doces e de forma</span><span class="desc">Para o café da manhã e o lanche da tarde.</span></a><div class="fluir-faixa" aria-hidden="true"><div><span class="nome">Pães doces e de forma</span><span class="desc">Para o café da manhã e o lanche da tarde.</span></div></div></li>
+        <li data-fluir><a href="#encomendas"><span class="nome">Bolos e doces</span><span class="desc">Na vitrine e por encomenda.</span></a><div class="fluir-faixa" aria-hidden="true"><div><span class="nome">Bolos e doces</span><span class="desc">Na vitrine e por encomenda.</span></div></div></li>
+        <li data-fluir><a href="#encomendas"><span class="nome">Salgados</span><span class="desc">Assados e fritos, para comer no balcão ou levar.</span></a><div class="fluir-faixa" aria-hidden="true"><div><span class="nome">Salgados</span><span class="desc">Assados e fritos, para comer no balcão ou levar.</span></div></div></li>
+        <li data-fluir><a href="#cafe"><span class="nome">Café e lanches</span><span class="desc">Pingado, média, misto quente e pão na chapa.</span></a><div class="fluir-faixa" aria-hidden="true"><div><span class="nome">Café e lanches</span><span class="desc">Pingado, média, misto quente e pão na chapa.</span></div></div></li>
+        <li data-fluir><a href="#visite"><span class="nome">Frios e mercearia</span><span class="desc">O que falta em casa, sem ir ao mercado.</span></a><div class="fluir-faixa" aria-hidden="true"><div><span class="nome">Frios e mercearia</span><span class="desc">O que falta em casa, sem ir ao mercado.</span></div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fornada escuro" id="fornada" data-troca>
+    <div class="wrap">
+      <div class="cab">
+        <h2 data-linhas>A fornada</h2>
+        <p>Do saco de farinha ao saco de papel. É assim que o pão francês fica pronto. <span class="conf">horários a confirmar</span></p>
+      </div>
+      <div class="grade">
+        <div class="passos"><span class="fio-fundo" aria-hidden="true"></span><span class="fio" data-linha-tempo aria-hidden="true"></span>
+        <ol>
+          <li data-passo="0"><span class="hora">Primeiro, a massa</span><h3>Farinha, água, sal e fermento</h3><p>A massa é sovada até ficar lisa e elástica. É o começo de toda fornada, antes de a porta abrir.</p><img class="foto-celular" src="img/sova.webp" alt="Mãos sovando massa sobre a bancada enfarinhada" loading="lazy"></li>
+          <li data-passo="1"><span class="hora">Depois, o descanso</span><h3>A massa cresce e ganha forma</h3><p>Dividida e enrolada, ela descansa até dobrar de tamanho. Cada pão é modelado um a um.</p><img class="foto-celular" src="img/massa.webp" alt="Mãos modelando uma bola de massa na bancada" loading="lazy"></li>
+          <li data-passo="2"><span class="hora">Então, o forno</span><h3>Um corte e muito calor</h3><p>O corte na superfície abre no forno e vira a pestana. O vapor deixa a casca fina e crocante.</p><img class="foto-celular" src="img/cesto.webp" alt="Pães rústicos recém-assados em um cesto" loading="lazy"></li>
+          <li data-passo="3"><span class="hora">Por fim, o balcão</span><h3>Do cesto para o saco de papel</h3><p>O pão sai quente e vai direto para a vitrine. Os horários das fornadas aparecem aqui. <span class="conf">a confirmar</span></p><img class="foto-celular" src="img/prateleira.webp" alt="Prateleiras de padaria com pães em cestos de vime" loading="lazy"></li>
+        </ol></div>
+        <div>
+          <div class="troca-fotos">
+            <img data-passo="0" src="img/sova.webp" alt="Mãos sovando massa sobre a bancada enfarinhada" loading="lazy">
+            <img data-passo="1" src="img/massa.webp" alt="Mãos modelando uma bola de massa na bancada" loading="lazy">
+            <img data-passo="2" src="img/cesto.webp" alt="Pães rústicos recém-assados em um cesto" loading="lazy">
+            <img data-passo="3" src="img/prateleira.webp" alt="Prateleiras de padaria com pães em cestos de vime" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sangra" aria-label="O pão">
+    <figure class="moldura parallax" data-revelar="baixo" data-parallax="10"><img src="img/miolo.webp" alt="Pão partido ao meio mostrando o miolo macio" loading="lazy"></figure>
+    <p class="frase">A casca estala.<br>O miolo é macio.</p>
+  </section>
+  <div class="marquee" data-marquee="55" aria-hidden="true"><div>
+    <span>Pão francês<svg viewBox="0 0 64 30"><use href="#pestana"/></svg></span><span>Café passado<svg viewBox="0 0 64 30"><use href="#pestana"/></svg></span><span>Bolo do dia<svg viewBox="0 0 64 30"><use href="#pestana"/></svg></span><span>Pão na chapa<svg viewBox="0 0 64 30"><use href="#pestana"/></svg></span><span>Sonho<svg viewBox="0 0 64 30"><use href="#pestana"/></svg></span>
+  </div></div>
+
+  <section class="encomendas" id="encomendas">
+    <div class="wrap">
+      <figure class="moldura parallax" data-revelar="esquerda" data-parallax="8"><img src="img/bola.webp" alt="Mãos segurando uma bola de massa de pão" loading="lazy"></figure>
+      <div>
+        <h2 data-linhas>Café da manhã da firma, bolo do aniversário, salgado da reunião.</h2>
+        <!-- confirmar: se aceita encomendas, prazo e como pedir -->
+        <p data-palavras>Encomendas pelo WhatsApp, com antecedência. Conte o que precisa, para quantas pessoas e o dia da retirada. <span class="conf">a confirmar</span></p>
+        <a class="cta" href="#visite">Pedir pelo WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cafe escuro" id="cafe" data-luz>
+    <div class="wrap">
+      <figure class="moldura parallax" data-revelar="direita" data-parallax="6"><img src="img/cafe.webp" alt="Máquina de café expresso com xícaras empilhadas em cima" loading="lazy"></figure>
+      <div class="txt">
+        <h2 data-linhas>O café<br>do balcão</h2>
+        <p data-palavras>Pingado, média, expresso. Pão na chapa, misto quente e o pão de queijo da vitrine. Para tomar em pé, conversando, ou levar no copo. <span class="conf">cardápio a confirmar</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="perguntas" aria-label="Perguntas">
+    <div class="wrap">
+      <h2 data-linhas>Antes de<br>vir até aqui</h2>
+      <div>
+        <details class="pergunta"><summary>Qual é o horário de funcionamento?</summary><div class="resposta"><div><p>Horário de segunda a domingo <span class="conf">a confirmar</span></p></div></div></details>
+        <details class="pergunta"><summary>Que horas sai pão quente?</summary><div class="resposta"><div><p>Os horários das fornadas do dia entram aqui. <span class="conf">a confirmar</span></p></div></div></details>
+        <details class="pergunta"><summary>Vocês aceitam encomendas?</summary><div class="resposta"><div><p>Como pedir, com quanto tempo de antecedência e se há retirada ou entrega. <span class="conf">a confirmar</span></p></div></div></details>
+        <details class="pergunta"><summary>Tem entrega ou aplicativo?</summary><div class="resposta"><div><p>Se a padaria entrega e por qual canal. <span class="conf">a confirmar</span></p></div></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="visite" id="visite">
+    <div class="wrap">
+      <h2 data-linhas>Venha pelo<br>cheiro de pão.</h2>
+      <!-- confirmar: endereço, horário, telefone/WhatsApp e Instagram -->
+      <dl class="dados">
+        <div><dt>Endereço</dt><dd><span class="conf">a confirmar</span></dd></div>
+        <div><dt>Horário</dt><dd><span class="conf">a confirmar</span></dd></div>
+        <div class="acoes"><dt>Contato</dt>
+          <dd>WhatsApp <span class="conf">a confirmar</span></dd>
+          <dd>Instagram <span class="conf">a confirmar</span></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="nome-grande" data-encaixar>Padaria São José</div>
+    <div class="rodape-linha">
+      <span>Padaria São José · endereço a confirmar</span>
+      <span>Prévia sem publicação. Fotos de banco gratuito (StockSnap, CC0) até a troca pelas fotos da padaria.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="cta zap-fixo no-hero" href="#visite" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+/* WhatsApp fixo só depois do hero (no hero já há o botão). */
+(() => { const z=document.querySelector('.zap-fixo'), h=document.querySelector('.hero');
+  new IntersectionObserver(([e]) => z.classList.toggle('no-hero', e.isIntersecting), { threshold: .35 }).observe(h); })();
+/* Assinatura do hero: o carimbo bate e a pestana se desenha (só no modo animado; estado inicial definido aqui). */
+(() => {
+  if (!document.documentElement.classList.contains('is-animado') || !window.gsap) return;
+  const ps = document.querySelectorAll('.pestana-grande path');
+  ps.forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+  gsap.to(ps, { strokeDashoffset: 0, duration: 1.6, ease: 'expo.inOut', stagger: .18, delay: .9 });
+  gsap.from('.carimbo', { scale: 1.5, opacity: 0, rotate: -24, duration: .5, ease: 'power4.in', delay: 1.3 });
+  gsap.to('.pestana-grande', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+})();
+</script>
+
+<!-- algup-previa -->
+<style id="algup-previa">
+  #algup-marca{position:fixed;inset:0;pointer-events:none;z-index:2147483646;opacity:.13;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='260'><text x='20' y='150' transform='rotate(-24 210 130)' font-family='Arial,Helvetica,sans-serif' font-size='30' font-weight='700' fill='%23000'>PRÉVIA · AlgUp Digital</text></svg>");
+    background-repeat:repeat}
+  #algup-faixa{position:fixed;left:0;right:0;bottom:0;z-index:2147483647;background:#111;color:#fff;
+    font:600 14px/1.35 Arial,Helvetica,sans-serif;text-align:center;padding:10px 14px}
+  #algup-faixa small{display:block;font-weight:400;opacity:.8}
+  #algup-aviso{position:fixed;left:50%;top:24px;transform:translateX(-50%);z-index:2147483647;background:#111;color:#fff;
+    font:14px Arial,Helvetica,sans-serif;padding:10px 16px;border-radius:8px;display:none}
+  body{padding-bottom:64px!important}
+</style>
+<div id="algup-marca" aria-hidden="true"></div>
+<div id="algup-faixa">Prévia feita pela AlgUp Digital, não é o site oficial.
+  <small>Alguns botões e links estão travados nesta versão de amostra.</small></div>
+<div id="algup-aviso">Esta é só uma prévia: este botão funciona no site oficial.</div>
+<script>
+(function(){
+  var aviso=document.getElementById('algup-aviso'),t;
+  function avisar(e){e.preventDefault();e.stopPropagation();aviso.style.display='block';clearTimeout(t);
+    t=setTimeout(function(){aviso.style.display='none'},2200);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return; var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#'||h==='')return; avisar(e);},true);
+  document.addEventListener('submit',avisar,true);
+  document.addEventListener('contextmenu',function(e){e.preventDefault()},true);
+})();
+</script>
+
+</body>
+</html>
