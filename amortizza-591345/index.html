@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amortizza · Simule seu financiamento imobiliário mês a mês</title>
+<meta name="description" content="Simule o financiamento imobiliário mês a mês, compare estratégias de amortização e veja quanto é possível economizar, antes ou depois de assinar.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=supreme@200,300,400,500,800&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,500,401&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root {
+    --fundo: #E6EAE8; --tinta: #0C2427; --tinta-2: #4A5C5D; --linha: #BFCBC9;
+    --petroleo: #01717A; --noite: #0C2427; --acento: #F55C15; --papel-escuro: #D7DEDC;
+    --fonte-titulo: "Supreme", "Helvetica Neue", Arial, sans-serif;
+    --fonte-texto: "Gambetta", Georgia, "Times New Roman", serif;
+    --corpo: 1.125rem; --grao: .06; --largura: 1560px;
+  }
+  body { font-variant-numeric: oldstyle-nums; }
+  .num, .tab { font-family: var(--fonte-titulo); font-variant-numeric: tabular-nums lining-nums; }
+  ::selection { background: var(--petroleo); color: #fff; }
+  :focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  /* faixa da prévia */
+  .previa { background: rgba(230,234,232,.94); color: var(--tinta-2); text-align: center; font: 400 .8rem/1.3 var(--fonte-titulo);
+    padding: 7px max(20px, 4vw); border-bottom: 1px solid var(--linha); }
+
+  /* nav */
+  [data-nav] { top: 0; color: #fff; }
+  [data-nav] .wrap { display: flex; align-items: center; gap: 2rem; height: 76px; }
+  [data-nav].nav-solida { background: rgba(12,36,39,.92); backdrop-filter: none; }
+  .marca img { height: 26px; width: auto; }
+  .nav-links { display: flex; gap: 1.8rem; margin-left: auto; font: 400 .95rem var(--fonte-titulo); }
+  .nav-links a { text-decoration: none; }
+  .botao { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.35rem; border-radius: 3px; text-decoration: none;
+    font: 500 1rem var(--fonte-titulo); letter-spacing: -.005em; background: var(--acento); color: #fff; transition: background .3s; }
+  .botao:hover { background: #d94c0c; }
+  .botao.linha-b { background: transparent; border: 1px solid currentColor; color: inherit; }
+  .botao.linha-b:hover { background: rgba(255,255,255,.12); }
+  .nav-cta { min-height: 42px; font-size: .95rem; }
+
+  /* hero B */
+  .hero { position: relative; height: 100svh; min-height: 640px; margin-top: 0; color: #fff; background: var(--noite); }
+  .hero .moldura { position: absolute; inset: 0; }
+  .hero .moldura::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(12,36,39,.55) 0%, rgba(12,36,39,.28) 35%, rgba(12,36,39,.62) 72%, rgba(12,36,39,.9) 100%); }
+  .hero-texto { position: absolute; inset: auto 0 0; padding-bottom: clamp(28px, 5vh, 56px); }
+  .hero h1 { font-weight: 200; font-size: clamp(3.4rem, 9.2vw, 10.2rem); line-height: .94; letter-spacing: -.035em; }
+  .hero h1 b { font-weight: 500; }
+  .hero-rodape { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 2.2rem; align-items: end;
+    margin-top: clamp(24px, 4vh, 44px); padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.35); }
+  .hero-rodape p { font-size: 1rem; line-height: 1.45; color: rgba(255,255,255,.86); max-width: 30ch; }
+
+  /* manifesto */
+  .manifesto { padding: clamp(110px, 16vw, 230px) 0 clamp(90px, 12vw, 170px); }
+  .manifesto p { font: 300 clamp(1.9rem, 3.9vw, 4rem)/1.14 var(--fonte-titulo); letter-spacing: -.02em; max-width: 22ch; }
+  .manifesto .assina { margin-top: 2.4rem; font: 400 1.05rem var(--fonte-texto); font-style: italic; color: var(--tinta-2); max-width: none; }
+  .manifesto .grade-m { display: grid; grid-template-columns: 1fr 3fr; gap: 2rem; }
+  .manifesto .lado { font: 400 .95rem var(--fonte-titulo); color: var(--tinta-2); padding-top: .9rem; border-top: 1px solid var(--linha); align-self: start; }
+
+  /* assinatura: fachada */
+  .conta { background: var(--noite); color: #E6EAE8; padding: clamp(96px, 11vw, 170px) 0; --luz: rgba(3,159,155,.16); }
+  [data-luz]::before { background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), var(--luz), transparent 70%); }
+  .conta-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 6vw, 7rem); align-items: start; }
+  .conta-esq { position: sticky; top: 110px; }
+  .conta h2 { font-weight: 800; font-size: clamp(2.4rem, 4.8vw, 4.9rem); letter-spacing: -.035em; line-height: .96; }
+  .conta-esq > p { margin-top: 1.4rem; color: #B9C6C4; max-width: 42ch; }
+  .campos { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; margin-top: 2.4rem; }
+  .campo label { display: block; font: 400 .85rem var(--fonte-titulo); color: #9FB1AF; margin-bottom: .45rem; }
+  .campo input, .campo select { width: 100%; min-height: 52px; box-sizing: border-box; background: transparent; color: #fff;
+    border: 0; border-bottom: 1px solid #47615F; border-radius: 0; font: 500 1.35rem var(--fonte-titulo); font-variant-numeric: tabular-nums; padding: 0 .1rem; }
+  .campo select option { color: #000; }
+  .campo input:focus { outline: none; border-bottom-color: var(--acento); }
+  .resultado { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid #2B4547; }
+  .resultado .rotulo { font: 400 .95rem var(--fonte-titulo); color: #9FB1AF; }
+  .resultado .grande { display: block; font: 800 clamp(2.4rem, 4vw, 4.1rem)/1 var(--fonte-titulo); letter-spacing: -.04em; margin: .35rem 0 1rem; }
+  .resultado .menos { font: 400 1.15rem/1.5 var(--fonte-texto); color: #DCE4E2; max-width: 38ch; }
+  .resultado .menos strong { font-family: var(--fonte-titulo); font-weight: 500; color: #fff; }
+  .nota { margin-top: 1.4rem; font: 400 .85rem/1.5 var(--fonte-titulo); color: #8FA3A1; max-width: 46ch; }
+
+  .fachada { position: relative; }
+  .fachada-topo { display: flex; justify-content: space-between; gap: 1rem; font: 400 .85rem var(--fonte-titulo); color: #9FB1AF;
+    padding-bottom: .8rem; border-bottom: 1px solid #2B4547; }
+  .legenda-f span { display: inline-flex; align-items: center; gap: .5rem; margin-left: 1.2rem; }
+  .legenda-f i { display: inline-block; width: 22px; height: 8px; }
+  .legenda-f .l-sem { border: 1px solid #6E8987; }
+  .legenda-f .l-com { background: #3FA9A3; }
+  .andares { list-style: none; margin: 0; padding: 0; }
+  .andar { display: grid; grid-template-columns: 4.2rem 1fr 7.6rem; align-items: center; gap: 1rem; height: clamp(22px, 2.6vw, 34px);
+    border-bottom: 1px solid #1C3739; font: 400 .82rem var(--fonte-titulo); font-variant-numeric: tabular-nums; color: #8FA3A1; }
+  .andar .trilho { position: relative; height: 46%; }
+  .andar .sem, .andar .com { position: absolute; left: 0; top: 0; bottom: 0; transform-origin: left; }
+  .andar .sem { border: 1px solid #55716F; box-sizing: border-box; }
+  .andar .com { background: linear-gradient(90deg, #01717A, #3FA9A3); }
+  .andar .valor { text-align: right; color: #CFD9D7; }
+  .andar.quitado .valor { color: var(--acento); }
+  .andar.quitado .trilho::after { content: ""; position: absolute; left: -2px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: var(--acento); }
+  .andar.zerado .valor { color: #5F7775; }
+
+  /* motor */
+  .motor { padding: clamp(110px, 13vw, 200px) 0 clamp(90px, 10vw, 150px); position: relative; }
+  .motor-grade { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 3fr); gap: clamp(2rem, 6vw, 7rem); }
+  .motor h2 { font-weight: 800; font-size: clamp(2.2rem, 4.6vw, 4.6rem); letter-spacing: -.035em; line-height: .98; max-width: 14ch; }
+  .motor .intro { margin: 1.6rem 0 3.4rem; max-width: 56ch; color: var(--tinta-2); }
+  .recursos { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+  .recursos li { border-bottom: 1px solid var(--linha); }
+  .recursos .item { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 2rem; padding: 1.55rem 0; align-items: baseline; }
+  .recursos h3 { font: 500 clamp(1.35rem, 2.1vw, 2rem)/1.1 var(--fonte-titulo); letter-spacing: -.02em; }
+  .recursos p { color: var(--tinta-2); font-size: 1.02rem; }
+  .fluir-faixa { background: var(--petroleo); color: #fff; }
+  .fluir-faixa .item p { color: #E1ECEA; }
+  .motor-foto { margin-right: calc(-1 * max(20px, 4vw)); height: 100%; min-height: 640px; }
+  .motor-foto figure { position: sticky; top: 12vh; height: 76vh; margin: 0; }
+  figcaption, .cred { font: 400 .78rem var(--fonte-titulo); color: var(--tinta-2); margin-top: .6rem; }
+
+  /* para quem é */
+  .quem { padding: clamp(80px, 9vw, 140px) 0 clamp(120px, 14vw, 220px); background: var(--papel-escuro); }
+  .quem-grade { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 7rem); }
+  .quem h2 { font-weight: 800; font-size: clamp(2.2rem, 4.6vw, 4.6rem); letter-spacing: -.035em; line-height: .98; margin-bottom: 1.2rem; }
+  .quem .intro { color: var(--tinta-2); max-width: 46ch; margin-bottom: 3rem; }
+  .perfis { list-style: none; margin: 0; padding: 0; }
+  .perfis li { padding: 2.6rem 0 3.4rem; border-top: 1px solid var(--linha); opacity: .38; transition: opacity .6s; min-height: 34vh; }
+  .perfis li.ativo, .is-estatico .perfis li { opacity: 1; }
+  .perfis h3 { font: 800 clamp(1.8rem, 3.2vw, 3.1rem)/1 var(--fonte-titulo); letter-spacing: -.03em; }
+  .perfis .sub { font: 300 clamp(1.3rem, 2vw, 1.8rem)/1.2 var(--fonte-titulo); margin: .5rem 0 1rem; color: var(--petroleo); }
+  .perfis p { max-width: 44ch; color: var(--tinta-2); }
+  .troca-fotos { border-radius: 2px; }
+
+  /* ferramentas */
+  .ferramentas { padding: 2.2rem 0; border-block: 1px solid var(--tinta); }
+  .ferramentas [data-marquee] > * { --marquee-gap: 2.4rem; }
+  .ferramentas [data-marquee] span { font: 200 clamp(2rem, 4.2vw, 4.2rem)/1.1 var(--fonte-titulo); letter-spacing: -.03em; }
+  .ferramentas [data-marquee] span:nth-child(odd) { font-weight: 800; }
+  .ferramentas .ponto { color: var(--acento); font-weight: 400 !important; }
+  .ferr-cab { display: flex; justify-content: space-between; gap: 1rem; font: 400 .95rem var(--fonte-titulo); color: var(--tinta-2); margin-bottom: 1.4rem; }
+
+  /* app */
+  .app { padding: clamp(120px, 15vw, 240px) 0 clamp(80px, 9vw, 130px); }
+  .app-cab { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 2rem; align-items: end; margin-bottom: 3rem; }
+  .app h2 { font-weight: 200; font-size: clamp(2.6rem, 6vw, 6.4rem); letter-spacing: -.04em; line-height: .95; }
+  .app h2 b { font-weight: 800; }
+  .app-cab p { color: var(--tinta-2); }
+  .app-tela { margin-left: clamp(0px, 8vw, 140px); margin-right: calc(-1 * max(20px, 4vw)); aspect-ratio: 1600/792; box-shadow: 0 30px 80px -40px rgba(12,36,39,.5); border: 1px solid var(--linha); }
+  .app-tela img { object-position: left top; }
+  .indicadores { display: grid; grid-template-columns: repeat(5, auto); justify-content: start; gap: 0 3rem; margin-top: 3rem; padding-left: clamp(0px, 8vw, 140px); }
+  .indicadores span { font: 800 clamp(1.6rem, 2.6vw, 2.6rem) var(--fonte-titulo); letter-spacing: -.02em; }
+  .indicadores small { display: block; font: 400 .82rem var(--fonte-titulo); color: var(--tinta-2); }
+
+  .faixa-rua { height: clamp(260px, 40vw, 620px); }
+
+  /* perguntas */
+  .perguntas { padding: clamp(100px, 11vw, 170px) 0; }
+  .perguntas-grade { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 6vw, 7rem); }
+  .perguntas h2 { font-weight: 800; font-size: clamp(2.2rem, 4vw, 4rem); letter-spacing: -.035em; line-height: .98; }
+  details.pergunta { border-top: 1px solid var(--linha); }
+  details.pergunta:last-child { border-bottom: 1px solid var(--linha); }
+  details.pergunta summary { display: flex; justify-content: space-between; gap: 2rem; padding: 1.5rem 0; min-height: 48px;
+    font: 500 clamp(1.15rem, 1.7vw, 1.5rem)/1.25 var(--fonte-titulo); letter-spacing: -.01em; }
+  details.pergunta summary::after { content: "+"; font-weight: 200; font-size: 1.8rem; line-height: .8; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  details.pergunta[open] summary::after { transform: rotate(45deg); }
+  details.pergunta .resposta p { padding: 0 0 1.8rem; max-width: 62ch; color: var(--tinta-2); }
+
+  /* fecho */
+  .fecho { background: var(--noite); color: #E6EAE8; padding: clamp(96px, 11vw, 160px) 0 0; overflow: hidden; }
+  .fecho-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(2rem, 6vw, 7rem); align-items: end; }
+  .fecho h2 { font-weight: 200; font-size: clamp(2.6rem, 5.8vw, 6.2rem); line-height: .98; letter-spacing: -.04em; }
+  .fecho h2 b { font-weight: 800; }
+  .fecho p { margin: 2rem 0 2.4rem; color: #B9C6C4; max-width: 46ch; }
+  .fecho .acoes { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .fecho .acoes a.link { color: #fff; font: 400 1rem var(--fonte-titulo); text-decoration: none; padding: .8rem 0; border-bottom: 1px solid #47615F; }
+  .fecho-foto { aspect-ratio: 3/4; margin-bottom: -1px; }
+
+  footer { background: var(--noite); color: #B9C6C4; padding: clamp(70px, 8vw, 110px) 0 32px; font: 400 .9rem/1.6 var(--fonte-titulo); }
+  .rodape-nome { color: #E6EAE8; font-family: var(--fonte-titulo); font-weight: 800; letter-spacing: -.045em; }
+  .rodape-grade { display: grid; grid-template-columns: 2fr 1.2fr 1fr; gap: 2rem 3rem; margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid #2B4547; }
+  .rodape-grade a { text-decoration: none; }
+  .rodape-grade ul { list-style: none; margin: 0; padding: 0; }
+  .rodape-baixo { margin-top: 3rem; font-size: .78rem; color: #7E9391; display: grid; gap: .5rem; }
+  .confirmar { border-bottom: 1px dashed var(--acento); }
+
+  .zap-fixo { display: none; }
+  .is-estatico body::after { display: none; }
+  .resultado .grande { white-space: nowrap; }
+
+  /* celular */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-cta { margin-left: auto; }
+    .hero h1 { font-size: 14.2vw; }
+    .hero-rodape { grid-template-columns: 1fr; gap: .9rem; }
+    .hero-rodape p:nth-child(3) { display: none; }
+    .hero-rodape .botao { justify-self: start; }
+    .manifesto .grade-m, .conta-grade, .motor-grade, .quem-grade, .perguntas-grade, .fecho-grade, .app-cab, .rodape-grade { grid-template-columns: 1fr; }
+    .conta-esq { position: static; }
+    .campos { grid-template-columns: 1fr; }
+    .andar { grid-template-columns: 3rem 1fr 6.2rem; gap: .6rem; height: 24px; }
+    .legenda-f span { margin-left: .6rem; }
+    .recursos .item { grid-template-columns: 1fr; gap: .5rem; }
+    .motor-foto { margin-right: 0; min-height: 0; order: -1; }
+    .motor-foto figure { position: relative; top: 0; height: 64vh; }
+    .quem .troca-fotos { position: sticky; top: 84px; height: 42vh; }
+    .is-estatico .quem .troca-fotos { position: relative; top: 0; }
+    .perfis li { min-height: 0; padding: 1.8rem 0 2.2rem; }
+    .app-tela { margin-left: 0; }
+    .indicadores { grid-template-columns: repeat(3, auto); gap: 1rem 2rem; padding-left: 0; }
+    .fecho-foto { max-width: 70%; justify-self: end; }
+    .zap-fixo { display: inline-flex; transform: translateY(160%); transition: transform .6s cubic-bezier(.16,1,.3,1); }
+    .zap-fixo.visivel { transform: none; }
+    .hero h1 { font-size: 15vw; }
+    footer { padding-bottom: 96px; }
+  }
+</style>
+</head>
+<body>
+  <header data-nav>
+    <div class="previa">Prévia de site feita pela AlgUp Digital para Amortizza. Textos e fotos para aprovação.</div>
+    <div class="wrap">
+      <a class="marca" href="#topo" aria-label="Amortizza, início"><img src="img/logo-white.svg" alt="Amortizza" width="118" height="26"></a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#conta" data-rolar>Simular</a>
+        <a href="#motor" data-rolar>Soluções</a>
+        <a href="#quem" data-rolar>Para quem é</a>
+        <a href="#perguntas" data-rolar>Perguntas</a>
+      </nav>
+      <a class="botao nav-cta" href="#lista">Lista de espera</a>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="hero" data-hero>
+      <figure class="moldura" data-encolher style="margin:0">
+        <img src="img/hero.webp" alt="Fachada do Edifício Copan, em São Paulo, com as linhas horizontais dos brises vistas de baixo" fetchpriority="high" width="2200" height="1364">
+      </figure>
+      <div class="hero-texto">
+        <div class="wrap">
+          <h1 data-linhas>Sua casa,<br>sua conta,<br><b>sua decisão.</b></h1>
+          <div class="hero-rodape">
+            <p data-palavras>Financiamento imobiliário simulado mês a mês, com o saldo corrigido pela TR.</p>
+            <p data-palavras data-atraso=".15">SAC, PRICE e sete estratégias de amortização lado a lado.</p>
+            <p data-palavras data-atraso=".3">Antes de assinar o contrato ou com ele já em andamento.</p>
+            <a class="botao linha-b" href="#conta" data-magnetico>Fazer a conta</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="wrap grade-m">
+        <div class="lado">Por que existe</div>
+        <div>
+          <p data-acender>Quase todo mundo assina o financiamento olhando a primeira parcela. A Amortizza mostra o resto: cada mês do contrato, o saldo que desce, os juros que vão embora e o que acontece quando você antecipa um real.</p>
+          <p class="assina">Mostramos a conta inteira do financiamento para você decidir com clareza.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="conta" id="conta" data-luz>
+      <div class="wrap conta-grade">
+        <div class="conta-esq">
+          <h2 data-linhas>A conta inteira,<br>andar por andar.</h2>
+          <p>Cada andar é um ano do contrato. O contorno é o saldo devedor sem amortizar; a barra cheia é o mesmo saldo pagando 30% a mais da parcela todo mês.</p>
+          <form class="campos" onsubmit="return false" aria-label="Simulação ilustrativa">
+            <div class="campo">
+              <label for="valor">Valor da dívida</label>
+              <input id="valor" inputmode="numeric" value="R$ 300.000" autocomplete="off" aria-describedby="nota-sim">
+            </div>
+            <div class="campo">
+              <label for="prazo">Prazo</label>
+              <select id="prazo">
+                <option value="10">10 anos</option><option value="15">15 anos</option>
+                <option value="20" selected>20 anos</option><option value="25">25 anos</option>
+                <option value="30">30 anos</option><option value="35">35 anos</option>
+              </select>
+            </div>
+          </form>
+          <div class="resultado" aria-live="polite">
+            <span class="rotulo">Você quita em</span>
+            <span class="grande tab" id="r-prazo">…</span>
+            <p class="menos"><strong id="r-menos">…</strong> a menos e <strong id="r-juros">…</strong> de juros que você não paga.</p>
+          </div>
+          <p class="nota" id="nota-sim">Conta simplificada desta prévia: SAC, taxa de 10,75% a.a., 30% da parcela a mais todo mês, sem TR. O motor da Amortizza faz a projeção completa, com correção pela TR e indicadores do Banco Central. <!-- confirmar com a Amortizza se querem o simulador no site novo e com quais premissas --></p>
+        </div>
+        <div class="fachada">
+          <div class="fachada-topo">
+            <span>Saldo devedor no início de cada ano</span>
+            <span class="legenda-f"><span><i class="l-sem"></i>sem amortizar</span><span><i class="l-com"></i>com 30% a mais</span></span>
+          </div>
+          <ol class="andares" id="andares" aria-label="Saldo devedor por ano"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="motor" id="motor">
+      <div class="wrap motor-grade">
+        <div>
+          <h2 data-linhas>O motor de cálculo da Amortizza.</h2>
+          <p class="intro">Projeta cada parcela, compara os sistemas e mostra o efeito de cada decisão nos juros e no prazo. Você enxerga o contrato como ele é, não só a parcela do primeiro mês.</p>
+          <ul class="recursos">
+            <li data-fluir><div class="item"><h3>Motor de cálculo próprio</h3><p>SAC, PRICE e estratégias híbridas projetadas mês a mês, com correção do saldo devedor pela TR.</p></div><div class="fluir-faixa"><div class="item"><h3>Motor de cálculo próprio</h3><p>SAC, PRICE e estratégias híbridas projetadas mês a mês, com correção do saldo devedor pela TR.</p></div></div></li>
+            <li data-fluir><div class="item"><h3>Sete estratégias de amortização</h3><p>Caminhos diferentes para o mesmo contrato, comparados até o fim, para ver qual custa menos.</p></div><div class="fluir-faixa"><div class="item"><h3>Sete estratégias de amortização</h3><p>Caminhos diferentes para o mesmo contrato, comparados até o fim, para ver qual custa menos.</p></div></div></li>
+            <li data-fluir><div class="item"><h3>Amortizza Score</h3><p>O contrato recebe uma classificação por estrelas, para você saber onde está antes de decidir o que mudar.</p></div><div class="fluir-faixa"><div class="item"><h3>Amortizza Score</h3><p>O contrato recebe uma classificação por estrelas, para você saber onde está antes de decidir o que mudar.</p></div></div></li>
+            <li data-fluir><div class="item"><h3>Oito ferramentas financeiras</h3><p>Da Regra 15/15 ao planejador de FGTS, para as perguntas que aparecem antes e depois da chave.</p></div><div class="fluir-faixa"><div class="item"><h3>Oito ferramentas financeiras</h3><p>Da Regra 15/15 ao planejador de FGTS, para as perguntas que aparecem antes e depois da chave.</p></div></div></li>
+            <li data-fluir><div class="item"><h3>Indicadores do Banco Central</h3><p>SELIC, IPCA, TR, INCC e CDI atualizados na fonte e registrados junto com cada simulação.</p></div><div class="fluir-faixa"><div class="item"><h3>Indicadores do Banco Central</h3><p>SELIC, IPCA, TR, INCC e CDI atualizados na fonte e registrados junto com cada simulação.</p></div></div></li>
+            <li data-fluir><div class="item"><h3>Histórico que não se perde</h3><p>Cada versão salva guarda as premissas usadas, para voltar e entender por que o número era aquele.</p></div><div class="fluir-faixa"><div class="item"><h3>Histórico que não se perde</h3><p>Cada versão salva guarda as premissas usadas, para voltar e entender por que o número era aquele.</p></div></div></li>
+          </ul>
+        </div>
+        <div class="motor-foto">
+          <figure>
+            <div class="moldura parallax" data-revelar="cima" data-parallax="7" style="height:100%">
+              <img src="img/grade.webp" alt="Brises de concreto de um prédio da Avenida Paulista, em grade regular" loading="lazy" width="1600" height="1149">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="quem" id="quem" data-troca>
+      <div class="wrap quem-grade">
+        <div>
+          <h2 data-linhas>Para quem<br>é a Amortizza.</h2>
+          <p class="intro">Para quem vai assinar, para quem já paga e para quem acompanha o comprador. Em todos os casos, os números ficam à vista, mês a mês.</p>
+          <ol class="perfis">
+            <li data-passo="0"><h3>Primeiro imóvel</h3><p class="sub">Antes da chave, a conta.</p><p>Simule o impacto das parcelas e compare taxas e sistemas antes de assinar.</p></li>
+            <li data-passo="1"><h3>Já tem financiamento</h3><p class="sub">O contrato em andamento.</p><p>Descubra o momento de amortizar, compare a portabilidade e veja o efeito de cada aporte extra no prazo e no total de juros.</p></li>
+            <li data-passo="2"><h3>Corretores e assessores</h3><p class="sub">Os números à mesa.</p><p>Leve ao seu cliente um cenário claro do financiamento. Menos dúvida sobre a parcela, mais segurança para decidir.</p></li>
+            <li data-passo="3"><h3>Alugar ou comprar?</h3><p class="sub">A pergunta de sempre, com conta.</p><p>Compare o custo de alugar e o de comprar ao longo dos anos e veja o que faz sentido para o seu momento.</p></li>
+          </ol>
+        </div>
+        <div class="troca-fotos">
+          <img data-passo="0" src="img/copan-linhas.webp" alt="Curva da fachada do Copan com árvores na base" loading="lazy">
+          <img data-passo="1" src="img/jaragua.webp" alt="Brises verticais do Hotel Jaraguá, no centro de São Paulo" loading="lazy">
+          <img data-passo="2" src="img/brise.webp" alt="Brise de concreto com desenho geométrico em uma fachada paulistana" loading="lazy">
+          <img data-passo="3" src="img/rubem-berta-noite.webp" alt="Avenida Rubem Berta à noite, com o trânsito em rastros de luz" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="ferramentas" aria-label="As oito ferramentas">
+      <div class="wrap ferr-cab"><span>Oito ferramentas financeiras</span><span>na mesma conta</span></div>
+      <div data-marquee="70"><div>
+        <span>Regra 15/15</span><span class="ponto">●</span><span>ROI real</span><span class="ponto">●</span><span>Alugar × Comprar</span><span class="ponto">●</span><span>Consórcio × Investir</span><span class="ponto">●</span><span>Juros de obra</span><span class="ponto">●</span><span>Planejador de FGTS</span><span class="ponto">●</span><span>Custo de oportunidade</span><span class="ponto">●</span><span>Correção pela TR</span><span class="ponto">●</span>
+      </div></div>
+    </section>
+
+    <section class="app">
+      <div class="wrap">
+        <div class="app-cab">
+          <h2 data-linhas>O financiamento inteiro<br><b>em uma tela só.</b></h2>
+          <p>Do primeiro cenário ao acompanhamento do contrato já assinado, com cálculo, indicadores e histórico no mesmo lugar.</p>
+        </div>
+        <div class="moldura app-tela" data-revelar="esquerda">
+          <img src="img/app.webp" alt="Tela inicial da plataforma Amortizza com a simulação em andamento e as ferramentas Regra 15/15, Alugar vs Comprar e Consórcio vs Investimento" loading="lazy" width="1600" height="792">
+        </div>
+        <div class="indicadores" aria-label="Indicadores usados na projeção">
+          <div><span>SELIC</span><small>Banco Central</small></div>
+          <div><span>IPCA</span><small>inflação</small></div>
+          <div><span>TR</span><small>correção do saldo</small></div>
+          <div><span>INCC</span><small>obra</small></div>
+          <div><span>CDI</span><small>custo de oportunidade</small></div>
+        </div>
+      </div>
+    </section>
+
+    <figure class="moldura parallax faixa-rua" data-parallax="10" style="margin:0">
+      <img src="img/rubem-berta-antiga.webp" alt="Avenida Rubem Berta em foto antiga, com carros da época e a cidade ao fundo" loading="lazy" width="1600" height="1203">
+    </figure>
+
+    <section class="perguntas" id="perguntas">
+      <div class="wrap perguntas-grade">
+        <h2 data-linhas>Perguntas<br>frequentes</h2>
+        <div>
+          <details class="pergunta"><summary>O que a Amortizza faz, exatamente?</summary><div class="resposta"><div><p>Ela projeta o seu financiamento mês a mês, compara sistemas e estratégias de amortização e mostra qual caminho custa menos ao longo do contrato. Você informa os dados do contrato e recebe o cenário completo.</p></div></div></details>
+          <details class="pergunta"><summary>Serve para quem já tem financiamento contratado?</summary><div class="resposta"><div><p>Sim. É onde a plataforma costuma encontrar mais espaço: identificar o momento certo de amortizar, comparar portabilidade e medir o efeito de cada aporte extra no prazo e no total de juros.</p></div></div></details>
+          <details class="pergunta"><summary>Os números consideram a TR e a correção?</summary><div class="resposta"><div><p>Sim. A Taxa Referencial entra na correção do saldo devedor a cada mês, e os indicadores de mercado usados na projeção ficam registrados junto com a simulação.</p></div></div></details>
+          <details class="pergunta"><summary>Quanto custa?</summary><div class="resposta"><div><p>O diagnóstico pela Regra 15/15 é gratuito. Para liberar as simulações e as estratégias, há o plano mensal e o anual, e os preços aparecem na tela de planos antes da compra. Você pode cancelar quando quiser e, em até 7 dias, recebe todo o valor de volta.</p></div></div></details>
+          <details class="pergunta"><summary>Meus dados ficam seguros?</summary><div class="resposta"><div><p>A conexão é protegida (HTTPS), a senha fica guardada só em formato protegido e os dados do cartão ficam com o Asaas, a instituição de pagamento parceira. A Amortizza não vende os seus dados, e a Política de Privacidade explica com quem compartilha e por quê.</p></div></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="fecho" id="lista">
+      <div class="wrap fecho-grade">
+        <div style="padding-bottom: clamp(70px, 9vw, 140px)">
+          <h2 data-linhas>A casa própria não precisa ser só um sonho.<br><b>Com a conta na mão, ela vira um plano.</b></h2>
+          <p>Simule estratégias de amortização e veja como reduzir juros, diminuir o prazo e acelerar a construção do seu patrimônio.</p>
+          <div class="acoes">
+            <a class="botao" href="https://amortizza.com.br" data-magnetico>Entrar na lista de espera</a>
+            <a class="link" href="#conta" data-rolar>Refazer a conta</a>
+          </div>
+        </div>
+        <div class="moldura parallax fecho-foto" data-revelar="baixo" data-parallax="6">
+          <img src="img/copan-curva.webp" alt="O Copan visto de baixo, com uma árvore seca à frente" loading="lazy" width="1200" height="1600">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-nome" data-encaixar>Amortizza</div>
+      <div class="rodape-grade">
+        <div>
+          <p>Amortizza Soluções Tecnológicas Ltda<br>CNPJ <span class="tab">68.854.685/0001-77</span></p>
+          <p>Av. Rubem Berta, 1455, sala 16<br>Indianópolis, São Paulo/SP, CEP 04074-010</p>
+        </div>
+        <div>
+          <ul>
+            <li><a href="#motor" data-rolar>Soluções</a></li>
+            <li><a href="#quem" data-rolar>Meu imóvel</a></li>
+            <li><a href="#quem" data-rolar>Para corretores e assessores</a></li>
+            <li><a href="#lista" data-rolar>Lista de espera</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><a href="https://amortizza.com.br" data-rolar>Política de privacidade</a></li>
+            <li><a href="https://amortizza.com.br" data-rolar>Termos de uso</a></li>
+            <li><span class="confirmar">WhatsApp e Instagram: a confirmar</span><!-- confirmar --></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-baixo">
+        <p>© 2026 Amortizza. Todos os direitos reservados. As simulações são projeções e não constituem oferta de crédito.<!-- confirmar texto legal com a Amortizza --></p>
+        <p>Fotos (Wikimedia Commons): Edifício Copan, Rodrigo Soldon (CC BY 2.0); Ed. Banco Sul Americano e brise de concreto, Wilfredor (CC BY-SA 4.0 e CC0); Hotel Jaraguá, Jcornelius (CC BY-SA 4.0); Av. Rubem Berta x Av. Indianópolis, Marcosleal (CC BY-SA 3.0); Av. Rubem Berta, Werner Haberkorn / Museu Paulista da USP (domínio público). Tela da plataforma: amortizza.com.br.</p>
+        <p>Prévia não publicada feita pela AlgUp Digital.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="botao zap-fixo" href="#lista">Lista de espera</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+<script>
+/* Fachada-tabela: o simulador ilustrativo (SAC, 10,75% a.a., 30% da parcela a mais, sem TR). */
+(() => {
+  const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+  const curto = v => v >= 1e6 ? 'R$ ' + (v / 1e6).toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' mi'
+                              : 'R$ ' + Math.round(v / 1000).toLocaleString('pt-BR') + ' mil';
+  const anosMeses = m => { const a = Math.floor(m / 12), r = m % 12;
+    return [a ? a + (a > 1 ? ' anos' : ' ano') : '', r ? r + (r > 1 ? ' meses' : ' mês') : ''].filter(Boolean).join(' e ') || '0 mês'; };
+  const i = Math.pow(1.1075, 1 / 12) - 1;
+  function simular(P, n, extra) {
+    const a = P / n; let saldo = P, m = 0, juros = 0; const inicioAno = [];
+    while (saldo > 0.5 && m < n) {
+      if (m % 12 === 0) inicioAno.push(saldo);
+      const j = saldo * i, parcela = a + j;
+      juros += j; saldo -= Math.min(saldo, a + parcela * extra); m++;
+    }
+    return { meses: m, juros, inicioAno };
+  }
+  const $v = document.getElementById('valor'), $p = document.getElementById('prazo'), $lista = document.getElementById('andares');
+  const est = document.documentElement.classList.contains('is-estatico') || !window.gsap;
+  let animado = false;
+  function lerValor() { const n = Number(($v.value || '').replace(/\D/g, '')); return Math.min(1e7, Math.max(1e4, n || 3e5)); }
+  function desenhar(primeira) {
+    const P = lerValor(), anos = Number($p.value), n = anos * 12;
+    const sem = simular(P, n, 0), com = simular(P, n, 0.3);
+    document.getElementById('r-prazo').textContent = anosMeses(com.meses);
+    document.getElementById('r-menos').textContent = anosMeses(n - com.meses);
+    document.getElementById('r-juros').textContent = brl(sem.juros - com.juros);
+    const anoQuita = Math.ceil(com.meses / 12);
+    $lista.innerHTML = sem.inicioAno.map((s, k) => {
+      const c = com.inicioAno[k] || 0;
+      const cls = k + 1 === anoQuita ? 'quitado' : (c === 0 ? 'zerado' : '');
+      return `<li class="andar ${cls}"><span>ano ${k + 1}</span><span class="trilho"><span class="sem" style="width:${(s / P * 100).toFixed(2)}%"></span><span class="com" style="width:${(c / P * 100).toFixed(2)}%"></span></span><span class="valor">${c ? curto(c) : (k + 1 === anoQuita ? 'quitado' : 'R$ 0')}</span></li>`;
+    }).join('');
+    if (primeira && !est) {
+      gsap.from($lista.querySelectorAll('.com'), { scaleX: 0, ease: 'none', stagger: .08,
+        scrollTrigger: { trigger: $lista, start: 'top 72%', end: 'bottom 62%', scrub: .6 } });
+      gsap.from($lista.querySelectorAll('.sem'), { scaleX: 0, duration: 1.4, ease: 'expo.out', stagger: .03,
+        scrollTrigger: { trigger: $lista, start: 'top 80%', once: true } });
+    }
+  }
+  $v.addEventListener('input', () => { const n = Number($v.value.replace(/\D/g, '')); $v.value = n ? 'R$ ' + n.toLocaleString('pt-BR') : ''; desenhar(false); ScrollTrigger?.refresh?.(); });
+  $v.addEventListener('blur', () => { $v.value = 'R$ ' + lerValor().toLocaleString('pt-BR'); desenhar(false); });
+  $p.addEventListener('change', () => { desenhar(false); window.ScrollTrigger && ScrollTrigger.refresh(); });
+  desenhar(true);
+  const zap = document.querySelector('.zap-fixo');
+  const verZap = () => zap.classList.toggle('visivel', scrollY > innerHeight * .8);
+  addEventListener('scroll', verZap, { passive: true }); verZap();
+})();
+</script>
+
+<!-- algup-previa -->
+<style id="algup-previa">
+  #algup-marca{position:fixed;inset:0;pointer-events:none;z-index:2147483646;opacity:.13;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='260'><text x='20' y='150' transform='rotate(-24 210 130)' font-family='Arial,Helvetica,sans-serif' font-size='30' font-weight='700' fill='%23000'>PRÉVIA · AlgUp Digital</text></svg>");
+    background-repeat:repeat}
+  #algup-faixa{position:fixed;left:0;right:0;bottom:0;z-index:2147483647;background:#111;color:#fff;
+    font:600 14px/1.35 Arial,Helvetica,sans-serif;text-align:center;padding:10px 14px}
+  #algup-faixa small{display:block;font-weight:400;opacity:.8}
+  #algup-aviso{position:fixed;left:50%;top:24px;transform:translateX(-50%);z-index:2147483647;background:#111;color:#fff;
+    font:14px Arial,Helvetica,sans-serif;padding:10px 16px;border-radius:8px;display:none}
+  body{padding-bottom:64px!important}
+</style>
+<div id="algup-marca" aria-hidden="true"></div>
+<div id="algup-faixa">Prévia feita pela AlgUp Digital, não é o site oficial.
+  <small>Alguns botões e links estão travados nesta versão de amostra.</small></div>
+<div id="algup-aviso">Esta é só uma prévia: este botão funciona no site oficial.</div>
+<script>
+(function(){
+  var aviso=document.getElementById('algup-aviso'),t;
+  function avisar(e){e.preventDefault();e.stopPropagation();aviso.style.display='block';clearTimeout(t);
+    t=setTimeout(function(){aviso.style.display='none'},2200);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return; var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#'||h==='')return; avisar(e);},true);
+  document.addEventListener('submit',avisar,true);
+  document.addEventListener('contextmenu',function(e){e.preventDefault()},true);
+})();
+</script>
+
+</body>
+</html>
