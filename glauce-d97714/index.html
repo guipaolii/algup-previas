@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Glauce, psicóloga | Psicoterapia presencial e online</title>
+<meta name="description" content="Glauce, psicóloga. Psicoterapia individual, presencial e online. Prévia de site para aprovação.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@300,400,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+  :root {
+    --fundo: #E7E8E4; --tinta: #1C2427; --tinta-2: #566064; --linha: #C5C9C4;
+    --porta: #8E9A9B; --fresta: #E9CF8C; --acento: #1C2427;
+    --fonte-titulo: "Gambetta", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --fonte-texto: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --corpo: 1.0938rem; --grao: .06;
+  }
+  body { font-variant-numeric: oldstyle-nums; }
+  h1, h2, h3 { letter-spacing: -.018em; }
+
+  /* "a confirmar": à vista, para a call */
+  .confirmar { text-decoration: underline dotted 1.5px; text-underline-offset: .22em; text-decoration-color: currentColor; opacity: .78; }
+  .escuro .confirmar { text-decoration-color: var(--fresta); }
+
+  /* Topo: faixa da prévia + nav */
+  .topo { color: var(--tinta); }
+  .topo.nav-solida { background: color-mix(in srgb, var(--fundo) 94%, transparent); box-shadow: 0 1px 0 var(--linha); }
+  .faixa { background: var(--tinta); color: #CFD5D3; font-size: .78rem; letter-spacing: .01em; text-align: center; padding: .42rem 1rem; }
+  .nav { display: flex; align-items: center; gap: 2rem; padding-block: 1rem; }
+  .marca { font-family: var(--fonte-titulo); font-size: 1.45rem; text-decoration: none; margin-right: auto; line-height: 1; }
+  .marca small { font-family: var(--fonte-texto); font-size: .8rem; color: var(--tinta-2); margin-left: .45rem; }
+  .nav a:not(.marca):not(.botao) { text-decoration: none; font-size: .95rem; }
+  .botao { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .8rem 1.5rem; border-radius: 3px;
+           background: var(--tinta); color: var(--fundo); text-decoration: none; font-weight: 500; font-size: 1rem; }
+  .botao.claro { background: var(--fundo); color: var(--tinta); }
+  .botao.linha { background: transparent; color: inherit; box-shadow: inset 0 0 0 1px currentColor; }
+  .nav .botao { min-height: 42px; padding: .55rem 1.1rem; font-size: .92rem; }
+
+  /* Hero A */
+  .hero { min-height: 100svh; display: grid; grid-template-columns: 1fr minmax(0, 38%); gap: clamp(1.5rem, 4vw, 5rem);
+          padding-top: clamp(7.5rem, 15vh, 10rem); padding-bottom: clamp(2rem, 5vh, 3.5rem); align-items: end; }
+  .hero-texto { display: grid; gap: 2rem; padding-bottom: .5rem; }
+  .sobre-titulo { color: var(--tinta-2); font-size: 1rem; }
+  .hero h1 { font-weight: 300; font-size: clamp(3.1rem, 7.6vw, 8.6rem); line-height: .98; }
+  .hero h1 .peso { font-weight: 500; }
+  .hero-pe { display: grid; grid-template-columns: minmax(0, 30rem) auto; gap: 1.5rem 3rem; align-items: end; }
+  .hero-pe p { color: var(--tinta-2); max-width: 34ch; }
+  .hero-acoes { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
+  .crp { font-size: .9rem; color: var(--tinta-2); }
+  .hero figure { margin: 0; height: min(78svh, 52rem); border-radius: 2px; }
+  .hero figcaption, .legenda { font-size: .8rem; color: var(--tinta-2); margin-top: .6rem; }
+
+  /* Manifesto */
+  .manifesto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); gap: clamp(2rem, 7vw, 8rem); align-items: start;
+               padding-block: clamp(7rem, 16vw, 14rem) clamp(6rem, 12vw, 11rem); }
+  .manifesto p[data-acender] { font-family: var(--fonte-titulo); font-weight: 300; font-size: clamp(1.75rem, 3.5vw, 3.4rem); line-height: 1.16; max-width: 26ch; letter-spacing: -.012em; }
+  .manifesto figure { margin: 0; aspect-ratio: 3/5; margin-top: 8rem; }
+
+  /* Atendimento: lista tipográfica */
+  .atendimento { padding-block: clamp(4rem, 8vw, 7rem) clamp(7rem, 12vw, 11rem); }
+  .cabeca { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 2rem; align-items: end; margin-bottom: 3.5rem; }
+  .cabeca h2 { font-size: clamp(2.6rem, 6vw, 6rem); font-weight: 300; }
+  .cabeca p { color: var(--tinta-2); }
+  .lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tinta); }
+  .lista li { border-bottom: 1px solid var(--linha); }
+  .lista a, .fluir-faixa > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem); gap: 2rem; align-items: baseline;
+           padding: clamp(1.2rem, 2.4vw, 2rem) 0; text-decoration: none; }
+  .fluir-faixa > div { padding-inline: 0; }
+  .lista h3, .fluir-faixa strong { font-size: clamp(1.7rem, 3.4vw, 3.2rem); font-weight: 400; font-family: var(--fonte-titulo); line-height: 1.05; }
+  .lista span, .fluir-faixa span { color: var(--tinta-2); font-size: 1rem; }
+  .fluir-faixa { background: var(--tinta); }
+  .fluir-faixa span { color: #B9C2C1; }
+
+  /* A PORTA: momento-assinatura */
+  .porta { background: var(--tinta); color: #E3E6E3; position: relative; }
+  .porta-palco { min-height: 100svh; display: grid; place-items: center; padding-block: 6rem; overflow: hidden; }
+  .porta-vao { position: relative; height: min(84svh, 50rem); aspect-ratio: 920/1810; max-width: 86vw; perspective: 1600px; box-shadow: 0 0 0 10px #263033, 0 0 0 11px #3A4548; }
+  .porta-dentro { position: absolute; inset: 0; overflow: hidden; }
+  .porta-dentro img { width: 100%; height: 100%; object-fit: cover; }
+  .porta-dentro::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(28 36 39 / .15), rgb(28 36 39 / .62) 70%); }
+  .porta-texto { position: absolute; inset: auto 0 0 0; z-index: 2; padding: clamp(1.4rem, 3vw, 2.4rem); display: grid; gap: 1rem; }
+  .porta-texto h2 { font-size: clamp(1.9rem, 2.7vw, 2.8rem); font-weight: 300; color: #F4F2EA; line-height: 1.02; }
+  .porta-texto p { font-size: .94rem; line-height: 1.5; color: #E1E5E2; max-width: 36ch; }
+  .folha { position: absolute; top: 0; bottom: 0; width: 50%; z-index: 3; background: url(img/porta.webp) no-repeat; background-size: 200% 100%;
+           transform-style: preserve-3d; visibility: hidden; }
+  .folha.esq { left: 0; background-position: 0 50%; transform-origin: left center; }
+  .folha.dir { right: 0; background-position: 100% 50%; transform-origin: right center; }
+  .fresta { position: absolute; z-index: 4; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--fresta);
+            box-shadow: 0 0 18px 4px rgb(233 207 140 / .55), 0 0 60px 14px rgb(233 207 140 / .18); opacity: 0; }
+  .porta-viva { height: 280vh; }
+  .porta-viva .porta-palco { position: sticky; top: 0; height: 100svh; min-height: 0; padding-block: 3rem; }
+  .folha { backface-visibility: hidden; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .08); }
+  .porta-lado { position: absolute; left: max(20px, 4vw); bottom: clamp(2rem, 6vh, 4rem); max-width: 17rem; font-family: var(--fonte-titulo); font-size: 1.25rem; line-height: 1.3; color: #AEB7B6; z-index: 1; }
+  .porta-lado-dir { left: auto; right: max(20px, 4vw); text-align: right; }
+
+  /* Como funciona */
+  .como { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 7rem); padding-block: clamp(8rem, 14vw, 13rem) clamp(6rem, 10vw, 9rem); }
+  .como h2 { font-size: clamp(2.6rem, 6vw, 6rem); font-weight: 300; margin-bottom: 3rem; }
+  .passos { position: relative; list-style: none; margin: 0; padding: 0 0 0 2.25rem; display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+  .passos::before { content: ""; position: absolute; left: 0; top: .5rem; bottom: .5rem; width: 1px; background: var(--linha); }
+  .passos-wrap { position: relative; }
+  .passos-wrap .fio { position: absolute; left: 0; top: .5rem; bottom: .5rem; width: 1px; background: var(--tinta); }
+  .passos li { position: relative; display: grid; gap: .55rem; max-width: 34rem; }
+  .passos li::before { content: ""; position: absolute; left: calc(-2.25rem - 4px); top: .62rem; width: 9px; height: 9px; border-radius: 50%; background: var(--fundo); box-shadow: inset 0 0 0 1px var(--tinta); }
+  .passos .n { font-size: .85rem; color: var(--tinta-2); font-variant-numeric: tabular-nums lining-nums; }
+  .passos h3 { font-size: clamp(1.6rem, 2.6vw, 2.3rem); font-weight: 400; }
+  .passos p { color: var(--tinta-2); }
+  .como figure { margin: 0; position: sticky; top: 12vh; height: 76vh; align-self: start; }
+
+  /* Faixa 21:9 sangrando */
+  .faixa-foto { margin: 0 0 0 max(20px, 4vw); width: calc(100% - max(20px, 4vw)); aspect-ratio: 21/9; max-height: 80svh; }
+  .faixa-legenda { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); gap: 2rem; padding-block: 1.6rem clamp(5rem, 9vw, 8rem); }
+  .faixa-legenda p:last-child { font-family: var(--fonte-titulo); font-size: clamp(1.3rem, 2vw, 1.8rem); line-height: 1.25; font-weight: 300; }
+
+  /* Perguntas */
+  .perguntas { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: clamp(2rem, 7vw, 8rem); padding-block: clamp(5rem, 9vw, 8rem) clamp(8rem, 14vw, 14rem); }
+  .perguntas figure { margin: 0; aspect-ratio: 1/3; }
+  .perguntas h2 { font-size: clamp(2.6rem, 6vw, 6rem); font-weight: 300; margin-bottom: 2.5rem; }
+  details.pergunta { border-top: 1px solid var(--linha); }
+  details.pergunta:last-of-type { border-bottom: 1px solid var(--linha); }
+  details.pergunta summary { display: flex; justify-content: space-between; gap: 2rem; align-items: center; padding: 1.4rem 0; min-height: 48px;
+           font-family: var(--fonte-titulo); font-size: clamp(1.3rem, 2.2vw, 1.85rem); line-height: 1.2; }
+  details.pergunta summary::after { content: ""; flex: none; width: 15px; height: 15px; transition: transform .6s cubic-bezier(.16,1,.3,1);
+           background: linear-gradient(currentColor, currentColor) center/100% 1px no-repeat, linear-gradient(currentColor, currentColor) center/1px 100% no-repeat; }
+  details.pergunta[open] summary::after { transform: rotate(45deg); }
+  details.pergunta .resposta p { padding: 0 0 1.6rem; color: var(--tinta-2); max-width: 62ch; }
+
+  /* Contato escuro */
+  .contato { background: var(--tinta); color: #E3E6E3; --luz: rgb(233 207 140 / .08); }
+  .contato-grade { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 7rem); padding-block: clamp(6rem, 11vw, 10rem); align-items: end; }
+  .contato h2 { font-size: clamp(2.8rem, 6.6vw, 6.8rem); font-weight: 300; color: #F4F2EA; margin-bottom: 2.2rem; }
+  .contato .apoio { color: #AEB7B6; max-width: 38ch; margin-bottom: 2.2rem; }
+  .contato .acoes { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .contato .botao { background: var(--fresta); color: var(--tinta); }
+  .contato .botao.linha { background: transparent; color: #E3E6E3; }
+  .dados { display: grid; gap: 0; margin: 0; }
+  .dados div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-top: 1px solid #34403F; }
+  .dados dt { color: #8D9898; font-size: .92rem; }
+  .dados dd { margin: 0; }
+  .contato figure { margin: 0 0 2.2rem; aspect-ratio: 16/9; }
+  :is(.contato, .porta) :focus-visible { outline-color: var(--fresta); }
+
+  /* Rodapé editorial */
+  .rodape { background: var(--fundo); padding-top: clamp(4rem, 8vw, 6rem); padding-bottom: 6rem; }
+  .rodape-nome { font-family: var(--fonte-titulo); font-weight: 300; letter-spacing: -.03em; color: var(--tinta); }
+  .rodape-grade { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem 3rem; margin-top: 2.5rem; padding-top: 1.8rem; border-top: 1px solid var(--tinta); font-size: .92rem; color: var(--tinta-2); }
+  .rodape-grade p + p { margin-top: .7rem; }
+  .rodape-grade strong { color: var(--tinta); font-weight: 500; }
+  .creditos { font-size: .76rem; margin-top: 2.5rem; color: var(--tinta-2); max-width: 110ch; }
+  .creditos a { text-decoration-color: var(--linha); }
+
+  .zap-fixo { display: none; }
+
+  @media (max-width: 860px) {
+    .nav a:not(.marca):not(.botao) { display: none; }
+    .marca small { display: none; }
+    .hero { grid-template-columns: 1fr; padding-top: 7.6rem; gap: 2.2rem; align-items: start; }
+    .hero h1 { font-size: clamp(2.7rem, 12.4vw, 4.4rem); }
+    .hero figure { height: 62svh; order: 2; }
+    .hero-pe { grid-template-columns: 1fr; }
+    .manifesto, .como, .perguntas, .contato-grade, .cabeca, .faixa-legenda { grid-template-columns: 1fr; }
+    .manifesto figure { margin-top: 0; width: 62%; justify-self: end; aspect-ratio: 3/4; }
+    .lista a, .fluir-faixa > div { grid-template-columns: 1fr; gap: .4rem; }
+    .como figure { position: relative; top: 0; height: 58svh; order: -1; }
+    .perguntas figure { display: none; }
+    .rodape-grade { grid-template-columns: 1fr; }
+    .faixa-foto { aspect-ratio: 4/3; }
+    .porta-lado { display: none; }
+    .nav .botao { display: none; }
+    .zap-fixo { display: inline-flex; box-shadow: 0 6px 24px rgb(0 0 0 / .18); }
+    .faixa { font-size: .72rem; }
+  }
+</style>
+</head>
+<body>
+<header class="topo" data-nav>
+  <div class="faixa">Prévia de site feita pela AlgUp Digital para Glauce. Textos e fotos para aprovação.</div>
+  <nav class="nav wrap" aria-label="Principal">
+    <a class="marca" href="#inicio">Glauce <small>psicóloga</small></a>
+    <a href="#atendimento" data-rolar>Atendimento</a>
+    <a href="#como" data-rolar>Como funciona</a>
+    <a href="#perguntas" data-rolar>Perguntas</a>
+    <!-- confirmar: número do WhatsApp -->
+    <a class="botao" href="#contato">Falar pelo WhatsApp</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero wrap" data-hero>
+    <div class="hero-texto">
+      <p class="sobre-titulo">Glauce <span class="confirmar">sobrenome a confirmar</span>, psicóloga</p>
+      <h1 data-linhas><span class="peso">Psicoterapia</span><br>para falar do que pesa,<br>no seu tempo.</h1>
+      <div class="hero-pe">
+        <p data-palavras data-atraso=".2">Atendimento psicológico individual, presencial em <span class="confirmar">cidade a confirmar</span> e online. A primeira conversa é para você contar o que está acontecendo, sem pressa.</p>
+        <div class="hero-acoes">
+          <a class="botao" href="#contato" data-magnetico>Falar pelo WhatsApp</a>
+          <span class="crp">CRP <span class="confirmar">a confirmar</span></span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <figure class="moldura parallax" data-revelar="cima" data-parallax="6">
+        <img src="img/janela.webp" alt="Duas cadeiras de madeira lado a lado, sob uma janela alta com luz do dia" fetchpriority="high" width="1400" height="2099">
+      </figure>
+      <p class="legenda">Foto provisória. Entra a sala da Glauce.</p>
+    </div>
+  </section>
+
+  <section class="manifesto wrap" aria-label="Sobre começar a terapia">
+    <p data-acender>Muita gente adia a terapia porque não sabe por onde começar, ou acha que o que sente não é grande o bastante. Não precisa chegar com tudo explicado. Você fala do jeito que der, e a gente organiza junto, uma sessão de cada vez.</p>
+    <figure class="moldura parallax" data-revelar="baixo" data-parallax="10">
+      <img src="img/folhas.webp" alt="Sombra de folhas desenhada pela luz numa parede clara" loading="lazy">
+    </figure>
+  </section>
+
+  <section class="atendimento wrap" id="atendimento">
+    <div class="cabeca">
+      <h2 data-linhas>Atendimento</h2>
+      <p>Públicos e abordagem <span class="confirmar">a confirmar com a Glauce</span>. A lista abaixo é o desenho da seção, não o texto final.</p>
+    </div>
+    <ul class="lista">
+      <li data-fluir><a href="#contato"><h3>Psicoterapia individual</h3><span>Para adultos, em sessões regulares.</span></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><strong>Psicoterapia individual</strong><span>Para adultos, em sessões regulares.</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Atendimento online</h3><span>Por vídeo, de onde você estiver, com o mesmo sigilo.</span></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><strong>Atendimento online</strong><span>Por vídeo, de onde você estiver, com o mesmo sigilo.</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Adolescentes</h3><span><span class="confirmar">A confirmar</span> se faz parte do atendimento.</span></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><strong>Adolescentes</strong><span>A confirmar se faz parte do atendimento.</span></div></div></li>
+      <li data-fluir><a href="#contato"><h3>Orientação a pais</h3><span><span class="confirmar">A confirmar</span> se faz parte do atendimento.</span></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><strong>Orientação a pais</strong><span>A confirmar se faz parte do atendimento.</span></div></div></li>
+    </ul>
+  </section>
+
+  <section class="porta escuro" data-porta aria-label="Sigilo">
+    <div class="porta-palco">
+      <p class="porta-lado">A porta se fecha para a conversa começar.</p>
+      <div class="porta-vao">
+        <div class="porta-dentro"><img src="img/cortina.webp" alt="Luz do sol atravessando uma cortina branca de algodão" loading="lazy"></div>
+        <div class="porta-texto">
+          <h2>O que é dito aqui,<br>fica aqui.</h2>
+          <p>O sigilo é dever da psicóloga, previsto no Código de Ética Profissional do Psicólogo. O que você conta na sessão não sai da sala, salvo as raras exceções que o próprio Código prevê.</p>
+        </div>
+        <div class="folha esq" aria-hidden="true"></div>
+        <div class="folha dir" aria-hidden="true"></div>
+        <div class="fresta" aria-hidden="true"></div>
+      </div>
+      <p class="porta-lado porta-lado-dir">Presencial ou por vídeo, o cuidado com o sigilo é o mesmo.</p>
+    </div>
+  </section>
+
+  <section class="como wrap" id="como">
+    <div>
+      <h2 data-linhas>Como<br>funciona</h2>
+      <div class="passos-wrap"><span class="fio" data-linha-tempo aria-hidden="true"></span>
+      <ol class="passos">
+        <li><span class="n">1</span><h3>A primeira mensagem</h3><p>Você manda uma mensagem pelo WhatsApp. Pode ser curta: seu nome e se prefere presencial ou online.</p></li>
+        <li><span class="n">2</span><h3>A primeira conversa</h3><p>Você conta o que te trouxe, no seu ritmo. É também a hora de tirar dúvidas sobre como a terapia funciona.</p></li>
+        <li><span class="n">3</span><h3>Os combinados</h3><p>Dia, horário, frequência e valor são combinados com clareza antes de começar.</p></li>
+        <li><span class="n">4</span><h3>As sessões</h3><p>Encontros regulares de <span class="confirmar">duração a confirmar</span>, no mesmo horário, presenciais ou por vídeo.</p></li>
+      </ol></div>
+    </div>
+    <figure class="moldura parallax" data-revelar="esquerda" data-parallax="8">
+      <img src="img/hastes.webp" alt="Sombras de hastes de planta numa parede cinza clara" loading="lazy">
+    </figure>
+  </section>
+
+  <section aria-label="Pausa">
+    <figure class="faixa-foto moldura parallax" data-revelar="direita" data-parallax="10">
+      <img src="img/palmeira.webp" alt="Sombra de uma palmeira numa parede clara, com as folhas da planta embaixo" loading="lazy">
+    </figure>
+    <div class="faixa-legenda wrap">
+      <p class="legenda">Fotos provisórias de banco livre, com o mesmo tratamento. Na versão final entram as fotos da Glauce e do consultório.</p>
+      <p>A terapia não tem pressa de chegar a lugar nenhum. Ela começa onde você está.</p>
+    </div>
+  </section>
+
+  <section class="perguntas wrap" id="perguntas">
+    <figure class="moldura" data-revelar="baixo"><img src="img/planta.webp" alt="Sombra de um galho de planta numa parede" loading="lazy"></figure>
+    <div>
+      <h2 data-linhas>Perguntas</h2>
+      <details class="pergunta"><summary>Como sei se é hora de procurar terapia?</summary>
+        <div class="resposta"><div><p>Não existe tamanho mínimo de problema. Se alguma coisa vem ocupando muito espaço, atrapalhando o sono, o trabalho ou as relações, já é motivo para conversar.</p></div></div></details>
+      <details class="pergunta"><summary>A terapia online funciona do mesmo jeito?</summary>
+        <div class="resposta"><div><p>A sessão online segue o mesmo cuidado e o mesmo sigilo da presencial. Você só precisa de um lugar reservado e de uma conexão estável. O atendimento online de psicólogos é regulamentado pelo Conselho Federal de Psicologia, com cadastro no e-Psi (<span class="confirmar">a confirmar</span>).</p></div></div></details>
+      <details class="pergunta"><summary>Quanto custa?</summary>
+        <div class="resposta"><div><p>O valor é combinado diretamente com a Glauce na primeira conversa, junto com a frequência das sessões.</p></div></div></details>
+      <details class="pergunta"><summary>Quanto tempo dura cada sessão?</summary>
+        <div class="resposta"><div><p>Duração <span class="confirmar">a confirmar</span>. A frequência costuma ser semanal e é ajustada com você.</p></div></div></details>
+      <details class="pergunta"><summary>E se for uma emergência?</summary>
+        <div class="resposta"><div><p>A psicoterapia não é um serviço de urgência. Em crise ou risco, ligue 188 (CVV, 24 horas, gratuito) ou 192 (SAMU), ou vá ao pronto-socorro mais próximo.</p></div></div></details>
+    </div>
+  </section>
+
+  <section class="contato escuro" id="contato" data-luz>
+    <div class="contato-grade wrap">
+      <div>
+        <h2 data-linhas>Para marcar<br>a primeira conversa</h2>
+        <p class="apoio">Mande uma mensagem com seu nome e se prefere presencial ou online. A resposta vem pelo mesmo canal.</p>
+        <div class="acoes">
+          <!-- confirmar: número. Mensagem neutra pré-preenchida -->
+          <a class="botao" href="https://wa.me/?text=Ol%C3%A1%2C%20Glauce.%20Gostaria%20de%20saber%20sobre%20hor%C3%A1rios%20para%20uma%20primeira%20conversa." rel="noopener">Falar pelo WhatsApp</a>
+          <a class="botao linha" href="#contato">Enviar e-mail</a>
+        </div>
+      </div>
+      <div>
+        <dl class="dados">
+          <div><dt>WhatsApp</dt><dd><span class="confirmar">a confirmar</span></dd></div>
+          <div><dt>Onde</dt><dd><span class="confirmar">endereço e cidade a confirmar</span> e online</dd></div>
+          <div><dt>Horários</dt><dd><span class="confirmar">a confirmar</span></dd></div>
+          <div><dt>E-mail</dt><dd><span class="confirmar">a confirmar</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-nome" data-encaixar>Glauce</div>
+    <div class="rodape-grade">
+      <div>
+        <p><strong>Glauce <span class="confirmar">sobrenome a confirmar</span></strong>, psicóloga</p>
+        <p>CRP <span class="confirmar">a confirmar</span></p>
+      </div>
+      <div>
+        <p><span class="confirmar">Endereço a confirmar</span></p>
+        <p>Atendimento presencial e online</p>
+      </div>
+      <div>
+        <p>Este site tem caráter informativo e não substitui atendimento psicológico.</p>
+        <p>Em crise, ligue 188 (CVV) ou 192 (SAMU).</p>
+        <p><a href="#contato">Política de privacidade</a> <span class="confirmar">a confirmar</span></p>
+      </div>
+    </div>
+    <p class="creditos">Fotos provisórias do Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Window_and_chairs,_Pal%C3%A1cio_Nacional_de_Mafra,_Mafra,_Portugal_julesvernex2.jpg">Jules Verne Times Two</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Light_grey_door_in_Plaka_on_11-20-2023.jpg">George E. Koronaios</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Sunlight_and_shadows_on_white_cotton_curtain.jpg">W.carter</a> (domínio público), <a href="https://commons.wikimedia.org/wiki/File:Shadow_of_leaves_on_a_wall,_Instituto_Nacional_de_Estat%C3%ADstica,_Avenida_Manuel_da_Maia,_Lisbon,_Portugal_julesvernex2.jpg">Jules Verne Times Two</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:In_and_Out_of_Shadow_(14871806169).jpg">cogdogblog</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Shadow_of_Euphorbia_milii.jpg">Sahilrathod</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:ShadowWall-8034.jpg">Loadmaster (David R. Tribble)</a> (CC BY-SA 4.0). Tratamento de cor pela AlgUp.</p>
+  </div>
+</footer>
+
+<a class="botao zap-fixo" href="#contato" aria-label="Falar pelo WhatsApp">WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+
+<!-- algup-previa -->
+<style id="algup-previa">
+  #algup-marca{position:fixed;inset:0;pointer-events:none;z-index:2147483646;opacity:.13;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='260'><text x='20' y='150' transform='rotate(-24 210 130)' font-family='Arial,Helvetica,sans-serif' font-size='30' font-weight='700' fill='%23000'>PRÉVIA · AlgUp Digital</text></svg>");
+    background-repeat:repeat}
+  #algup-faixa{position:fixed;left:0;right:0;bottom:0;z-index:2147483647;background:#111;color:#fff;
+    font:600 14px/1.35 Arial,Helvetica,sans-serif;text-align:center;padding:10px 14px}
+  #algup-faixa small{display:block;font-weight:400;opacity:.8}
+  #algup-aviso{position:fixed;left:50%;top:24px;transform:translateX(-50%);z-index:2147483647;background:#111;color:#fff;
+    font:14px Arial,Helvetica,sans-serif;padding:10px 16px;border-radius:8px;display:none}
+  body{padding-bottom:64px!important}
+</style>
+<div id="algup-marca" aria-hidden="true"></div>
+<div id="algup-faixa">Prévia feita pela AlgUp Digital, não é o site oficial.
+  <small>Alguns botões e links estão travados nesta versão de amostra.</small></div>
+<div id="algup-aviso">Esta é só uma prévia: este botão funciona no site oficial.</div>
+<script>
+(function(){
+  var aviso=document.getElementById('algup-aviso'),t;
+  function avisar(e){e.preventDefault();e.stopPropagation();aviso.style.display='block';clearTimeout(t);
+    t=setTimeout(function(){aviso.style.display='none'},2200);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return; var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#'||h==='')return; avisar(e);},true);
+  document.addEventListener('submit',avisar,true);
+  document.addEventListener('contextmenu',function(e){e.preventDefault()},true);
+})();
+</script>
+
+</body>
+</html>
