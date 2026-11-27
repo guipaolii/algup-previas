@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anderson Goulart · Advocacia de família e mediação em São José do Rio Preto</title>
+<meta name="description" content="Anderson Goulart, advogado (OAB/SP 538.504) e mediador judicial. Direito de Família, Consumidor e Imobiliário em São José do Rio Preto.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=supreme@300,800&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=sentient@300,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link rel="stylesheet" href="base.css">
+<style>
+:root{
+  --fundo:#E9E6DF; --tinta:#1A1C1E; --tinta-2:#6F6D68; --tinta-3:#55534F; --linha:#CDC9C0; --noite:#22262A; --acento:#1A1C1E;
+  --fonte-titulo:"Supreme","Helvetica Neue",Arial,sans-serif; --fonte-texto:"Sentient",Georgia,"Times New Roman",serif;
+  --corpo:1.0625rem; --grao:.06; --g:max(20px,4vw);
+}
+body{font-weight:300;font-variant-numeric:oldstyle-nums}
+h1,h2,h3{letter-spacing:-.025em}
+.sc{font-variant-caps:all-small-caps;letter-spacing:.02em}
+.num{font-variant-numeric:tabular-nums lining-nums}
+img{background:#d6d3cc}
+
+/* Faixa da prévia + nav */
+header[data-nav]{color:var(--tinta)}
+.previa{display:block;text-align:center;font-size:.8rem;padding:.45rem var(--g);background:var(--tinta);color:#D9D6CF;line-height:1.3}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.1rem var(--g)}
+.nav-solida .nav{background:rgb(233 230 223/.92);backdrop-filter:blur(6px)}
+.marca{font-family:var(--fonte-titulo);font-weight:800;font-size:1.05rem;text-decoration:none;letter-spacing:-.01em}
+.nav ul{display:flex;gap:2rem;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav ul a{text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.4rem;border-radius:2px;background:var(--tinta);color:var(--fundo);text-decoration:none;font-family:var(--fonte-titulo);font-weight:800;font-size:.95rem;letter-spacing:0}
+.btn-claro{background:var(--fundo);color:var(--tinta)}
+
+/* HERO: janela que abre */
+.hero{background:var(--fundo)}
+.hero .expandir-foto{z-index:0}
+.hero .expandir-foto img{filter:brightness(.82)}
+.hero-titulo{position:absolute;inset:0;z-index:2;pointer-events:none;color:#E9E6DF;mix-blend-mode:difference;
+  font-weight:300;font-size:clamp(3rem,8.6vw,10rem);line-height:.92;padding:calc(7rem + 2vh) var(--g) 0;white-space:nowrap}
+.hero-titulo span{display:block}
+.hero-titulo .fim{position:absolute;right:var(--g);bottom:6vh;text-align:right;white-space:nowrap}
+.hero-rodape{position:absolute;left:var(--g);bottom:7vh;z-index:3;color:#E9E6DF;mix-blend-mode:difference;font-size:1rem;line-height:1.45;max-width:22ch}
+.is-estatico .hero .expandir-foto{clip-path:inset(28% 32% 28% 32% round 4px)}
+
+/* Seções com respiro variado */
+.sec{padding-block:var(--pad,140px)}
+.h2{font-weight:800;font-size:clamp(2.1rem,5vw,4.8rem);line-height:.98}
+.leve{font-weight:300}
+.legenda{font-size:.9rem;color:var(--tinta-3);margin-top:.7rem}
+
+/* Manifesto */
+.manifesto{--pad:200px;display:grid;grid-template-columns:5fr 7fr;gap:6vw;align-items:end}
+.manifesto .moldura{aspect-ratio:3/4;margin-left:calc(-1 * var(--g))}
+.manifesto p{font-family:var(--fonte-titulo);font-weight:300;font-size:clamp(1.7rem,3.3vw,3.3rem);line-height:1.12;letter-spacing:-.02em;max-width:22ch}
+
+/* Áreas */
+.areas{--pad:120px}
+.areas-topo{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.5rem}
+.areas-topo p{max-width:30ch;color:var(--tinta-3)}
+.lista{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha)}
+.lista li{border-bottom:1px solid var(--linha)}
+.lista a,.fluir-faixa>div{display:grid;grid-template-columns:9rem 1fr 7.5rem;align-items:center;gap:2rem;padding:1.3rem 0;text-decoration:none}
+.lista .tag{font-size:.95rem;color:var(--tinta-3)}
+.lista .item{font-family:var(--fonte-titulo);font-weight:300;font-size:clamp(1.35rem,2.6vw,2.4rem);line-height:1.1;letter-spacing:-.02em}
+.lista .mini{width:7.5rem;aspect-ratio:4/3;object-fit:cover;justify-self:end}
+.fluir-faixa .tag{color:#B9B6AE}
+.fluir-faixa>div{padding-inline:0}
+
+/* Mediação (bloco escuro) */
+.mediacao{--pad:0px;background:var(--noite);color:#E3E0D9;display:grid;grid-template-columns:1fr 1fr;min-height:92vh;--luz:rgb(233 230 223/.07)}
+.mediacao .moldura{min-height:60vh}
+.mediacao .texto{padding:clamp(3rem,8vw,9rem) var(--g);display:flex;flex-direction:column;justify-content:space-between;gap:3rem}
+.mediacao p{max-width:34ch;font-size:1.15rem;color:#CFCBC3}
+.mediacao .grande{font-family:var(--fonte-titulo);font-weight:300;font-size:clamp(5rem,15vw,15rem);line-height:.85;letter-spacing:-.04em;color:#3A3F44}
+
+/* Quem atende */
+.quem{--pad:180px;display:grid;grid-template-columns:4fr 1fr 6fr;align-items:center}
+.quem .moldura{grid-column:1;aspect-ratio:4/5}
+.quem .info{grid-column:3}
+.monograma{font-family:var(--fonte-titulo);font-weight:800;font-size:clamp(6rem,16vw,16rem);line-height:.85;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--tinta-2);margin-bottom:2rem}
+.quem h2{font-weight:300;font-size:clamp(2.4rem,5.4vw,5.2rem)}
+.quem dl{margin:2rem 0 0;display:grid;grid-template-columns:auto 1fr;gap:.6rem 2rem;max-width:44ch}
+.quem dt{color:var(--tinta-3)} .quem dd{margin:0}
+
+/* Atendimento (momento-assinatura) */
+.passos{--pad:160px;display:grid;grid-template-columns:4fr 8fr;gap:4vw}
+.passos-topo{position:sticky;top:18vh;align-self:start}
+.passos-topo p{margin-top:1.5rem;max-width:26ch;color:var(--tinta-3)}
+.passos ol{list-style:none;margin:0;padding:0 0 0 3rem;position:relative}
+.passarela{position:absolute;left:0;top:.6rem;bottom:0;width:2px;background:var(--tinta)}
+.passarela-base{position:absolute;left:0;top:.6rem;bottom:0;width:2px;background:var(--linha)}
+.passos li{display:grid;grid-template-columns:1fr 13rem;gap:2rem;align-items:start;padding-bottom:7rem;position:relative}
+.passos li:last-child{padding-bottom:0}
+.passos li::before{content:"";position:absolute;left:calc(-3rem - 5px);top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--fundo);border:2px solid var(--tinta)}
+.passos .n{font-family:var(--fonte-titulo);font-weight:800;font-size:.95rem;display:block;margin-bottom:.6rem}
+.passos h3{font-weight:300;font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.04}
+.passos li p{margin-top:.8rem;color:var(--tinta-3);max-width:30ch}
+.passos .moldura{aspect-ratio:4/5}
+
+/* Documentos */
+.docs{--pad:110px;display:grid;grid-template-columns:7fr 5fr;gap:5vw;align-items:center}
+.docs .moldura{aspect-ratio:16/11}
+.docs ul{list-style:none;margin:2rem 0 0;padding:0;border-top:1px solid var(--linha)}
+.docs li{padding:1rem 0;border-bottom:1px solid var(--linha);font-size:1.15rem}
+
+/* Cidade */
+.cidade .expandir-foto img{filter:brightness(.72)}
+.cidade .expandir-titulo{font-weight:300;font-size:clamp(2.6rem,7vw,7.5rem);max-width:12ch;line-height:.98}
+.is-estatico .cidade .expandir-titulo{opacity:1}
+
+/* Galeria */
+.galeria{--pad:150px}
+.galeria .h2{margin-bottom:3.5rem;max-width:14ch}
+.mosaico{grid-template-columns:repeat(12,1fr);--mosaico-gap:14px;align-items:start}
+.mosaico figure{position:relative}
+.mosaico figcaption{font-size:.85rem;color:var(--tinta-3);margin-top:.5rem}
+.mosaico .m1{grid-column:1/6} .mosaico .m1 .moldura{aspect-ratio:4/5}
+.mosaico .m2{grid-column:6/10;margin-top:18vh} .mosaico .m2 .moldura{aspect-ratio:3/4}
+.mosaico .m3{grid-column:10/13;margin-top:6vh} .mosaico .m3 .moldura{aspect-ratio:2/3}
+.mosaico .m4{grid-column:2/9;margin-top:4vh} .mosaico .m4 .moldura{aspect-ratio:16/9}
+.mosaico .m5{grid-column:9/13;margin-top:14vh} .mosaico .m5 .moldura{aspect-ratio:1/1}
+
+/* Marquee */
+.marquee{padding-block:2.4rem;border-block:1px solid var(--linha);font-family:var(--fonte-titulo);font-weight:300;font-size:clamp(1.6rem,3.4vw,3.2rem);letter-spacing:-.02em;--marquee-gap:2.4rem}
+.marquee span+span::before{content:"/";margin-right:2.4rem;color:var(--linha)}
+
+/* Perguntas + contato */
+.final{--pad:150px;display:grid;grid-template-columns:6fr 5fr;gap:6vw}
+.pergunta{border-bottom:1px solid var(--linha)}
+.pergunta:first-of-type{border-top:1px solid var(--linha)}
+.pergunta summary{display:flex;justify-content:space-between;gap:1rem;padding:1.3rem 0;font-family:var(--fonte-titulo);font-weight:300;font-size:clamp(1.2rem,1.9vw,1.6rem);letter-spacing:-.01em}
+.pergunta summary::after{content:"+";transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.pergunta[open] summary::after{transform:rotate(45deg)}
+.pergunta .resposta p{padding-bottom:1.4rem;color:var(--tinta-3);max-width:52ch}
+.contato .moldura{aspect-ratio:4/3;margin-bottom:2rem}
+.contato h2{font-weight:800;font-size:clamp(2rem,4vw,3.6rem);margin-bottom:1rem}
+.contato p{color:var(--tinta-3);margin-bottom:2rem;max-width:34ch}
+.contato .links{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center}
+
+/* Rodapé */
+footer{background:var(--tinta);color:#D9D6CF;padding:5rem var(--g) 2rem}
+.rod-nome{font-family:var(--fonte-titulo);font-weight:800;letter-spacing:-.04em;color:#E9E6DF}
+.rod-grade{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-top:3rem;padding-top:2rem;border-top:1px solid #3a3d40;font-size:.95rem;line-height:1.55}
+.rod-grade a{text-decoration:none}
+.legal{margin-top:3rem;font-size:.8rem;color:#A9A59D;line-height:1.6;max-width:110ch}
+.legal p+p{margin-top:.4rem}
+footer :focus-visible{outline-color:#E9E6DF}
+
+.zap-fixo{display:none}
+.is-estatico body::after{display:none}
+
+@media (max-width:860px){
+  .nav ul{display:none}
+  .hero-titulo{font-size:clamp(2.9rem,13.5vw,6rem);padding-top:8.5rem}
+  .hero-titulo{white-space:normal}
+  .hero-titulo .fim{bottom:12vh}
+  .hero-rodape{bottom:auto;top:calc(8.5rem + 2.2em * 1);font-size:.92rem;display:none}
+  .manifesto,.quem,.passos,.docs,.final,.mediacao{grid-template-columns:1fr}
+  .manifesto{--pad:110px;gap:2.5rem}
+  .manifesto .moldura{margin-right:20vw;aspect-ratio:4/5}
+  .areas-topo{flex-direction:column;align-items:start}
+  .lista a{grid-template-columns:1fr 5.5rem;gap:.4rem 1rem}
+  .lista .tag{grid-column:1;grid-row:1}
+  .lista .item{grid-column:1;grid-row:2}
+  .lista .mini{grid-column:2;grid-row:1/3;width:5.5rem}
+  .fluir-faixa{display:none}
+  .mediacao .moldura{min-height:56vh}
+  .mediacao .grande{display:none}
+  .quem{--pad:110px;gap:2.5rem}
+  .quem .moldura,.quem .info{grid-column:1}
+  .quem .moldura{margin-left:18vw}
+  .passos{--pad:110px}
+  .passos-topo{position:static;margin-bottom:3rem}
+  .passos ol{padding-left:2rem}
+  .passos li{grid-template-columns:1fr;padding-bottom:4rem}
+  .passos li::before{left:calc(-2rem - 5px)}
+  .passos .moldura{width:62%;aspect-ratio:4/3}
+  .mosaico{grid-template-columns:repeat(6,1fr)}
+  .mosaico .m1{grid-column:1/5}.mosaico .m2{grid-column:3/7;margin-top:0}.mosaico .m3{grid-column:1/4;margin-top:0}.mosaico .m4{grid-column:1/7;margin-top:0}.mosaico .m5{grid-column:2/7;margin-top:0}
+  .rod-grade{grid-template-columns:1fr}
+  .zap-fixo{display:inline-flex}
+  footer{padding-bottom:6rem}
+}
+</style>
+</head>
+<body>
+<header data-nav>
+  <p class="previa">Prévia de site feita pela AlgUp Digital para Anderson Goulart Advocacia.</p>
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="#topo">Anderson Goulart</a>
+    <ul>
+      <li><a href="#atuacao" data-rolar>Atuação</a></li>
+      <li><a href="#mediacao" data-rolar>Mediação</a></li>
+      <li><a href="#atendimento" data-rolar>Atendimento</a></li>
+      <li><a href="#contato" data-rolar>Contato</a></li>
+    </ul>
+    <a class="btn" href="https://wa.me/5517982316262?text=Ol%C3%A1%2C%20Dr.%20Anderson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+</header>
+
+<main id="topo">
+  <!-- HERO: janela que abre (esqueleto I) -->
+  <section class="hero" data-expandir data-hero>
+    <div class="expandir-foto moldura"><img src="img/represa-passarela.webp" alt="Passarela de madeira sobre a Represa Municipal de São José do Rio Preto ao pôr do sol" fetchpriority="high"></div>
+    <h1 class="hero-titulo"><span data-linhas>Advocacia de família</span><span class="fim"><span data-linhas data-atraso=".12">e mediação</span><span data-linhas data-atraso=".24">em Rio Preto.</span></span></h1>
+    <p class="hero-rodape">Anderson Goulart<br><span class="sc">OAB/SP</span> <span class="num">538.504</span></p>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="sec manifesto wrap">
+    <figure class="moldura parallax" data-revelar="baixo" data-parallax="8" style="margin-block:0"><img src="img/folhagem.webp" alt="Sombra de folhas sobre um muro branco" loading="lazy"></figure>
+    <p data-acender>Divórcio, guarda, pensão, partilha. Quando a família muda de forma, o que mais pesa é a conversa. Por isso o trabalho começa por ela: com técnica, calma e diálogo.</p>
+  </section>
+
+  <!-- Áreas -->
+  <section class="sec areas wrap" id="atuacao">
+    <div class="areas-topo">
+      <h2 class="h2" data-linhas>Onde atua</h2>
+      <p>Família em primeiro lugar. Também Consumidor e Imobiliário.</p>
+    </div>
+    <ul class="lista">
+      <li data-fluir><a href="#contato"><span class="tag">Família</span><span class="item">Pensão alimentícia: fixar, revisar, cobrar</span><img class="mini" src="img/mesa-cafe.webp" alt="" loading="lazy"></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><span class="tag">Família</span><span class="item">Pensão alimentícia: fixar, revisar, cobrar</span><img class="mini" src="img/mesa-cafe.webp" alt=""></div></div></li>
+      <li data-fluir><a href="#contato"><span class="tag">Família</span><span class="item">Divórcio e união estável</span><img class="mini" src="img/pai-filhos.webp" alt="" loading="lazy"></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><span class="tag">Família</span><span class="item">Divórcio e união estável</span><img class="mini" src="img/pai-filhos.webp" alt=""></div></div></li>
+      <li data-fluir><a href="#contato"><span class="tag">Sucessões</span><span class="item">Partilha de bens e inventário</span><img class="mini" src="img/papel.webp" alt="" loading="lazy"></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><span class="tag">Sucessões</span><span class="item">Partilha de bens e inventário</span><img class="mini" src="img/papel.webp" alt=""></div></div></li>
+      <li data-fluir><a href="#contato"><span class="tag">Consumidor</span><span class="item">Negativação indevida e voos cancelados</span><img class="mini" src="img/mesa-notebook.webp" alt="" loading="lazy"></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><span class="tag">Consumidor</span><span class="item">Negativação indevida e voos cancelados</span><img class="mini" src="img/mesa-notebook.webp" alt=""></div></div></li>
+      <li data-fluir><a href="#contato"><span class="tag">Imobiliário</span><span class="item">Despejo, cobrança e usucapião</span><img class="mini" src="img/chave.webp" alt="" loading="lazy"></a>
+        <div class="fluir-faixa" aria-hidden="true"><div><span class="tag">Imobiliário</span><span class="item">Despejo, cobrança e usucapião</span><img class="mini" src="img/chave.webp" alt=""></div></div></li>
+    </ul>
+  </section>
+
+  <!-- Mediação -->
+  <section class="sec mediacao" id="mediacao" data-luz>
+    <figure class="moldura parallax" data-revelar="esquerda" data-parallax="6" style="margin:0"><img src="img/cortina.webp" alt="Pessoa de costas abrindo as cortinas de uma janela clara" loading="lazy"></figure>
+    <div class="texto">
+      <div>
+        <h2 class="h2" data-linhas>Também<br>mediador judicial.</h2>
+        <p style="margin-top:2rem">Quando há espaço para acordo, a conversa vem antes do processo. Guarda, pensão e partilha podem ser decididas a dois, com um terceiro imparcial conduzindo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quem atende -->
+  <section class="sec quem wrap">
+    <figure class="moldura" data-fatias="7" style="margin:0"><img src="img/cadeira.webp" alt="Cadeira branca junto a uma janela com cortina leve" loading="lazy"></figure>
+    <div class="info">
+      <div class="monograma" aria-hidden="true">AG</div>
+      <h2 data-linhas>Anderson Goulart</h2>
+      <dl>
+        <dt>Inscrição</dt><dd><span class="sc">OAB/SP</span> <span class="num">538.504</span></dd>
+        <dt>Formação</dt><dd>Pós-graduado em Direito de Família, Direito Imobiliário e Processo Civil</dd>
+        <dt>Também</dt><dd>Mediador judicial</dd>
+      </dl>
+    </div>
+  </section>
+
+  <div class="marquee" data-marquee="60" aria-hidden="true"><div><span>Pensão alimentícia</span><span>Divórcio</span><span>União estável</span><span>Partilha</span><span>Inventário</span><span>Mediação</span><span>Usucapião</span></div></div>
+
+  <!-- Atendimento: momento-assinatura (a passarela que se desenha) -->
+  <section class="sec passos wrap" id="atendimento">
+    <div class="passos-topo">
+      <h2 class="h2" data-linhas>Como funciona</h2>
+      <p>Atendimento online, com horário marcado.</p>
+    </div>
+    <ol>
+      <span class="passarela-base" aria-hidden="true"></span><span class="passarela" data-linha-tempo aria-hidden="true"></span>
+      <li><div><span class="n num">01</span><h3>Mensagem pelo WhatsApp</h3><p>Você conta o essencial e escolhe um horário.</p></div>
+        <figure class="moldura" data-revelar="baixo" style="margin:0"><img src="img/persiana.webp" alt="Sombra de persiana numa parede clara" loading="lazy"></figure></li>
+      <li><div><span class="n num">02</span><h3>Primeira conversa</h3><p>Por vídeo, sem pressa, para ouvir a história inteira.</p></div>
+        <figure class="moldura" data-revelar="baixo" style="margin:0"><img src="img/interruptor.webp" alt="Luz da tarde atravessando a persiana sobre a parede" loading="lazy"></figure></li>
+      <li><div><span class="n num">03</span><h3>Os caminhos possíveis</h3><p>Acordo, mediação ou ação judicial, explicados com clareza.</p></div>
+        <figure class="moldura" data-revelar="baixo" style="margin:0"><img src="img/sombra-janela.webp" alt="Sombra de janela desenhada na parede e no chão" loading="lazy"></figure></li>
+      <li><div><span class="n num">04</span><h3>Acompanhamento</h3><p>Cada etapa explicada, do primeiro documento ao fim.</p></div>
+        <figure class="moldura" data-revelar="baixo" style="margin:0"><img src="img/sala-sol.webp" alt="Sala vazia com sol entrando pela janela" loading="lazy"></figure></li>
+    </ol>
+  </section>
+
+  <!-- Documentos -->
+  <section class="sec docs wrap">
+    <figure class="moldura parallax" data-revelar="direita" data-parallax="7" style="margin:0"><img src="img/mae-filho.webp" alt="Mãe e filho de mãos dadas, de costas, em silhueta" loading="lazy"></figure>
+    <div>
+      <h2 class="h2" data-linhas>Para a primeira conversa</h2>
+      <ul>
+        <li>Documento com foto e <span class="sc">CPF</span></li>
+        <li>Certidão de casamento ou de nascimento</li>
+        <li>Comprovantes de renda e de despesas</li>
+        <li>Documentos dos bens, se houver</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Cidade: a segunda janela que abre -->
+  <section class="cidade" data-expandir>
+    <div class="expandir-foto moldura"><img src="img/represa-cidade.webp" alt="Represa Municipal com os prédios de São José do Rio Preto ao fundo" loading="lazy"></div>
+    <h2 class="expandir-titulo">Rio Preto e todo o noroeste paulista.</h2>
+  </section>
+
+  <!-- Galeria -->
+  <section class="sec galeria wrap">
+    <h2 class="h2 leve" data-linhas>A cidade e as famílias que vivem nela</h2>
+    <div class="mosaico" data-mosaico>
+      <figure class="m1" data-velocidade="-4"><div class="moldura" data-inclinar><img src="img/represa-noite.webp" alt="Passarela iluminada da Represa Municipal à noite" loading="lazy"></div><figcaption>Represa Municipal, à noite</figcaption></figure>
+      <figure class="m2" data-velocidade="8"><div class="moldura" data-inclinar><img src="img/parque.webp" alt="Família de costas caminhando num parque" loading="lazy"></div></figure>
+      <figure class="m3" data-velocidade="-10"><div class="moldura" data-inclinar><img src="img/represa-capivara.webp" alt="Capivara na margem da represa com a cidade ao fundo" loading="lazy"></div><figcaption>A vizinha mais antiga</figcaption></figure>
+      <figure class="m4" data-velocidade="5"><div class="moldura" data-inclinar><img src="img/ponte.webp" alt="Família de mãos dadas atravessando uma pequena ponte" loading="lazy"></div></figure>
+      <figure class="m5" data-velocidade="-7"><div class="moldura" data-inclinar><img src="img/estrada.webp" alt="Pais e filhos de mãos dadas numa estrada" loading="lazy"></div></figure>
+    </div>
+  </section>
+
+  <!-- Perguntas + contato -->
+  <section class="sec final wrap" id="contato">
+    <div>
+      <h2 class="h2" data-linhas style="margin-bottom:2.5rem">Perguntas frequentes</h2>
+      <details class="pergunta"><summary>O atendimento pode ser online?</summary><div class="resposta"><div><p>Sim. A primeira conversa pode ser por vídeo, com horário marcado pelo WhatsApp.</p></div></div></details>
+      <details class="pergunta"><summary>O que é mediação?</summary><div class="resposta"><div><p>Uma conversa conduzida por um terceiro imparcial, para que as partes construam juntas um acordo sobre guarda, pensão ou partilha.</p></div></div></details>
+      <details class="pergunta"><summary>Dá para revisar uma pensão já fixada?</summary><div class="resposta"><div><p>A lei permite pedir revisão quando muda a necessidade de quem recebe ou a possibilidade de quem paga. Cada caso é analisado na conversa.</p></div></div></details>
+      <details class="pergunta"><summary>Atende fora de Rio Preto?</summary><div class="resposta"><div><p>Sim. Com o atendimento online, a distância não impede a primeira conversa.</p></div></div></details>
+    </div>
+    <div class="contato">
+      <figure class="moldura" data-revelar="cima" style="margin-inline:0"><img src="img/represa-passarela.webp" alt="" loading="lazy" style="object-position:30% 60%"></figure>
+      <h2 data-linhas>Vamos conversar.</h2>
+      <p>Mande uma mensagem e marque um horário.</p>
+      <div class="links">
+        <a class="btn" data-magnetico href="https://wa.me/5517982316262?text=Ol%C3%A1%2C%20Dr.%20Anderson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <a href="https://instagram.com/andersongoulart.adv" target="_blank" rel="noopener" data-rolar>Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div data-encaixar class="rod-nome">Anderson Goulart</div>
+  <div class="rod-grade">
+    <div>Anderson Goulart Advocacia e Consultoria Jurídica<br>Anderson Goulart, <span class="sc">OAB/SP</span> 538.504<br>São José do Rio Preto, <span class="sc">SP</span></div>
+    <div><a href="https://wa.me/5517982316262" target="_blank" rel="noopener">(17) 98231-6262</a><br><a href="https://instagram.com/andersongoulart.adv" target="_blank" rel="noopener">@andersongoulart.adv</a></div>
+    <div>Atendimento online<br>com horário marcado</div>
+  </div>
+  <div class="legal">
+    <p>Este site tem caráter meramente informativo (Provimento 205/2021 do CFOAB).</p>
+    <p>O escritório não solicita pagamentos por WhatsApp de números desconhecidos.</p>
+    <p id="privacidade">Política de privacidade: os dados enviados pelo WhatsApp são usados apenas para o atendimento.</p>
+    <p>Fotos: Pexels. Represa Municipal (Wikimedia Commons): Gesiel e nara, CC BY-SA 3.0; Jesielt, CC BY-SA 4.0; Moca Trindade, CC BY-SA 4.0; Cosmo.rs, CC BY-SA 4.0.</p>
+  </div>
+</footer>
+
+<a class="btn zap-fixo" href="https://wa.me/5517982316262?text=Ol%C3%A1%2C%20Dr.%20Anderson.%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="efeitos.js"></script>
+
+<!-- algup-previa -->
+<style id="algup-previa">
+  #algup-marca{position:fixed;inset:0;pointer-events:none;z-index:2147483646;opacity:.13;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='260'><text x='20' y='150' transform='rotate(-24 210 130)' font-family='Arial,Helvetica,sans-serif' font-size='30' font-weight='700' fill='%23000'>PRÉVIA · AlgUp Digital</text></svg>");
+    background-repeat:repeat}
+  #algup-faixa{position:fixed;left:0;right:0;bottom:0;z-index:2147483647;background:#111;color:#fff;
+    font:600 14px/1.35 Arial,Helvetica,sans-serif;text-align:center;padding:10px 14px}
+  #algup-faixa small{display:block;font-weight:400;opacity:.8}
+  #algup-aviso{position:fixed;left:50%;top:24px;transform:translateX(-50%);z-index:2147483647;background:#111;color:#fff;
+    font:14px Arial,Helvetica,sans-serif;padding:10px 16px;border-radius:8px;display:none}
+  body{padding-bottom:64px!important}
+</style>
+<div id="algup-marca" aria-hidden="true"></div>
+<div id="algup-faixa">Prévia feita pela AlgUp Digital, não é o site oficial.
+  <small>Alguns botões e links estão travados nesta versão de amostra.</small></div>
+<div id="algup-aviso">Esta é só uma prévia: este botão funciona no site oficial.</div>
+<script>
+(function(){
+  var aviso=document.getElementById('algup-aviso'),t;
+  function avisar(e){e.preventDefault();e.stopPropagation();aviso.style.display='block';clearTimeout(t);
+    t=setTimeout(function(){aviso.style.display='none'},2200);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');
+    if(!a)return; var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#'||h==='')return; avisar(e);},true);
+  document.addEventListener('submit',avisar,true);
+  document.addEventListener('contextmenu',function(e){e.preventDefault()},true);
+})();
+</script>
+
+</body>
+</html>
